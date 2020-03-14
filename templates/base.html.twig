@@ -22,7 +22,7 @@
                     <a class="nav-link" href="#">Nous rejoindre</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="{{path('Actu')}}">Actualités</a>
                 </li>
             </ul>
 
@@ -33,21 +33,25 @@
         </div>
     </nav>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="collapse navbar-collapse" id="navbarColor02">
-            <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarColor02">
+            <ul class="navbar-nav d-flex justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Trail</a>
+                    <a class="nav-link" href="{{path('Trail')}}">Trail</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Treck</a>
+                    <a class="nav-link" href="{{path('Trek')}}">Trek</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Vtt</a>
+                    <a class="nav-link" href="{{path('Vtt')}}">Vtt</a>
                 </li>
             </ul>
         </div>
     </nav>
-    {% block body %}{% endblock %} {% block javascripts %}{% endblock %}
+    <div class="container">
+        {% block body %}{% endblock %} {% block javascripts %}{% endblock %}
+    </div>
+    
+        
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>

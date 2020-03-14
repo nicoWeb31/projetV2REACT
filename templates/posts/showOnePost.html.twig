@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PostsController!{% endblock %}
+
+{% block body %}
+<h1>show one post</h1>
+
+<h1>{{post.title}} le {{post.createdAt | date}}</h1>
+<h2>{{post.subTitle}}</h2>
+<p>{{post.content}}</p>
+<h4>{{post.category.name}}</h4>
+<a href="/category/{{post.category.name}}"><button type="button" class="btn btn-warning">retour</button></a>
+
+{% endblock %}
