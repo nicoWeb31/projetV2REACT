@@ -11,4 +11,9 @@
 <h4>{{post.category.name}}</h4>
 <a href="/category/{{post.category.name}}"><button type="button" class="btn btn-warning">retour</button></a>
 
+{% for photo in post.photos %}
+    <img src="{{photo.url}}" alt="">
+{% endfor %}
+    
+
 {% endblock %}

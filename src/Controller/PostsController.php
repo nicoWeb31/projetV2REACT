@@ -13,6 +13,7 @@ class PostsController extends AbstractController
      */
     public function showOnePost(Post $post)
     {
+
         return $this->render('posts/showOnePost.html.twig',[
             'post'=>$post
         ]);
