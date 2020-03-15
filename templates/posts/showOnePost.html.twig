@@ -11,8 +11,20 @@
 <h4>{{post.category.name}}</h4>
 <a href="/category/{{post.category.name}}"><button type="button" class="btn btn-warning">retour</button></a>
 
-{% for photo in post.photos %}
+<div class="row">
+    {% for photo in post.photos %}
     <img src="{{photo.url}}" alt="">
+{% endfor %}
+
+</div>
+
+
+{% for com in post.comments %}
+<h2>{{com.author}}</h2>
+<h3>commentaire du {{com.createdAd | date}}</h3>
+<p>{{com.comment}}</p>
+
+    
 {% endfor %}
     
 

@@ -6,6 +6,7 @@ use Faker\Factory;
 use App\Entity\Post;
 use App\Entity\Photo;
 use App\Entity\Category;
+use App\Entity\Comment;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -14,6 +15,28 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = Factory::create('fr_FR');
+
+        $comment = new Comment();
+        $comment->setAuthor($faker->name())
+            ->setCreatedAd($faker->dateTime())
+            ->setComment($faker->text(200));
+
+        $manager->persist($comment);
+
+        $comment1 = new Comment();
+        $comment1->setAuthor($faker->name())
+            ->setCreatedAd($faker->dateTime())
+            ->setComment($faker->text(200));
+
+        $manager->persist($comment1);
+
+        $comment3 = new Comment();
+        $comment3->setAuthor($faker->name())
+            ->setCreatedAd($faker->dateTime())
+            ->setComment($faker->text(200));
+
+        $manager->persist($comment3);
+
 
 
 
@@ -28,7 +51,7 @@ class AppFixtures extends Fixture
         $pho2 = new Photo();
         $pho2->setUrl($faker->imageUrl($width = 640, $height = 480));
         $manager->persist($pho2);
-        
+
         $pho3 = new Photo();
         $pho3->setUrl($faker->imageUrl($width = 640, $height = 480));
         $manager->persist($pho3);
@@ -70,46 +93,51 @@ class AppFixtures extends Fixture
         for ($i = 0; $i < 5; $i++) {
             $pTrail = new Post();
             $pTrail->setCategory($catergory1)
-            ->setContent($faker->paragraph)
-            ->setTitle($faker->word)
-            ->setSubTitle($faker->word)
-            ->setCreatedAt($faker->dateTime());
+                ->setContent($faker->paragraph)
+                ->setTitle($faker->word)
+                ->setSubTitle($faker->word)
+                ->setCreatedAt($faker->dateTime());
             $manager->persist($pTrail);
         }
 
         for ($i = 0; $i < 5; $i++) {
             $pVtt = new Post();
             $pVtt->setCategory($catergory3)
-            ->setContent($faker->paragraph)
-            ->setTitle($faker->word)
-            ->setSubTitle($faker->word)
-            ->addPhoto($pho2)
-            ->addPhoto($pho6)
-            ->addPhoto($pho)
-            ->setCreatedAt($faker->dateTime());
+                ->setContent($faker->paragraph)
+                ->setTitle($faker->word)
+                ->setSubTitle($faker->word)
+                ->addPhoto($pho2)
+                ->addPhoto($pho6)
+                ->addPhoto($pho)
+                ->setCreatedAt($faker->dateTime());
             $manager->persist($pVtt);
         }
 
-        for ($i = 0; $i < 5; $i++) {
-            $pTrek = new Post();
-            $pTrek->setCategory($catergory2)
+
+        $pTrek = new Post();
+        $pTrek->setCategory($catergory2)
             ->setContent($faker->paragraph)
             ->setTitle($faker->word)
             ->setSubTitle($faker->word)
             ->addPhoto($pho1)
             ->addPhoto($pho2)
+            ->addComment($comment1)
+            ->addComment($comment)
+            ->addComment($comment3)
+
+
             ->setCreatedAt($faker->dateTime());
-            $manager->persist($pTrek);
-        }
+        $manager->persist($pTrek);
+
 
         for ($i = 0; $i < 5; $i++) {
             $pActu = new Post();
             $pActu->setCategory($catergory4)
-            ->setContent($faker->paragraph)
-            ->setTitle($faker->word)
-            ->setSubTitle($faker->word)
-            ->addPhoto($pho5)
-            ->setCreatedAt($faker->dateTime());
+                ->setContent($faker->paragraph)
+                ->setTitle($faker->word)
+                ->setSubTitle($faker->word)
+                ->addPhoto($pho5)
+                ->setCreatedAt($faker->dateTime());
             $manager->persist($pActu);
         }
 
