@@ -5,17 +5,24 @@ namespace App\Controller\AdminController;
 use App\Entity\Post;
 use App\Form\PostFormType;
 use App\Repository\PostRepository;
+use App\Repository\PhotoRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminController extends AbstractController
 {
+
+
+    // =========================================================================
+    // Post admin
+    // =========================================================================
+
     /**
      * @Route("/admin/post", name="admin.post")
      */
-    public function showAll(PostRepository $repo)
+    public function showAllPost(PostRepository $repo)
     {
         $posts = $repo->findAll();
         return $this->render('admin/postAdmin/showAll.html.twig',[
@@ -65,5 +72,36 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('admin.post');
         }
     }
+
+    // =========================================================================
+    // photos administration
+    // =========================================================================
+
+    /**
+     * @Route("/admin/photo", name="admin.photo")
+     */
+    public function showAllPhoto(PhotoRepository $repo)
+    {
+        $photos = $repo->findAll();
+        return $this->render('admin/photoAdmin/showAllPhoto.html.twig',[
+            "photos"=>$photos
+        ]);
+    }
+
+
+    // /**
+    //  * @Route("/admin/post/create", name="admin.photo.create")
+    //  * 
+    //  */
+    // public function addPhoto(Post $post = null,EntityManagerInterface $man,Request $req)
+    // {
+
+
+    // }
+
+
+    // =========================================================================
+    // Users adminstraion
+    // =========================================================================
 
 }

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!{% endblock %}
+{% block monTitle %}Liste des photos{% endblock %}
+
+
+{% block body %}
+<div class="row no-gutters">
+    {% for photo in photos %}
+
+    <div class="card col-4 P-2" style="width:400px">
+        <img class="card-img-top" src="{{photo.url}}" alt="Card image">
+        <div class="card-body">
+            <h4 class="card-title">{{photo.name}}</h4>
+            <p class="card-text">alt : {{photo.alt}}</p>
+            <a href="#" class="btn btn-warning">Modifier</a>
+            <a href="#" class="btn btn-danger">Supprimer</a>
+
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock %}

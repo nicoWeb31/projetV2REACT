@@ -40,7 +40,7 @@
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
                             <a class="dropdown-item" href="{{path('admin.post')}}">Post</a>
                             <a class="dropdown-item" href="#">utilisateurs</a>
-                            <a class="dropdown-item" href="#">Photos</a>
+                            <a class="dropdown-item" href="{{path('admin.photo')}}">Photos</a>
                             <a class="dropdown-item" href="#">commentaires</a>
 
                         </div>
@@ -68,11 +68,11 @@
     </nav>
     <h1 class=" border border-dark rounded text-white m-4 p-4 text-center bg-success w-70">
         {% block monTitle %}{% endblock %}</h1>
-            <div class="container">
+    <div class="container">
         {% block body %}{% endblock %}
     </div>
-    
-    
+
+
     {% block javascripts %}{% endblock %}
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
