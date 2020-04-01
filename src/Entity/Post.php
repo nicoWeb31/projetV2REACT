@@ -45,7 +45,7 @@ class Post
     private $category;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Photo", mappedBy="posts")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Photo", inversedBy="posts")
      */
     private $photos;
 

@@ -24,7 +24,7 @@ class Photo
     private $url;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Post", inversedBy="photos")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Post", mappedBy="photos")
      */
     private $posts;
 
