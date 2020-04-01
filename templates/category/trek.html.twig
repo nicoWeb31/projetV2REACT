@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategoryController!{% endblock %}
+{% block title %}Treck{% endblock %}
+{% block monTitle %}Treck{% endblock %}
 
 {% block body %}
     {% for trek in  cat %}
@@ -8,7 +9,7 @@
             {% for post in trek.posts %}
                 <h1>{{post.id}}</h1>
                 <h2>{{post.title}}</h2>
-                <h3>{{post.content}}</h3>
+                <p>{{post.content}}</p>
                 <a href="{{path('post',{'id':post.id})}}" class="btn btn-info">Voir plus</a>
 
 

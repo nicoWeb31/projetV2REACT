@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategoryController!{% endblock %}
+{% block title %}Acrtalités{% endblock %}
+{% block monTitle %}Actualités{% endblock %}
 
 {% block body %}
     {% for actu in  cat %}
@@ -8,7 +9,7 @@
             {% for post in actu.posts %}
                 <h1>{{post.id}}</h1>
                 <h2>{{post.title}}</h2>
-                <h3>{{post.content}}</h3>
+                <p>{{post.content}}</p>
                 <a href="{{path('post',{'id':post.id})}}" class="btn btn-info">Voir plus</a>
 
             {% endfor %}

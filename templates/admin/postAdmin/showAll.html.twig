@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!{% endblock %}
+{% block monTitle %}Liste des Posts{% endblock %}
+
+{% block body %}
+
+<a href="{{path("admin.post.create")}}" class="btn btn-info">Ajouter un post</a>
+<table class="table">
+    <tr>
+        {# <th>Photos</th> #}
+        <th>Titre</th>
+        <th>Categorie</th>
+        <th>Contenu</th>
+        <th>Action</th>
+    </tr>
+        {% for post in posts %}
+    <tr>
+        {# <td>
+            {% for photo in post.photos %}
+            <img src="{{photo.url}}" alt="" style="width:100px">
+        {% endfor %}
+        </td> #}
+        <td>{{post.title}}</td>
+        <td>{{post.category.name}}</td>
+        <td>
+            <p>{{post.content | slice(1,50)}} ....</p>  {# slice recupere les caracts de 1 a 100 #}
+        </td>
+        <td>
+            <a href="{{path('admin.post.modifier',{"id":post.id})}}" class="btn btn-warning ">Modifier</a>
+
+            <form method="POST" action="{{path('admin.post.suppr',{'id':post.id})}}" onsubmit="return confirm('etes vous sur ?')">
+                <input type="hidden" name="_method" value="sup">
+                <input type="hidden" name="_token" value="{{csrf_token('sup' ~ post.id)}}" >
+                <input type="submit" class="btn btn-danger " value="supprimer">
+            </form>
+        </td>
+    </tr>
+
+    {% endfor %}
+</table>
+{% endblock %}
+                
+
+

@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello CategoryController!{% endblock %}
+{% block monTitle %}Vtt{% endblock %}
 
 {% block body %}
     {% for vtt in  cat %}
@@ -8,7 +9,7 @@
             {% for post in vtt.posts %}
                 <h1>{{post.id}}</h1>
                 <h2>{{post.title}}</h2>
-                <h3>{{post.content}}</h3>
+                <p>{{post.content}}</p>
                 
                 <a href="{{path('post',{'id':post.id})}}" class="btn btn-info">Voir plus</a>
 

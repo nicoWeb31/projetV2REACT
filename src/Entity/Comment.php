@@ -37,6 +37,12 @@ class Comment
      */
     private $createdAd;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="commentaires")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +92,18 @@ class Comment
     public function setCreatedAd(\DateTimeInterface $createdAd): self
     {
         $this->createdAd = $createdAd;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

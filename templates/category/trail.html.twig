@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategoryController!{% endblock %}
-
+{% block title %}Trail{% endblock %}
+{% block monTitle %} Trail {% endblock %}
 {% block body %}
     {% for trail in  cat %}
         <h1>{{trail.name}}</h1>
             {% for post in trail.posts %}
                 <h1>{{post.id}}</h1>
                 <h2>{{post.title}}</h2>
-                <h3>{{post.content}}</h3>
+                <p>{{post.content}}</p>
                 <a href="{{path('post',{'id':post.id})}}" class="btn btn-info">Voir plus</a>
 
 
