@@ -11,9 +11,31 @@
 
 {% block body %}
 
-{{form_start(form)}}
-{{form_widget(form)}}
-<input type="submit" class="btn btn-success" value="envoyer">
+    {{form_start(form)}}
+
+    {{form_row(form.title,{
+        "attr":{
+            "placeholder":"Titre"
+        },
+        "label":"Titre"
+    })}}
+
+    {{form_row(form.subTitle,{
+        "attr":{
+            "placeholder":"Sous-titre"
+        },
+        "label":"Sous-titre"
+    })}}
+
+    {{form_row(form.content,{
+        "attr":{
+            "placeholder":"Déscription"
+        },
+        "label":"Déscription"
+    })}}
+
+    {{form_widget(form)}}
+    <input type="submit" class="btn btn-success" value="envoyer">
 {{form_end(form)}}
 
 

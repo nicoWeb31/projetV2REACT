@@ -18,7 +18,7 @@ class PostFormType extends AbstractType
             ->add('title')
             ->add('subTitle')
             ->add('content')
-            ->add('createdAt')
+            //->add('createdAt')
             ->add('category',EntityType::class,[
                 'class'=> Category::class,
                 'choice_label'=> 'name'

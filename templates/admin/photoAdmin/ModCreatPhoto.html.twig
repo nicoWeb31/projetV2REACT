@@ -14,7 +14,21 @@
 {% block body %}
 
     {{form_start(form)}}
-    {{form_widget(form)}}
+        {{form_row(form.name,{
+            "attr":{
+                "placeholder":"Titre"
+            },
+            "label":"Titre"
+        })}} 
+        
+        {{form_row(form.alt,{
+            "attr":{
+                "placeholder":"Alternative"
+            },
+            "label":"Alternative"
+        })}}
+
+        {{form_widget(form)}}
         <input type="submit" class="btn btn-success" value="Enregistrer">
     {{form_end(form)}}
 
