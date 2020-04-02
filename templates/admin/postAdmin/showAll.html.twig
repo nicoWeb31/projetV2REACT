@@ -5,6 +5,16 @@
 
 {% block body %}
 
+<!-- ======================================================================= -->
+<!-- message flash -->
+<!-- ======================================================================= -->
+
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{message}}
+    </div>
+{% endfor %}
+
 <a href="{{path("admin.post.create")}}" class="btn btn-info">Ajouter un post</a>
 <table class="table">
     <tr>

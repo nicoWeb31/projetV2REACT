@@ -32,20 +32,19 @@
 
             <ul class="navbar-nav ml-auto m-3">
 
-                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                    <button type="button" class="btn btn-primary">Admin</button>
-                    <div class="btn-group" role="group">
-                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
-                            <a class="dropdown-item" href="{{path('admin.post')}}">Post</a>
-                            <a class="dropdown-item" href="#">utilisateurs</a>
-                            <a class="dropdown-item" href="{{path('admin.photo')}}">Photos</a>
-                            <a class="dropdown-item" href="#">commentaires</a>
-
-                        </div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Administration
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{path('admin.post')}}">Post</a>
+                        <a class="dropdown-item" href="#">utilisateurs</a>
+                        <a class="dropdown-item" href="{{path('admin.photo')}}">Photos</a>
+                        <a class="dropdown-item" href="#">commentaires</a>
                     </div>
-                </div>
+                </li>
+
                 <li class="m-3">face</li>
                 <li class="m-3">autre</li>
             </ul>

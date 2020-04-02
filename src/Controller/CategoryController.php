@@ -48,7 +48,7 @@ class CategoryController extends AbstractController
      */
     public function actu(CategoryRepository $rep)
     {
-        $cat = $rep->findBy(array('name'=>'Actu'));
+        $cat = $rep->findBy(array('name'=>'Actualités'));
         return $this->render('category/actu.html.twig',[
             'cat'=>$cat
         ]);

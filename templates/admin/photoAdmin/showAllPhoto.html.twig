@@ -5,16 +5,38 @@
 
 
 {% block body %}
-<div class="row no-gutters">
+
+<!-- ======================================================================= -->
+<!-- message flash -->
+<!-- ======================================================================= -->
+
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{message}}
+    </div>
+{% endfor %}
+
+<!-- ======================================================================= -->
+<!--  Liste des photos a modifier-->
+<!-- ======================================================================= -->
+
+<a href="{{path('admin.photo.create')}}" class="btn btn-info w-100">Ajouter</a>
+<div class="row no-gutters d-flex justify-content-around">
     {% for photo in photos %}
 
-    <div class="card col-4 P-2" style="width:400px">
+    <div class="card col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3  P-2 m-3" style="width:400px">
         <img class="card-img-top" src="{{photo.url}}" alt="Card image">
         <div class="card-body">
             <h4 class="card-title">{{photo.name}}</h4>
             <p class="card-text">alt : {{photo.alt}}</p>
-            <a href="#" class="btn btn-warning">Modifier</a>
-            <a href="#" class="btn btn-danger">Supprimer</a>
+
+            <a href="{{path('admin.photo.modifier',{"id": photo.id})}}" class="btn btn-warning p-2 m-2 d-inline">Modifier</a>
+
+            <form method="POST" class="d-inline" action="{{path('admin.photo.suppr',{'id' : photo.id})}}" onsubmit="return confirm('etes vous sur ?')">
+                <input type="hidden" name="_method" value="sup">
+                <input type="hidden" name="_token" value="{{csrf_token('sup' ~ photo.id)}}" >
+                <input type="submit" class="btn btn-danger p-2 m-2" value="supprimer">
+            </form>
 
         </div>
     </div>

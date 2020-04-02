@@ -1,7 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello CategoryController!{% endblock %}
-{% block monTitle %}Creation Post{% endblock %}
+{% block monTitle %}
+    {% if modif %}
+        Modification {{post.title}}
+        {% else %}
+        Ajout d'un nouveau post
+    {% endif %}
+{% endblock %}
 
 {% block body %}
 

@@ -3,6 +3,8 @@
 namespace App\Controller\AdminController;
 
 use App\Entity\Post;
+use App\Entity\Photo;
+use App\Form\PhotoType;
 use App\Form\PostFormType;
 use App\Repository\PostRepository;
 use App\Repository\PhotoRepository;
@@ -45,17 +47,18 @@ class AdminController extends AbstractController
 
         $form->handleRequest($req);
         if($form->isSubmitted() && $form->isValid()){
-
+            $modif = $post->getId() !== null;
             $man->persist($post);
             $man->flush();
-            $this->addFlash("success","ajouter avec succès");
+            $this->addFlash("success",($modif) ? "Modification effectué avec succes" : "Ajouter avec succés");
             return $this->redirectToRoute("admin.post");
         }
 
 
         return $this->render('admin/postAdmin/creaMod.html.twig',[
             "post"=>$post,
-            "form"=>$form->createView()
+            "form"=>$form->createView(),
+            "modif"=> $post->getId() !== null   //test pour mon h1
 
         ]);
     }
@@ -89,15 +92,47 @@ class AdminController extends AbstractController
     }
 
 
-    // /**
-    //  * @Route("/admin/post/create", name="admin.photo.create")
-    //  * 
-    //  */
-    // public function addPhoto(Post $post = null,EntityManagerInterface $man,Request $req)
-    // {
+    /**
+     * @Route("/admin/photo/create", name="admin.photo.create")
+     * @Route("/admin/photo/modifier/{id}", name="admin.photo.modifier",methods ="GET|POST")
+     */
+    public function ModCreatPhoto(Photo $photo = null,EntityManagerInterface $man, Request $req)
+    {
+        if(!$photo){
+            $photo = new Photo();
+        }
 
+        $form = $this->createForm(PhotoType::class,$photo);
+        $form->handleRequest($req);
+        
+        if($form->isSubmitted() && $form->isValid()){
+            $modif = $photo->getId() !== null;
+            $man->persist($photo);
+            $man->flush();
+            $this->addFlash("success",($modif) ? "Modification effectuer avec succes" : "Ajouter avec succés");
+            return $this->redirectToRoute('admin.photo');
+        }
+        return $this->render('admin/photoAdmin/ModCreatPhoto.html.twig',[
+            "photo"=>$photo,
+            "form"=> $form->createView(),
+            "modif"=> $photo->getId() !== null
+        ]);
 
-    // }
+    }
+
+    /**
+     * @Route("/admin/photo/suppr/{id}", name="admin.photo.suppr",methods="sup")
+     */
+    public function supprPhoto(Photo $photo, Request $req, EntityManagerInterface $man)
+    {
+        if($this->isCsrfTokenValid("sup".$photo->getId(), $req->get("_token"))){
+            $man->remove($photo);
+            $man->flush();
+            $this->addFlash('success', "Supprimer effectués avec succes");
+            return $this->redirectToRoute('admin.photo');
+        }
+    }
+
 
 
     // =========================================================================
