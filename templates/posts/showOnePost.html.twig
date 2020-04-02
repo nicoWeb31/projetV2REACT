@@ -14,7 +14,7 @@
 
 <div class="row">
     {% for photo in post.photos %}
-    <img src="{{photo.url}}" alt="">
+    <img src="{{asset('images/post/'~ photo.url)}}" alt="{{photo.alt}}">
 {% endfor %}
 
 </div>

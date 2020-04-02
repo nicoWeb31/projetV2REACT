@@ -2,6 +2,7 @@
 
 namespace App\Controller\AdminController;
 
+use DateTime;
 use App\Entity\Post;
 use App\Entity\Photo;
 use App\Form\PhotoType;
@@ -107,6 +108,7 @@ class AdminController extends AbstractController
         
         if($form->isSubmitted() && $form->isValid()){
             $modif = $photo->getId() !== null;
+            $photo->setUpdated_at(new DateTime('now'));
             $man->persist($photo);
             $man->flush();
             $this->addFlash("success",($modif) ? "Modification effectuer avec succes" : "Ajouter avec succés");
