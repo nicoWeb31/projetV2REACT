@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!{% endblock %}
+{#} {% block monTitle %}
+     {% if modif %}
+        Modification {{post.title}}
+        {% else %}
+        Ajout d'un nouveau post
+    {% endif %}
+{% endblock %} #}
+
+{% block body %}
+
+    {{form_start(form)}}
+{{form_widget(form)}}
+<input type="submit" class="btn btn-success" value="envoyer">
+{{form_end(form)}}
+
+
+{% endblock %}

@@ -78,9 +78,15 @@ class User
      */
     private $role;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\CatergoryUser", mappedBy="users")
+     */
+    private $catergoryUsers;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
+        $this->catergoryUsers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -247,6 +253,34 @@ class User
     public function setRole(string $role): self
     {
         $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CatergoryUser[]
+     */
+    public function getCatergoryUsers(): Collection
+    {
+        return $this->catergoryUsers;
+    }
+
+    public function addCatergoryUser(CatergoryUser $catergoryUser): self
+    {
+        if (!$this->catergoryUsers->contains($catergoryUser)) {
+            $this->catergoryUsers[] = $catergoryUser;
+            $catergoryUser->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCatergoryUser(CatergoryUser $catergoryUser): self
+    {
+        if ($this->catergoryUsers->contains($catergoryUser)) {
+            $this->catergoryUsers->removeElement($catergoryUser);
+            $catergoryUser->removeUser($this);
+        }
 
         return $this;
     }

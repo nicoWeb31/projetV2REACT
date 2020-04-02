@@ -5,14 +5,18 @@ namespace App\Controller\AdminController;
 use DateTime;
 use App\Entity\Post;
 use App\Entity\Photo;
+use App\Entity\User;
 use App\Form\PhotoType;
 use App\Form\PostFormType;
+use App\Form\UserType;
 use App\Repository\PostRepository;
 use App\Repository\PhotoRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\User\User as UserUser;
 
 class AdminController extends AbstractController
 {
@@ -140,5 +144,57 @@ class AdminController extends AbstractController
     // =========================================================================
     // Users adminstraion
     // =========================================================================
+    
+    /**
+     * @Route("/admin/users", name="admin.users")
+     */
+    public function showAllUser(UserRepository $repo)
+    {
+        $users = $repo->findAll();
+        return $this->render('admin/usersAdmin/showAllUsers.html.twig',[
+            "users"=>$users
+        ]);
+    }
 
+
+    /**
+     * @Route("/admin/user/create", name="admin.user.create")
+     * @Route("/admin/user/modifier/{id}", name="admin.user.modifier",methods ="GET|POST")
+     */
+    public function ModCreatUser(User $user = null,EntityManagerInterface $man, Request $req)
+    {
+        if(!$user){
+            $user = new User();
+        }
+
+        $form = $this->createForm(UserType::class,$user);
+        $form->handleRequest($req);
+        
+        if($form->isSubmitted() && $form->isValid()){
+            $modif = $user->getId() !== null;
+            $man->persist($user);
+            $man->flush();
+            $this->addFlash("success",($modif) ? "Modification effectuer avec succes" : "Ajouter avec succés");
+            return $this->redirectToRoute('admin.users');
+        }
+        return $this->render('admin/usersAdmin/ModCreatUsers.html.twig',[
+            "user"=>$user,
+            "form"=> $form->createView(),
+            "modif"=> $user->getId() !== null
+        ]);
+
+    }
+
+    /**
+     * @Route("/admin/user/suppr/{id}", name="admin.user.suppr",methods="sup")
+     */
+    public function supprUser(User $user, Request $req, EntityManagerInterface $man)
+    {
+        if($this->isCsrfTokenValid("sup".$user->getId(), $req->get("_token"))){
+            $man->remove($user);
+            $man->flush();
+            $this->addFlash('success', "Supprimer effectués avec succes");
+            return $this->redirectToRoute('admin.users');
+        }
+    }
 }
