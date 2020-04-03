@@ -14,4 +14,20 @@ class GlobalController extends AbstractController
     {
         return $this->render('global/index.html.twig');
     }
+
+    /**
+     * @Route("/login", name="login")
+     */
+    public function login()
+    {
+        return $this->render('global/login.html.twig');
+    }
+
+    /**
+     * @Route("/logout", name="logout")
+     */
+    public function logout()
+    {
+    
+    }
 }

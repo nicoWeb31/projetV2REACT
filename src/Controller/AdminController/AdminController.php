@@ -16,6 +16,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\User\User as UserUser;
 
 class AdminController extends AbstractController
@@ -161,7 +162,7 @@ class AdminController extends AbstractController
      * @Route("/admin/user/create", name="admin.user.create")
      * @Route("/admin/user/modifier/{id}", name="admin.user.modifier",methods ="GET|POST")
      */
-    public function ModCreatUser(User $user = null,EntityManagerInterface $man, Request $req)
+    public function ModCreatUser(User $user = null,EntityManagerInterface $man, Request $req,UserPasswordEncoderInterface $encode)
     {
         if(!$user){
             $user = new User();
@@ -171,8 +172,10 @@ class AdminController extends AbstractController
         $form->handleRequest($req);
         
         if($form->isSubmitted() && $form->isValid()){
+            $passEncode = $encode->encodePassword($user,$user->getPassword());
+            $user->setPassword($passEncode);
             $modif = $user->getId() !== null;
-            $user->setRole("ROLE_USER");
+            $user->setRoles("ROLE_USER");
             $man->persist($user);
             $man->flush();
             $this->addFlash("success",($modif) ? "Modification effectuer avec succes" : "Ajouter avec succés");

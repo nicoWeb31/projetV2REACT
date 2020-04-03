@@ -2,15 +2,20 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @UniqueEntity(
+ * fields = {"username"},
+ * message="le pseudo existe déjà")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -56,6 +61,13 @@ class User
     private $password;
 
     /**
+     * 
+     * @Assert\EqualTo(propertyPath="password",message =" les mots de passe ne corespondent pas !!! ")
+     */
+    private $verifPassword;
+
+
+    /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Email(message = "Cette adresse mail '{{ value }}' n'est pas valide.")
      * 
@@ -80,7 +92,7 @@ class User
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $role;
+    private $roles;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\CatergoryUser", inversedBy="users")
@@ -249,14 +261,14 @@ class User
         return $this;
     }
 
-    public function getRole(): ?string
+    public function getRoles(): ?array
     {
-        return $this->role;
+        return [$this->roles];
     }
 
-    public function setRole(string $role): self
+    public function setRoles(string $roles): self
     {
-        $this->role = $role;
+        $this->roles = $roles;
 
         return $this;
     }
@@ -288,4 +300,38 @@ class User
 
         return $this;
     }
+
+    /**
+     * Get the value of verifPassword
+     */ 
+    public function getVerifPassword()
+    {
+        return $this->verifPassword;
+    }
+
+    /**
+     * Set the value of verifPassword
+     *
+     * @return  self
+     */ 
+    public function setVerifPassword($verifPassword)
+    {
+        $this->verifPassword = $verifPassword;
+
+        return $this;
+    }
+
+
+    // =========================================================================
+    // security yaml methode implement 
+    // =========================================================================
+    public function eraseCredentials()
+    {
+
+    }
+    public function getSalt()
+    {
+
+    }
+
 }

@@ -23,10 +23,11 @@ class UserType extends AbstractType
             ->add('codePostal')
             ->add('ville')
             ->add('password',PasswordType::class)
+            ->add('verifPassword',PasswordType::class)
             ->add('mail')
             ->add('phone')
             //->add('photo')
-            //->add('role')
+            //->add('roles')
             ->add('catergoryUsers',EntityType::class,[
                 'class'=>CatergoryUser::class,
                 'choice_label'=>'name',

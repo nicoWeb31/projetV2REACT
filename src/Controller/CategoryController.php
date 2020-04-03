@@ -21,7 +21,7 @@ class CategoryController extends AbstractController
         ]);
     }
 
-      /**
+    /**
      * @Route("/category/Trek", name="Trek")
      */
     public function trek(CategoryRepository $rep)
@@ -32,7 +32,7 @@ class CategoryController extends AbstractController
         ]);
     }
 
-      /**
+    /**
      * @Route("/category/Vtt", name="Vtt")
      */
     public function vtt(CategoryRepository $rep)
