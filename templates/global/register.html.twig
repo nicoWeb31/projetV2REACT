@@ -6,85 +6,94 @@
 {% block body %}
 
 {{form_start(form)}}
-{{form_row(form.username,{
-    "attr":{
-        "placeholder":"entrer votre pseudo"
-    },
-    "label":"Pseudo :"
-})}} 
-{{form_row(form.name,{
-    "attr":{
-        "placeholder":"entrer votre Nom"
-    },
-    "label":"Nom :"
-})}} 
-{{form_row(form.prenom,{
-    "attr":{
-        "placeholder":"entrer votre Prénom"
-    },
-    "label":"Prénom :"
-})}} 
-
-{{form_row(form.adresse,{
-    "attr":{
-        "placeholder":"entrer votre adresse"
-    },
-    "label":" Adresse:"
-})}} 
-
-{{form_row(form.codePostal,{
-    "attr":{
-        "placeholder":"entrer votre code postal"
-    },
-    "label":"Code postal :"
-})}} 
-
-{{form_row(form.ville,{
-    "attr":{
-        "placeholder":"entrer votre ville"
-    },
-    "label":"Ville :"
-})}} 
+<div class="container">
 
 
-{{form_row(form.mail,{
-    "attr":{
-        "placeholder":"entrer votre adresse mail"
-    },
-    "label":"Mail :"
-})}}
+    <div class="row">
+        <div class="col-12 col-md-6 col-xl-6">
+            {{form_row(form.name,{
+            "attr":{
+                "placeholder":"entrer votre Nom"
+            },
+            "label":"Nom :"
+        })}}
+            {{form_row(form.prenom,{
+            "attr":{
+                "placeholder":"entrer votre Prénom"
+            },
+            "label":"Prénom :"
+        })}}
 
-{{form_row(form.phone,{
-    "attr":{
-        "placeholder":"entrer votre numéro de télephone"
-    },
-    "label":"Numéro de telephone :"
-})}} 
+            {{form_row(form.adresse,{
+            "attr":{
+                "placeholder":"entrer votre adresse"
+            },
+            "label":" Adresse:"
+        })}}
 
-{{form_row(form.password,{
-    "attr":{
-        "placeholder":"entrer votre mot de passe"
-    },
-    "label":"Mot de passe :"
-})}} 
+            {{form_row(form.codePostal,{
+            "attr":{
+                "placeholder":"entrer votre code postal"
+            },
+            "label":"Code postal :"
+        })}}
 
-{{form_row(form.verifPassword,{
-    "attr":{
-        "placeholder":"entrer votre mot de passe"
-    },
-    "label":"Mot de passe :"
-})}} 
+            {{form_row(form.ville,{
+            "attr":{
+                "placeholder":"entrer votre ville"
+            },
+            "label":"Ville :"
+        })}}
 
-{{form_row(form.catergoryUsers,{
-    "attr":{
-        "placeholder":"Catergories"
-    },
-    "label":"Catergories :"
-})}} 
+            {{form_row(form.phone,{
+            "attr":{
+                "placeholder":"entrer votre numéro de télephone"
+            },
+            "label":"Numéro de telephone :"
+        })}}
+
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-6">
+            {{form_row(form.username,{
+            "attr":{
+                "placeholder":"entrer votre pseudo"
+            },
+            "label":"Pseudo :"
+        })}}
+
+            {{form_row(form.mail,{
+            "attr":{
+                "placeholder":"entrer votre adresse mail"
+            },
+            "label":"Mail :"
+        })}}
 
 
+            {{form_row(form.password,{
+            "attr":{
+                "placeholder":"entrer votre mot de passe"
+            },
+            "label":"Mot de passe :"
+        })}}
 
-<input type="submit" class="btn btn-success" value="envoyer">
+            {{form_row(form.verifPassword,{
+            "attr":{
+                "placeholder":"Confirmer votre mot de passe"
+            },
+            "label":"Confirmer votre mot de passe :"
+        })}}
+
+            {{form_row(form.catergoryUsers,{
+            "attr":{
+                "placeholder":"Categories"
+            },
+            "label":"Categories :"
+        })}}
+        <input type="submit" class="btn btn-success" value="envoyer">
+        </div>
+    </div>
+</div>
 {{form_end(form)}}
 
 

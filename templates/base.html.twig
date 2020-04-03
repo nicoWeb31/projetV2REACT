@@ -16,13 +16,13 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ path('home') }}">Accueil <span class="sr-only">(current)</span></a>
+                <li class="nav-item ">
+                    <a class="nav-link h3 m-3" href="{{ path('home') }}">Accueil</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item h3 m-3">
                     <a class="nav-link" href="#">Nocture de ?</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item h3 m-3">
                     <a class="nav-link" href="{{path('Actu')}}">Actualités</a>
                 </li>
             </ul>
@@ -36,32 +36,35 @@
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Administration
                     </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="{{path('admin.post')}}">Post</a>
-                            <a class="dropdown-item" href="{{path('admin.users')}}">utilisateurs</a>
-                            <a class="dropdown-item" href="{{path('admin.photo')}}">Photos</a>
-                            <a class="dropdown-item" href="#">commentaires</a>
-                        </div>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{path('admin.post')}}">Post</a>
+                        <a class="dropdown-item" href="{{path('admin.users')}}">utilisateurs</a>
+                        <a class="dropdown-item" href="{{path('admin.photo')}}">Photos</a>
+                        <a class="dropdown-item" href="#">commentaires</a>
+                    </div>
                 </li>
                 {% endif %}
-                        
+
                 {% if not app.user %}
-                    <li class="m-3">
-                        <a href="{{path('login')}}">Login</a>
+                <li class="nav-item">
+                    <a class="nav-link h4 m-2" href="{{path('register')}}">Nous rejoindre</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{path('login')}}" class="nav-link h4 m-2">Login</a>
 
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{path('register')}}">Nous rejoindre</a>
-                    </li>
+                </li>
                 {% else %}
-                    <li class="m-3">
-                        <a href="{{path('logout')}}">déconnexion</a>
-                    </li>
+                <li class="nav-item">
+                    <a href="{{path('logout')}}" class="nav-link h4 m-2" >déconnexion</a>
+                </li>
                 {% endif %}
-                    
                 
-
-                <li class="m-3">face</li>
+                <li class="nav-item">
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="{{asset('images/imagesAutre/facebook.png')}}" class="_imgFacebook nav-link m-1 p-0" alt="logo_facebook">
+                    </a>
+                    
+                </li>
             </ul>
         </div>
     </nav>
@@ -69,13 +72,13 @@
         <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarColor02">
             <ul class="navbar-nav d-flex justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{path('Trail')}}">Trail</a>
+                    <a class="nav-link h2 m-3 p-5" href="{{path('Vtt')}}">Vtt</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{path('Trek')}}">Trek</a>
+                    <a class="nav-link h2 m-3 p-5" href="{{path('Trail')}}">Trail</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{path('Vtt')}}">Vtt</a>
+                    <a class="nav-link h2 m-3 p-5" href="{{path('Trek')}}">Trek</a>
                 </li>
             </ul>
         </div>
