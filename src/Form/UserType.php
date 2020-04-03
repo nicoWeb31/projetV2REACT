@@ -31,7 +31,7 @@ class UserType extends AbstractType
                 'class'=>CatergoryUser::class,
                 'choice_label'=>'name',
                 'multiple'=> true,
-                'expanded' => true,///check box choix multiple
+                'expanded' => true,///check-box choix multiple
             ])
         ;
     }

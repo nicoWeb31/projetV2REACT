@@ -83,7 +83,7 @@ class User
     private $role;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\CatergoryUser", mappedBy="users")
+     * @ORM\ManyToMany(targetEntity="App\Entity\CatergoryUser", inversedBy="users")
      */
     private $catergoryUsers;
 

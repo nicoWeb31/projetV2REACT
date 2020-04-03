@@ -24,7 +24,7 @@ class CatergoryUser
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="catergoryUsers")
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="catergoryUsers")
      */
     private $users;
 
