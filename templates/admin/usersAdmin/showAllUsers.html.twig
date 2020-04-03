@@ -15,21 +15,22 @@
     </div>
 {% endfor %}
 
-<a href="{{path('admin.user.create')}}" class="btn btn-info">Ajouter un Utilisateur</a>
+<a href="{{path('admin.user.create')}}" class="btn btn-info w-100">Ajouter un Utilisateur</a>
 <table class="table">
     <tr>
         <th>photo</th>
         <th>Pseudo</th>
         <th>Nom</th>
         <th>Prenom</th>
-        <th>Adresse</th>
-        <th>Code postale</th>
-        <th>password</th>
-        <th>Adresse Mail</th>
+        {# <th>Adresse</th>
+        <th>Code postale</th> #}
+        <th>Ville</th>
+        {# <th>password</th>
+        <th>Adresse Mail</th> #}
         <th>Télephone</th>
         <th>Sport</th>
         <th>Role</th>
-        <th>Action</th>
+        <th colspan="2">Action</th>
 
     </tr>
         {% for user in users %}
@@ -37,25 +38,25 @@
         <td>{{user.photo}}</td>
         <td>{{user.username}}</td>
         <td>{{user.name}}</td>
-        <td>{{user.adresse}}</td>
-        <td>{{user.codePostal}}</td>
+        <td>{{user.prenom}}</td>
+        {# <td>{{user.adresse}}</td>
+        <td>{{user.codePostal}}</td> #}
         <td>{{user.ville}}</td>
-        <td>{{user.password}}</td>
-        <td>{{user.mail}}</td>
+        {# <td>{{user.password}}</td>
+        <td>{{user.mail}}</td> #}
         <td>{{user.phone}}</td>
-        <td>
-            sport
-        </td>
+        <td>sport</td>
         <td>{{user.role}}</td>
 
 
         <td>
-            <a href="{{path('admin.user.modifier',{"id": user.id})}}" class="btn btn-warning p-2 m-2 d-inline">Modifier</a>
+            <a href="{{path('admin.user.modifier',{"id": user.id})}}" class="btn btn-warning p-0 m-0 d-block">Modifier</a>
 
             <form method="POST" action="{{path('admin.user.suppr',{"id": user.id})}}" onsubmit="return confirm('etes vous sur ?')">
                 <input type="hidden" name="_method" value="sup">
                 <input type="hidden" name="_token" value="{{csrf_token('sup' ~ user.id)}}" >
-                <input type="submit" class="btn btn-danger p-2 m-2 d-inline" value="supprimer">
+                
+                <input type="submit" class="btn btn-danger p-0 m-0 d-block w-100" value="supprimer">
             </form>
         </td>
     </tr>

@@ -8,6 +8,7 @@ use App\Entity\CatergoryUser;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UserType extends AbstractType
@@ -21,7 +22,7 @@ class UserType extends AbstractType
             ->add('adresse')
             ->add('codePostal')
             ->add('ville')
-            ->add('password')
+            ->add('password',PasswordType::class)
             ->add('mail')
             ->add('phone')
             //->add('photo')
@@ -30,7 +31,7 @@ class UserType extends AbstractType
                 'class'=>CatergoryUser::class,
                 'choice_label'=>'name',
                 'multiple'=> true,
-                'expanded' => true,
+                'expanded' => true,///check box choix multiple
             ])
         ;
     }
