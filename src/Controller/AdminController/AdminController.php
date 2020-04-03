@@ -172,6 +172,7 @@ class AdminController extends AbstractController
         
         if($form->isSubmitted() && $form->isValid()){
             $modif = $user->getId() !== null;
+            $user->setRole("ROLE_USER");
             $man->persist($user);
             $man->flush();
             $this->addFlash("success",($modif) ? "Modification effectuer avec succes" : "Ajouter avec succés");

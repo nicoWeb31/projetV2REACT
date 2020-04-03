@@ -26,7 +26,7 @@ class UserType extends AbstractType
             ->add('mail')
             ->add('phone')
             //->add('photo')
-            ->add('role')
+            //->add('role')
             ->add('catergoryUsers',EntityType::class,[
                 'class'=>CatergoryUser::class,
                 'choice_label'=>'name',

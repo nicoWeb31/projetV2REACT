@@ -45,7 +45,11 @@
         {# <td>{{user.password}}</td>
         <td>{{user.mail}}</td> #}
         <td>{{user.phone}}</td>
-        <td>sport</td>
+        <td>
+            {% for sport in user.catergoryUsers %}
+                <div class="d-inline m-1">{{sport.name}}</div>
+            {% endfor %}
+        </td>
         <td>{{user.role}}</td>
 
 
