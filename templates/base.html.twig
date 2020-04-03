@@ -23,35 +23,45 @@
                     <a class="nav-link" href="#">Nocture de ?</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Nous rejoindre</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{{path('Actu')}}">Actualités</a>
                 </li>
             </ul>
 
             <ul class="navbar-nav ml-auto m-3">
 
+
+                {% if is_granted('ROLE_ADMIN') %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Administration
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{path('admin.post')}}">Post</a>
-                        <a class="dropdown-item" href="{{path('admin.users')}}">utilisateurs</a>
-                        <a class="dropdown-item" href="{{path('admin.photo')}}">Photos</a>
-                        <a class="dropdown-item" href="#">commentaires</a>
-                    </div>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{{path('admin.post')}}">Post</a>
+                            <a class="dropdown-item" href="{{path('admin.users')}}">utilisateurs</a>
+                            <a class="dropdown-item" href="{{path('admin.photo')}}">Photos</a>
+                            <a class="dropdown-item" href="#">commentaires</a>
+                        </div>
                 </li>
+                {% endif %}
+                        
+                {% if not app.user %}
+                    <li class="m-3">
+                        <a href="{{path('login')}}">Login</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{path('register')}}">Nous rejoindre</a>
+                    </li>
+                {% else %}
+                    <li class="m-3">
+                        <a href="{{path('logout')}}">déconnexion</a>
+                    </li>
+                {% endif %}
+                    
+                
 
                 <li class="m-3">face</li>
-                <li class="m-3">
-                    <a href="{{path('login')}}">Login</a>
-                </li>
-                <li class="m-3">
-                    <a href="{{path('logout')}}">déconnexion</a>
-                </li>
             </ul>
         </div>
     </nav>

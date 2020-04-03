@@ -3,10 +3,17 @@
 {% block title %}Hello GlobalController!{% endblock %}
 {% block monTitle %}Login{% endblock %}
 {% block body %}
+{% if error %}
+<dir class="alert alert-danger">
+    login et mot de passe ne sont pas correct
+</dir>
+{% endif %}
+
+
     <form action="{{path('login')}}" method="POST">
         <div class="form-group">
             <label for="">Pseudo</label>
-            <input type="text" required name="_username" class="form-control">
+            <input type="text" required name="_username" class="form-control" value="{{lastUserName}}">
         </div>
         <div class="form-group">
             <label for="">Mots de passe</label>
