@@ -8,15 +8,28 @@
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v6.0">
 </script>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-3">
             <h2>L'association</h2>
-            <img src="{{asset('images/imagesAutre/logoVTT.jpg')}}" alt="logoAsso" class="_logoVtt img-fluid">
+            <img src="{{asset('images/imagesAutre/logoVTT.jpg')}}" alt="logoAsso" class="_logoVtt img-fluid ">
         </div>
-        <div class="col">
+        <div class="col-6">
+            <h2 class="text-center p-3">Qui sommes nous ?</h2>
+            <p class="text-center h4 m-4 text-white">Une petite association intercommunale est née  En Cœur de Garonne il y a maintenant 8 mois .
+                VTT TRAIL TREK EN Cœur De Garonne réunissant des sportifs passionnés 
+                en trail, randonnée montagne et vtt 
+                c est dans ce village de Montastruc Saves de moins de 80 habitants où il a été créé.
+                cette association au statut intercommunal a vu le jour avec des habitants de la commune de Forgues, Rieumes et Montastruc Saves .</p>
+                <img src="{{asset('images/imagesAutre/logoNav.png')}}" alt="logoAsso" class="_logoVtt img-fluid d-block mx-auto">
+        </div>
+
+        <!-- =============================================================== -->
+        <!-- facbook -->
+        <!-- =============================================================== -->
+        <div class="col-3">
             <div class="fb-page" data-href="https://www.facebook.com/vttencoeurdegaronne/"
-                data-tabs="timeline,events,massages" data-width="500" data-height="" data-small-header="false"
+                data-tabs="timeline,events,massages" data-width="300" data-height="" data-small-header="false"
                 data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
                 <blockquote cite="https://www.facebook.com/vttencoeurdegaronne/" class="fb-xfbml-parse-ignore"><a
                         href="https://www.facebook.com/vttencoeurdegaronne/">Vtt trail trek en coeur de garonne</a>
@@ -37,15 +50,15 @@
     </ol>
     <div class="carousel-inner m-0 p-0">
         <div class="carousel-item active">
-            <img class="d-block w-100" src="{{asset('images/post/img-6826.jpg-5e8758cbb7f87925333120.jpg')}}"
+            <img class="d-block w-auto" src="{{asset('images/post/img-6826.jpg-5e8758cbb7f87925333120.jpg')}}"
                 alt="First slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="{{asset('images/post/img-6872.jpg-5e85f5937f0c3968797322.jpg')}}"
+            <img class="d-block w-auto" src="{{asset('images/post/img-6872.jpg-5e85f5937f0c3968797322.jpg')}}"
                 alt="Second slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="{{asset('images/post/img-6826.jpg-5e8758cbb7f87925333120.jpg')}}"
+            <img class="d-block w-auto" src="{{asset('images/post/img-6826.jpg-5e8758cbb7f87925333120.jpg')}}"
                 alt="Third slide">
         </div>
     </div>

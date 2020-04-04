@@ -18,7 +18,7 @@ class GlobalController extends AbstractController
      */
     public function index()
     {
-        return $this->render('global/index.html.twig');
+        return $this->render('global/home.html.twig');
     }
 
     /**
