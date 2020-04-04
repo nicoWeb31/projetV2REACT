@@ -12,65 +12,196 @@
     {% block stylesheets %}{% endblock %}
 </head>
 
-<body>
+<body class="m-0 p-0">
+
+    <!-- =================================================================== -->
+    <!-- nav bar 1 -->
+    <!-- =================================================================== -->
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item ">
-                    <a class="nav-link h3 m-3" href="{{ path('home') }}">Accueil</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item h3 m-3">
-                    <a class="nav-link" href="#">Nocture de ?</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
                 </li>
-                <li class="nav-item h3 m-3">
-                    <a class="nav-link" href="{{path('Actu')}}">Actualités</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
                 </li>
             </ul>
-
-            <ul class="navbar-nav ml-auto m-3">
-
-
-                {% if is_granted('ROLE_ADMIN') %}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Administration
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{path('admin.post')}}">Post</a>
-                        <a class="dropdown-item" href="{{path('admin.users')}}">utilisateurs</a>
-                        <a class="dropdown-item" href="{{path('admin.photo')}}">Photos</a>
-                        <a class="dropdown-item" href="#">commentaires</a>
-                    </div>
-                </li>
-                {% endif %}
-
-                {% if not app.user %}
-                <li class="nav-item">
-                    <a class="nav-link h4 m-2" href="{{path('register')}}">Nous rejoindre</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{path('login')}}" class="nav-link h4 m-2">Login</a>
-
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a href="{{path('logout')}}" class="nav-link h4 m-2" >déconnexion</a>
-                </li>
-                {% endif %}
-                
-                <li class="nav-item">
-                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
-                        <img src="{{asset('images/imagesAutre/facebook.png')}}" class="_imgFacebook nav-link m-1 p-0" alt="logo_facebook">
-                    </a>
-                    
-                </li>
-            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
     </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <nav class="navbar navbar-expand-xl navbar-dark bg-primary">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto ml-4">
+                    <li class="nav-item rounded-pill ">
+                        <a class="nav-link h4 m-3 p-3 rounded-pill" href="{{ path('home') }}">Accueil</a>
+                    </li>
+                    <li class="nav-item h4 m-3 rounded-pill">
+                        <a class="nav-link p-3 rounded-pill" href="#">Nocture de ?</a>
+                    </li>
+                    <li class="nav-item h4 m-3 rounded-pill">
+                        <a class="nav-link p-3 rounded-pill" href="{{path('Actu')}}">Actualités</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto mr-4">
+
+
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Administration
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{{path('admin.post')}}">Post</a>
+                            <a class="dropdown-item" href="{{path('admin.users')}}">utilisateurs</a>
+                            <a class="dropdown-item" href="{{path('admin.photo')}}">Photos</a>
+                            <a class="dropdown-item" href="#">commentaires</a>
+                        </div>
+                    </li>
+                    {% endif %}
+
+                    {% if not app.user %}
+                    <li class="nav-item">
+                        <a class="nav-link h4 m-2" href="{{path('register')}}">Nous rejoindre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{path('login')}}" class="nav-link h5 m-2">Login</a>
+
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="{{path('logout')}}" class="nav-link h5 m-2">déconnexion</a>
+                    </li>
+                    {% endif %}
+
+                    <li class="nav-item">
+                        <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                            <img src="{{asset('images/imagesAutre/facebook.png')}}"
+                                class="_imgFacebook nav-link m-1 p-0" alt="logo_facebook">
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- =================================================================== -->
+    <!-- narbar 2 -->
+    <!-- =================================================================== -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarColor02">
             <ul class="navbar-nav d-flex justify-content-center">
+                <li>
+                    <img src="{{asset('images/imagesAutre/logoNav.png')}}" alt="logo" class="_logoNav">
+                </li>
                 <li class="nav-item">
                     <a class="nav-link h2 m-3 p-5" href="{{path('Vtt')}}">Vtt</a>
                 </li>
@@ -80,16 +211,30 @@
                 <li class="nav-item">
                     <a class="nav-link h2 m-3 p-5" href="{{path('Trek')}}">Trek</a>
                 </li>
+                <li>
+                    <img src="{{asset('images/imagesAutre/logoNav.png')}}" alt="logo" class="_logoNav">
+                </li>
             </ul>
         </div>
     </nav>
+
+    <!-- =================================================================== -->
+    <!-- h1 -->
+    <!-- =================================================================== -->
     <h1 class=" border border-dark rounded text-white m-4 p-4 text-center bg-success w-70">
         {% block monTitle %}{% endblock %}</h1>
-    <div class="container">
+
+    <!-- =============================================================== -->
+    <!-- block body -->
+    <!-- =============================================================== -->
+    <div class="container-fluid P-0">
         {% block body %}{% endblock %}
     </div>
 
 
+    <!-- =================================================================== -->
+    <!-- block js -->
+    <!-- =================================================================== -->
     {% block javascripts %}{% endblock %}
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
