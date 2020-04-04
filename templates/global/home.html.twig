@@ -9,10 +9,10 @@
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v6.0">
 </script>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-3">
+    <div class="row border-bottom border-light m-5">
+        <div class="col-3 ">
             <h2>L'association</h2>
-            <img src="{{asset('images/imagesAutre/logoVTT.jpg')}}" alt="logoAsso" class="_logoVtt img-fluid ">
+            <img src="{{asset('images/imagesAutre/logoVTT.jpg')}}" alt="logoAsso" class="_logoVtt img-fluid">
         </div>
         <div class="col-6">
             <h2 class="text-center p-3">Qui sommes nous ?</h2>
@@ -21,7 +21,7 @@
                 en trail, randonnée montagne et vtt 
                 c est dans ce village de Montastruc Saves de moins de 80 habitants où il a été créé.
                 cette association au statut intercommunal a vu le jour avec des habitants de la commune de Forgues, Rieumes et Montastruc Saves .</p>
-                <img src="{{asset('images/imagesAutre/logoNav.png')}}" alt="logoAsso" class="_logoVtt img-fluid d-block mx-auto">
+                <img src="{{asset('images/imagesAutre/logoNav.png')}}" alt="logoAsso" class="_logoVtt img-fluid d-block mx-auto mb-5">
         </div>
 
         <!-- =============================================================== -->
@@ -38,8 +38,23 @@
         </div>
 
     </div>
-</div>
 <!-- ======================================================================= -->
+<!-- decouvrez section + icones -->
+<!-- ======================================================================= -->
+    <div class="row row border-bottom border-light m-5">
+        <div class="col ">
+            <h3 class="text-center">Decouvrez nos 3 sections :</h3>
+            <div class="d-flex justify-content-center mb-5">
+                <a href="{{path('Vtt')}}" class="bg-light m-4 p-4 rounded-circle"><img src="{{asset('images/imagesAutre/bike.png')}}" alt="bike"></a>
+                <a href="{{path('Trail')}}" class="bg-light m-4 p-4 rounded-circle"><img src="{{asset('images/imagesAutre/run.png')}}" alt="running"></a>
+                <a href="{{path('Trek')}}" class="bg-light m-4 p-4 rounded-circle"><img src="{{asset('images/imagesAutre/hid.png')}}" alt="hid"></a>
+                
+
+            </div>
+        </div>
+        
+    </div>
+    {# <!-- ======================================================================= -->
 <!-- carousel -->
 <!-- ======================================================================= -->
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -70,5 +85,7 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
+</div> #}
 </div>
+
 {% endblock %}

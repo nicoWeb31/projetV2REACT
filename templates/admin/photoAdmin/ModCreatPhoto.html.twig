@@ -12,6 +12,7 @@
 
 
 {% block body %}
+<div class="container">
 
     {{form_start(form)}}
         {{form_row(form.name,{
@@ -31,5 +32,5 @@
         {{form_widget(form)}}
         <input type="submit" class="btn btn-success" value="Enregistrer">
     {{form_end(form)}}
-
+</div>
 {% endblock %}
