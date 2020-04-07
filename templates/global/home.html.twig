@@ -3,19 +3,29 @@
 {% block title %}Hello GlobalController!{% endblock %}
 {% block monTitle %}Bienvenue en Coeur de Garonne{% endblock %}
 {% block body %}
+<div class="container-fluid">
+    {# file d'arianne #}
+<nav class="p-3">
+    <ol class="breadcrumb bg-success">
+        <li class="breadcrumb-item"><a href="">home</a></li>
+        <li class="breadcrumb-item active">Maintenance</li>
 
+    </ol>
+</nav>
 
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v6.0">
 </script>
-<div class="container-fluid">
     <div class="row border-bottom border-light m-5">
-        <div class="col-3 ">
-            <h2>L'association</h2>
-            <img src="{{asset('images/imagesAutre/logoVTT.jpg')}}" alt="logoAsso" class="_logoVtt img-fluid">
+        <div class="col-3 jumbotron">
+            <h4 class="display-5">Planning des entrainements</h4>
+            <hr class="my-4 my-light">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            {# <img src="{{asset('images/imagesAutre/logoVTT.jpg')}}" alt="logoAsso" class="_logoVtt img-fluid"> #}
         </div>
+
         <div class="col-6">
-            <h2 class="text-center p-3">Qui sommes nous ?</h2>
+            <h2 class="text-center p-3 text-white">Qui sommes nous ?</h2>
             <p class="text-center h4 m-4 text-white">Une petite association intercommunale est née  En Cœur de Garonne il y a maintenant 8 mois .
                 VTT TRAIL TREK EN Cœur De Garonne réunissant des sportifs passionnés 
                 en trail, randonnée montagne et vtt 
@@ -43,7 +53,7 @@
 <!-- ======================================================================= -->
     <div class="row row border-bottom border-light m-5">
         <div class="col ">
-            <h3 class="text-center">Decouvrez nos 3 sections :</h3>
+            <h3 class="text-center text-white">Decouvrez nos 3 sections :</h3>
             <div class="d-flex justify-content-center mb-5">
                 <a href="{{path('Vtt')}}" class="bg-light m-4 p-4 rounded-circle"><img src="{{asset('images/imagesAutre/bike.png')}}" alt="bike"></a>
                 <a href="{{path('Trail')}}" class="bg-light m-4 p-4 rounded-circle"><img src="{{asset('images/imagesAutre/run.png')}}" alt="running"></a>
@@ -86,6 +96,42 @@
         <span class="sr-only">Next</span>
     </a>
 </div> #}
+</div>
+<div class="container">
+
+    <!-- ICI : les cartes -->
+    <div class="card-deck">
+
+
+        <div class="card">
+            <img src="https://believemy.com/uploads/c7fe8837368024dc01e1845337f167e9_18fb807dabb97a3e4f920d1b0c9176b1.png"
+                alt="..." class="card-img-top">
+            <div class="card-body bg-white text-dark">
+                <h5 class="card-title">A venir Nocturne du saves</h5>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis optio officiis cupiditate
+                    placeat. Eum aliquid vel delectus sed minus repudiandae suscipit consequatur voluptatem
+                    necessitatibus, quisquam eius corrupti quos, ducimus non?
+                </p>
+
+            </div>
+        </div>
+
+        <div class="card">
+
+
+
+            <img src="https://believemy.com/uploads/c7fe8837368024dc01e1845337f167e9_18fb807dabb97a3e4f920d1b0c9176b1.png"
+                alt="..." class="card-img-top">
+            <div class="card-body bg-white text-dark">
+                <h5 class="card-title">Nous contacter</h5>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis optio officiis cupiditate
+                    placeat. Eum aliquid vel delectus sed minus repudiandae suscipit consequatur voluptatem
+                    necessitatibus, quisquam eius corrupti quos, ducimus non?
+                </p>
+
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
