@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use DateTime;
 use App\Entity\User;
 use App\Form\UserType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -36,7 +37,7 @@ class GlobalController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             $passEncode = $encode->encodePassword($user,$user->getPassword());
             $user->setPassword($passEncode);
-
+            $user->setUpdatedAt(new DateTime('now'));
             $user->setRoles("ROLE_USER");
             $man->persist($user);
             $man->flush();

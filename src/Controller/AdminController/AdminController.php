@@ -176,6 +176,7 @@ class AdminController extends AbstractController
             $user->setPassword($passEncode);
             $modif = $user->getId() !== null;
             $user->setRoles("ROLE_USER");
+            $user->setUpdatedAt(new DateTime('now'));
             $man->persist($user);
             $man->flush();
             $this->addFlash("success",($modif) ? "Modification effectuer avec succes" : "Ajouter avec succés");

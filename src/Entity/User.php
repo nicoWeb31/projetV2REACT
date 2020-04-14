@@ -8,12 +8,16 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity(
  * fields = {"username"},
  * message="le pseudo existe déjà")
+ * @Vich\Uploadable
  */
 class User implements UserInterface
 {
@@ -85,6 +89,12 @@ class User implements UserInterface
     private $photo;
 
     /**
+     * @var File|null
+     * @Vich\UploadableField(mapping="images_post", fileNameProperty="photo")
+     */
+    private $imageFile;
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="user", orphanRemoval=true)
      */
     private $commentaires;
@@ -98,6 +108,11 @@ class User implements UserInterface
      * @ORM\ManyToMany(targetEntity="App\Entity\CatergoryUser", inversedBy="users")
      */
     private $catergoryUsers;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updated_at;
 
     public function __construct()
     {
@@ -223,7 +238,7 @@ class User implements UserInterface
         return $this->photo;
     }
 
-    public function setPhoto(?string $photo): self
+    public function setPhoto(?string $photo): self  ///important doit pouvoir etre null
     {
         $this->photo = $photo;
 
@@ -334,4 +349,47 @@ class User implements UserInterface
 
     }
 
+
+    /**
+     * Get the value of imageFile
+     *
+     * @return  File|null
+     */ 
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * Set the value of imageFile
+     *
+     * @param  File|null  $imageFile
+     *
+     * @return  self
+     */ 
+    public function setImageFile($imageFile)
+    {
+        $this->imageFile = $imageFile;
+        return $this;
+        
+        if ($this->imageFile instanceof UploadedFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updated_at = new \DateTime('now');
+        }
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
+
+        return $this;
+    }
 }

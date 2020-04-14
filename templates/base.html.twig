@@ -5,17 +5,15 @@
     <meta charset="UTF-8" />
     <title>{% block title %}Welcome!{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.css" />
-    <link rel="stylesheet" href="{{asset('css/main.css')}}">
-    <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet">
-    
-    
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+    <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet" />
+
     {% block stylesheets %}{% endblock %}
 </head>
 
 <body class="">
-
     <!-- =================================================================== -->
     <!-- nav bar 1 -->
     <!-- =================================================================== -->
@@ -29,66 +27,64 @@
 
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto ml-5">
-                {# <li class="nav-item rounded-pill ">
-                    <a class="nav-link h4 m-3 p-3 rounded-pill" href="{{ path('home') }}">Accueil</a>
-                </li> #}
+                {#
+          <li class="nav-item rounded-pill">
+            <a
+              class="nav-link h4 m-3 p-3 rounded-pill"
+              href="{{ path('home') }}"
+              >Accueil</a
+            >
+          </li>
+          #}
                 <li class="nav-item h4 m-3 rounded-pill">
                     <a class="nav-link p-3 rounded-pill" href="#">Nocture de ?</a>
                 </li>
                 <li class="nav-item h4 m-3 rounded-pill">
-                    <a class="nav-link p-3 rounded-pill" href="{{path('Actu')}}">Actualités</a>
+                    <a class="nav-link p-3 rounded-pill" href="{{ path('Actu') }}">Actualités</a>
                 </li>
-                {# <li class="nav-item h4 m-3 rounded-pill">
-                    <a class="nav-link p-3 rounded-pill" href="{{path('Actu')}}">Autres</a>
-                </li> #}
+                {#
+          <li class="nav-item h4 m-3 rounded-pill">
+            <a class="nav-link p-3 rounded-pill" href="{{ path('Actu') }}"
+              >Autres</a
+            >
+          </li>
+          #}
             </ul>
             <ul class="navbar-nav ml-auto mr-5">
-
-
                 {% if is_granted('ROLE_ADMIN') %}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle h5 m-2 rounded-pill p-3" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle h5 m-2 rounded-pill p-3" href="#" id="navbarDropdownMenuLink"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Administration
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{path('admin.post')}}">Post</a>
-                        <a class="dropdown-item" href="{{path('admin.users')}}">utilisateurs</a>
-                        <a class="dropdown-item" href="{{path('admin.photo')}}">Photos</a>
+                        <a class="dropdown-item" href="{{ path('admin.post') }}">Post</a>
+                        <a class="dropdown-item" href="{{ path('admin.users') }}">utilisateurs</a>
+                        <a class="dropdown-item" href="{{ path('admin.photo') }}">Photos</a>
                         <a class="dropdown-item" href="#">commentaires</a>
                     </div>
                 </li>
-                {% endif %}
-
-                {% if not app.user %}
+                {% endif %} {% if not app.user %}
                 <li class="nav-item rounded-pill">
-                    <a class="nav-link h4 m-2 rounded-pill p-3" href="{{path('register')}}">Nous rejoindre </a>
+                    <a class="nav-link h4 m-2 rounded-pill p-3" href="{{ path('register') }}">Nous rejoindre
+                    </a>
                 </li>
                 <li class="nav-item rounded-pill">
-                    <a href="{{path('login')}}" class="nav-link h5 m-2 rounded-pill p-3">Login</a>
-
+                    <a href="{{ path('login') }}" class="nav-link h5 m-2 rounded-pill p-3">Login</a>
                 </li>
                 {% else %}
                 <li class="nav-item rounded-pill">
-                    <a href="{{path('logout')}}" class="nav-link h5 m-2 rounded-pill p-3">déconnexion </a>
+                    <a href="{{ path('logout') }}" class="nav-link h5 m-2 rounded-pill p-3">déconnexion
+                    </a>
                 </li>
                 {% endif %}
 
-                <li class="nav-item">
-                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
-                        <img src="{{asset('images/imagesAutre/facebook.png')}}"
-                            class="_imgFacebook nav-link m-1 p-0 rounded-pill" alt="logo_facebook">
-                    </a>
-
-                </li>
+                
             </ul>
-
-
-
         </div>
     </nav>
 
-    <img src="{{asset('images/imagesAutre/testBaniere.png')}}" class="w-100 img-fluid" alt="">
+    <img src="{{ asset('images/imagesAutre/testBaniere.png') }}" class="w-100 img-fluid" alt="" />
 
     <!-- =================================================================== -->
     <!-- narbar 2 -->
@@ -96,21 +92,33 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarColor02">
             <ul class="navbar-nav d-flex justify-content-center">
-                {# <li>
-                    <img src="{{asset('images/imagesAutre/logoNav.png')}}" alt="logo" class="_logoNav">
-                </li> #}
+                {#
+          <li>
+            <img
+              src="{{ asset('images/imagesAutre/logoNav.png') }}"
+              alt="logo"
+              class="_logoNav"
+            />
+          </li>
+          #}
                 <li class="nav-item">
-                    <a class="nav-link h2 m-3 p-5" href="{{path('Vtt')}}">Vtt</a>
+                    <a class="nav-link h2 m-3 p-5" href="{{ path('Vtt') }}">Vtt</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link h2 m-3 p-5" href="{{path('Trail')}}">Trail</a>
+                    <a class="nav-link h2 m-3 p-5" href="{{ path('Trail') }}">Trail</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link h2 m-3 p-5" href="{{path('Trek')}}">Trek</a>
+                    <a class="nav-link h2 m-3 p-5" href="{{ path('Trek') }}">Trek</a>
                 </li>
-                {# <li>
-                    <img src="{{asset('images/imagesAutre/logoNav.png')}}" alt="logo" class="_logoNav">
-                </li> #}
+                {#
+          <li>
+            <img
+              src="{{ asset('images/imagesAutre/logoNav.png') }}"
+              alt="logo"
+              class="_logoNav"
+            />
+          </li>
+          #}
             </ul>
         </div>
     </nav>
@@ -118,8 +126,9 @@
     <!-- =================================================================== -->
     <!-- h1 -->
     <!-- =================================================================== -->
-    <h1 class=" border border-dark rounded text-white m-5 p-5 text-center bg-success w-90">
-        {% block monTitle %}{% endblock %}</h1>
+    <h1 class="border border-dark rounded text-white m-5 p-5 text-center bg-success w-90">
+        {% block monTitle %}{% endblock %}
+    </h1>
 
     <!-- =============================================================== -->
     <!-- block body -->
@@ -128,12 +137,122 @@
         {% block body %}{% endblock %}
     </div>
 
+    <!-- =================================================================== -->
+    <!-- Footer -->
+    <!-- =================================================================== -->
+
+    <footer class="page-footer font-small bg-secondary text-dark">
+
+        <div class="container text-center text-md-left">
+
+            <div class="row">
+
+                <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">
+                        Vtt en coeur de garonne
+                    </h5>
+
+                    <p>
+                        Une petite association intercommunale est née En Cœur de Garonne.
+                        VTT TRAIL TREK EN Cœur De Garonne réunissant des sportifs
+                        passionnés en vtt, trail et randonnée.
+                    </p>
+                </div>
+
+
+                <hr class="clearfix w-100 d-md-none" />
+
+
+                <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Liens</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <p>
+                                <a href="#">Nocturne du Saves</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="#">Actualités</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="#">Trail</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="#">Vtt</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="#">Trek</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <hr class="clearfix w-100 d-md-none" />
+
+
+                <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Contact</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <p> Montastruc Saves</p>
+                        </li>
+                        <li>
+                            <address title="contact">
+                                <a href="mailto:vtt.encoeurdegaronne@gmail.com">Contact mail</a>
+                            </address>
+                        </li>
+                        <li>
+                            <p> 06 51 61 58 96</p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <hr class="clearfix w-100 d-md-none" />
+
+                <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Nous suivre</h5>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="{{ asset('images/imagesAutre/facebook.png') }}"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill" alt="logo_facebook" />
+                    </a>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="{{ asset('images/imagesAutre/se.png') }}"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill" alt="logo_sport_easy" />
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright text-center py-3">
+            © 2020 Copyright:
+            <a href="#">Riot Nicolas</a>
+        </div>
+    </footer>
+    <!-- Footer -->
 
     <!-- =================================================================== -->
     <!-- block js -->
     <!-- =================================================================== -->
     {% block javascripts %}{% endblock %}
-    
+
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>

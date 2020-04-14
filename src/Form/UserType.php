@@ -8,6 +8,7 @@ use App\Entity\CatergoryUser;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -26,7 +27,7 @@ class UserType extends AbstractType
             ->add('verifPassword',PasswordType::class)
             ->add('mail')
             ->add('phone')
-            //->add('photo')
+            ->add('photo',FileType::class,['required'=>false,'data_class' => null])
             //->add('roles')
             ->add('catergoryUsers',EntityType::class,[
                 'class'=>CatergoryUser::class,
