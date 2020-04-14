@@ -4,17 +4,46 @@
 {% block monTitle %}Vtt{% endblock %}
 
 {% block body %}
-    {% for vtt in  cat %}
-        <h1>{{vtt.name}}</h1>
-            {% for post in vtt.posts %}
-                <h1>{{post.id}}</h1>
-                <h2>{{post.title}}</h2>
-                <p>{{post.content}}</p>
-                
-                <a href="{{path('post',{'id':post.id})}}" class="btn btn-info">Voir plus</a>
+<div>
+<!-- ======================================================================= -->
+<!-- liste des entrainements -->
+<!-- ======================================================================= -->
+{% include "/partial/section/listeEntrainement.html.twig" %}
 
-            {% endfor %}
-    {% endfor %}
+
+<!-- =================================================================== -->
+<!-- corp de pages -->
+<!-- =================================================================== -->
+<div class="col-6">
+    <h2 class="text-center p-3 text-white">Section VTT</h2>
+    <p class="text-justify h4 m-4 text-white">
+        Notre section VTT, encore discrète mais qui ne demande qu’à grandir, permet de découvrir des sentiers forestiers
+        tout en alliant l’aspect physique et l’aspect technique de cette discipline.
+        Les sorties/entraînements se font le week-end, le samedi ou le dimanche en fonction de la météo. Tous les
+        niveaux sont les bienvenus et le groupe ainsi composé de tous les niveaux confondus permet à chacun de
+        progresser à son rythme dans une atmosphère amicale.
+    </p>
+    <img src="{{asset('images/imagesAutre/logoNav.png')}}" alt="logoAsso"
+        class="_logoVtt img-fluid d-block mx-auto mb-5">
+</div>
+
+<!-- =============================================================== -->
+<!-- liste dernier post -->
+<!-- =============================================================== -->
+{% include '/partial/section/ListDernierPost.html.twig' %}
+
+</div>
+{% for vtt in  cat %}
+    <h1>{{vtt.name}}</h1>
+    {% for post in vtt.posts %}
+        <h1>{{post.id}}</h1>
+        <h2>{{post.title}}</h2>
+        <p>{{post.content}}</p>
+
+        <a href="{{path('post',{'id':post.id})}}" class="btn btn-info">Voir plus</a>
+
+{% endfor %}
+{% endfor %}
 
 
 {% endblock %}

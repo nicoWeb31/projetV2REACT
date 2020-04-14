@@ -89,8 +89,8 @@ class User implements UserInterface
     private $photo;
 
     /**
-     * @var File|null
-     * @Vich\UploadableField(mapping="images_post", fileNameProperty="photo")
+     * 
+     * @Vich\UploadableField(mapping="images_users", fileNameProperty="photo")
      */
     private $imageFile;
 
@@ -350,35 +350,21 @@ class User implements UserInterface
     }
 
 
-    /**
-     * Get the value of imageFile
-     *
-     * @return  File|null
-     */ 
     public function getImageFile()
     {
         return $this->imageFile;
     }
 
-    /**
-     * Set the value of imageFile
-     *
-     * @param  File|null  $imageFile
-     *
-     * @return  self
-     */ 
-    public function setImageFile($imageFile)
+    public function setImageFile(?File $imageFile = null): self
     {
         $this->imageFile = $imageFile;
         return $this;
-        
-        if ($this->imageFile instanceof UploadedFile) {
+
+        if (null !== $imageFile) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
-            $this->updated_at = new \DateTime('now');
+            $this->updated_at = new \DateTimeImmutable();
         }
-
-        return $this;
     }
 
     public function getUpdatedAt(): ?\DateTimeInterface

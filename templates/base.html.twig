@@ -17,7 +17,7 @@
     <!-- =================================================================== -->
     <!-- nav bar 1 -->
     <!-- =================================================================== -->
-
+    {% block nav1 %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
         <a class="navbar-link rounded-pill ml-5 h4 m-3 p-3" href="{{ path('home') }}">Accueil</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
@@ -79,16 +79,25 @@
                 </li>
                 {% endif %}
 
-                
+
             </ul>
         </div>
     </nav>
+    {% endblock %}
 
+
+    <!-- =================================================================== -->
+    <!-- baniere -->
+    <!-- =================================================================== -->
+    {% block baniere %}
     <img src="{{ asset('images/imagesAutre/testBaniere.png') }}" class="w-100 img-fluid" alt="" />
+    {% endblock %}
+    
 
     <!-- =================================================================== -->
     <!-- narbar 2 -->
     <!-- =================================================================== -->
+    {% block nav2 %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarColor02">
             <ul class="navbar-nav d-flex justify-content-center">
@@ -122,7 +131,7 @@
             </ul>
         </div>
     </nav>
-
+    {% endblock %}
     <!-- =================================================================== -->
     <!-- h1 -->
     <!-- =================================================================== -->
@@ -140,7 +149,7 @@
     <!-- =================================================================== -->
     <!-- Footer -->
     <!-- =================================================================== -->
-
+{% block footer %}
     <footer class="page-footer font-small bg-secondary text-dark">
 
         <div class="container text-center text-md-left">
@@ -160,10 +169,7 @@
                     </p>
                 </div>
 
-
                 <hr class="clearfix w-100 d-md-none" />
-
-
                 <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
 
                     <h5 class="font-weight-bold text-uppercase mb-4">Liens</h5>
@@ -176,22 +182,22 @@
                         </li>
                         <li>
                             <p>
-                                <a href="#">Actualités</a>
+                                <a href="{{ path('Actu') }}">Actualités</a>
                             </p>
                         </li>
                         <li>
                             <p>
-                                <a href="#">Trail</a>
+                                <a href="{{ path('Trail') }}">Trail</a>
                             </p>
                         </li>
                         <li>
                             <p>
-                                <a href="#">Vtt</a>
+                                <a href="{{ path('Vtt') }}">Vtt</a>
                             </p>
                         </li>
                         <li>
                             <p>
-                                <a href="#">Trek</a>
+                                <a href="{{ path('Trek') }}">Trek</a>
                             </p>
                         </li>
                     </ul>
@@ -237,6 +243,11 @@
                             class="_imgFacebook nav-link m-1 p-0 rounded-pill" alt="logo_sport_easy" />
                     </a>
 
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="{{ asset('images/imagesAutre/strava.png') }}"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill" alt="strava" />
+                    </a>
+
                 </div>
             </div>
         </div>
@@ -246,7 +257,8 @@
             <a href="#">Riot Nicolas</a>
         </div>
     </footer>
-    <!-- Footer -->
+    {% endblock %}
+
 
     <!-- =================================================================== -->
     <!-- block js -->

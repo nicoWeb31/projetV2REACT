@@ -27,7 +27,7 @@ class UserType extends AbstractType
             ->add('verifPassword',PasswordType::class)
             ->add('mail')
             ->add('phone')
-            ->add('photo',FileType::class,['required'=>false,'data_class' => null])
+            ->add('imageFile',FileType::class,['required'=>false])
             //->add('roles')
             ->add('catergoryUsers',EntityType::class,[
                 'class'=>CatergoryUser::class,

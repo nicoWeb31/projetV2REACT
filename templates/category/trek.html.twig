@@ -4,17 +4,47 @@
 {% block monTitle %}Treck{% endblock %}
 
 {% block body %}
-    {% for trek in  cat %}
-        <h1>{{trek.name}}</h1>
-            {% for post in trek.posts %}
-                <h1>{{post.id}}</h1>
-                <h2>{{post.title}}</h2>
-                <p>{{post.content}}</p>
-                <a href="{{path('post',{'id':post.id})}}" class="btn btn-info">Voir plus</a>
+<div>
+    <!-- ======================================================================= -->
+    <!-- liste des entrainements -->
+    <!-- ======================================================================= -->
+    {% include "/partial/section/listeEntrainement.html.twig" %}
 
 
-            {% endfor %}
-    {% endfor %}
+    <!-- =================================================================== -->
+    <!-- corp de pages -->
+    <!-- =================================================================== -->
+    <div class="col-6">
+        <h2 class="text-center p-3 text-white">Section Trek</h2>
+        <p class="text-justify h4 m-4 text-white">
+            La section « Trek », ou trekking, est notre section loisir de randonnée pédestre en montagne (de préférence).
+            Dans la mesure du possible et selon la météo, nous faisons une sortie par week-end, le samedi ou le dimanche.
+            Aux beaux jours de nombreuses randonnées sont programmées dans les plus beaux endroits dont regorgent nos
+            Pyrénées.
+            Sur 1, 2 ou 3 jours, nous sommes amené à organiser des séjours dans la joie et la bonne humeur et où chacun est
+            le bienvenu.
+        </p>
+        <img src="{{asset('images/imagesAutre/logoNav.png')}}" alt="logoAsso"
+            class="_logoVtt img-fluid d-block mx-auto mb-5">
+    </div>
+
+    <!-- =============================================================== -->
+    <!-- liste dernier post -->
+    <!-- =============================================================== -->
+    {% include '/partial/section/ListDernierPost.html.twig' %}
+</div>
+
+{% for trek in  cat %}
+<h1>{{trek.name}}</h1>
+{% for post in trek.posts %}
+<h1>{{post.id}}</h1>
+<h2>{{post.title}}</h2>
+<p>{{post.content}}</p>
+<a href="{{path('post',{'id':post.id})}}" class="btn btn-info">Voir plus</a>
+
+
+{% endfor %}
+{% endfor %}
 
 
 {% endblock %}
