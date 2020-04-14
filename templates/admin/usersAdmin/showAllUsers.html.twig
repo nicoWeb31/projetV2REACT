@@ -59,14 +59,16 @@
 
 
         <td>
-            <a href="{{path('admin.user.modifier',{"id": user.id})}}" class="btn btn-warning p-0 m-0 d-block">Modifier</a>
+            <div class="btn-group">
+                <a href="{{path('admin.user.modifier',{"id": user.id})}}" class="btn btn-warning p-1 m-0 d-block">Modifier</a>
 
-            <form method="POST" action="{{path('admin.user.suppr',{"id": user.id})}}" onsubmit="return confirm('etes vous sur ?')">
-                <input type="hidden" name="_method" value="sup">
-                <input type="hidden" name="_token" value="{{csrf_token('sup' ~ user.id)}}" >
-                
-                <input type="submit" class="btn btn-danger p-0 m-0 d-block w-100" value="supprimer">
-            </form>
+                <form method="POST" action="{{path('admin.user.suppr',{"id": user.id})}}" onsubmit="return confirm('etes vous sur ?')">
+                    <input type="hidden" name="_method" value="sup">
+                    <input type="hidden" name="_token" value="{{csrf_token('sup' ~ user.id)}}" >
+                    
+                    <input type="submit" class="btn btn-danger p-1 m-0 d-block w-100" value="supprimer">
+                </form>
+            </div>
         </td>
     </tr>
 

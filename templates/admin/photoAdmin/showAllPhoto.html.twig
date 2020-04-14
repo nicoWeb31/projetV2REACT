@@ -29,15 +29,16 @@
             <div class="card-body">
                 <h4 class="card-title">{{photo.name}}</h4>
                 <p class="card-text">alt : {{photo.alt}}</p>
+                    <div class="btn-group mx-auto">
+                        <a href="{{path('admin.photo.modifier',{"id": photo.id})}}" class="btn btn-warning">Modifier</a>
 
-                <a href="{{path('admin.photo.modifier',{"id": photo.id})}}" class="btn btn-warning p-2 m-2 d-inline">Modifier</a>
-
-                <form method="POST" class="d-inline" action="{{path('admin.photo.suppr',{'id' : photo.id})}}" onsubmit="return confirm('etes vous sur ?')">
-                    <input type="hidden" name="_method" value="sup">
-                    <input type="hidden" name="_token" value="{{csrf_token('sup' ~ photo.id)}}" >
-                    <input type="submit" class="btn btn-danger p-2 m-2" value="supprimer">
-                </form>
-
+                        <form method="POST" class="d-inline" action="{{path('admin.photo.suppr',{'id' : photo.id})}}" onsubmit="return confirm('etes vous sur ?')">
+                            <input type="hidden" name="_method" value="sup">
+                            <input type="hidden" name="_token" value="{{csrf_token('sup' ~ photo.id)}}" >
+                            <input type="submit" class="btn btn-danger w-100" value="supprimer">
+                            
+                        </form>
+                    </div>
             </div>
         </div>
 

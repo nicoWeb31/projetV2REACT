@@ -3,7 +3,19 @@
 {% block title %}Hello PostsController!{% endblock %}
 {% block monTitle %}{{post.title}}{% endblock %}
 
+
+
+
 {% block body %}
+<!-- ======================================================================= -->
+<!-- message flash -->
+<!-- ======================================================================= -->
+{% for message in app.flashes('success') %}
+<div class="alert alert-success">
+    {{message}}
+</div>
+{% endfor %}
+
 <h1>show one post</h1>
 
 <h1>{{post.title}} le {{post.createdAt | date}}</h1>
@@ -20,13 +32,32 @@
 </div>
 
 
+<!-- ======================================================================= -->
+<!-- form commentaire  -->
+<!-- ======================================================================= -->
+
+{% if app.user %}
+
+    <h2> {{post.comments | length}} Commentaire : </h2>
+    {{form_start(form)}}
+    {{form_widget(form)}}
+    <button class="btn btn-success">Commenter</button>
+    {{form_end(form)}}
+
+{% endif %}
+
+
+
 {% for com in post.comments %}
-<h2>{{com.author}}</h2>
-<h3>commentaire du {{com.createdAd | date}}</h3>
+
+<h3>{{com.user.username}}</h3>
+<p>commentaire du {{com.createdAd | date}}</p>
 <p>{{com.comment}}</p>
 
     
 {% endfor %}
+
+
     
 
 {% endblock %}

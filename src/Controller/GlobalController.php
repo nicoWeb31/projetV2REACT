@@ -18,7 +18,10 @@ class GlobalController extends AbstractController
      */
     public function index()
     {
-        return $this->render('global/home.html.twig');
+        $user = $user = $this->getUser(); //recuperation du user;
+        return $this->render('global/home.html.twig',[
+            "user" => $user
+        ]);
     }
 
     /**

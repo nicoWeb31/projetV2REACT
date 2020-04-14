@@ -37,13 +37,15 @@
                 <p>{{post.content | slice(1,40)}} ....</p>  {# slice recupere les caracts de 1 a 100 #}
             </td>
             <td>
-                <a href="{{path('admin.post.modifier',{"id":post.id})}}" class="btn btn-warning p-0 m-0 d-block w-100 ">Modifier</a>
+                <div class="btn-group">
+                    <a href="{{path('admin.post.modifier',{"id":post.id})}}" class="btn btn-warning p-1 m-0 d-block w-100 ">Modifier</a>
 
-                <form method="POST" action="{{path('admin.post.suppr',{'id':post.id})}}" onsubmit="return confirm('etes vous sur ?')">
-                    <input type="hidden" name="_method" value="sup">
-                    <input type="hidden" name="_token" value="{{csrf_token('sup' ~ post.id)}}" >
-                    <input type="submit" class="btn btn-danger p-0 m-0 d-block w-100 " value="supprimer">
-                </form>
+                    <form method="POST" action="{{path('admin.post.suppr',{'id':post.id})}}" onsubmit="return confirm('etes vous sur ?')">
+                        <input type="hidden" name="_method" value="sup">
+                        <input type="hidden" name="_token" value="{{csrf_token('sup' ~ post.id)}}" >
+                        <input type="submit" class="btn btn-danger p-1 m-0 d-block w-100 " value="supprimer">
+                    </form>
+                </div>
             </td>
         </tr>
 
