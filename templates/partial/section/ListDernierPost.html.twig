@@ -4,6 +4,14 @@
     <div class="col-3 jumbotron">
         <h4 class="display-5">liste des deniers posts</h4>
         <hr class="my-4 my-light">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p>Retrouver nos derniers post : </p>
+        <ul>
+        {% for post in lastPost %}
+            <li class="m-3">
+                <a href="{{path('post',{'id':post.id})}}">{{post.title}}...{{post.category.name}} du {{post.createdAt |date("m/d/Y")}}</a>
+                
+            </li>
+        {% endfor %}
+        </ul> 
         {# <img src="{{asset('images/imagesAutre/logoVTT.jpg')}}" alt="logoAsso" class="_logoVtt img-fluid"> #}
     </div>
