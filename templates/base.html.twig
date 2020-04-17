@@ -27,30 +27,17 @@
 
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto ml-5">
-                {#
-          <li class="nav-item rounded-pill">
-            <a
-              class="nav-link h4 m-3 p-3 rounded-pill"
-              href="{{ path('home') }}"
-              >Accueil</a
-            >
-          </li>
-          #}
+
                 <li class="nav-item h4 m-3 rounded-pill">
                     <a class="nav-link p-3 rounded-pill" href="#">Nocture de ?</a>
                 </li>
                 <li class="nav-item h4 m-3 rounded-pill">
                     <a class="nav-link p-3 rounded-pill" href="{{ path('Actu') }}">Actualités</a>
                 </li>
-                {#
-          <li class="nav-item h4 m-3 rounded-pill">
-            <a class="nav-link p-3 rounded-pill" href="{{ path('Actu') }}"
-              >Autres</a
-            >
-          </li>
-          #}
+
             </ul>
             <ul class="navbar-nav ml-auto mr-5">
+
                 {% if is_granted('ROLE_ADMIN') %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle h5 m-2 rounded-pill p-3" href="#" id="navbarDropdownMenuLink"
@@ -92,7 +79,7 @@
     {% block baniere %}
     <img src="{{ asset('images/imagesAutre/testBaniere.png') }}" class="w-100 img-fluid" alt="" />
     {% endblock %}
-    
+
 
     <!-- =================================================================== -->
     <!-- narbar 2 -->
@@ -101,15 +88,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarColor02">
             <ul class="navbar-nav d-flex justify-content-center">
-                {#
-          <li>
-            <img
-              src="{{ asset('images/imagesAutre/logoNav.png') }}"
-              alt="logo"
-              class="_logoNav"
-            />
-          </li>
-          #}
+
                 <li class="nav-item">
                     <a class="nav-link h2 m-3 p-5" href="{{ path('Vtt') }}">Vtt</a>
                 </li>
@@ -119,15 +98,8 @@
                 <li class="nav-item">
                     <a class="nav-link h2 m-3 p-5" href="{{ path('Trek') }}">Trek</a>
                 </li>
-                {#
-          <li>
-            <img
-              src="{{ asset('images/imagesAutre/logoNav.png') }}"
-              alt="logo"
-              class="_logoNav"
-            />
-          </li>
-          #}
+                
+
             </ul>
         </div>
     </nav>
@@ -135,7 +107,7 @@
     <!-- =================================================================== -->
     <!-- h1 -->
     <!-- =================================================================== -->
-    <h1 class="border border-dark rounded text-white m-5 p-5 text-center bg-success w-90">
+    <h1 class="border border-dark rounded text-white m-4 p-4 text-center bg-success w-90">
         {% block monTitle %}{% endblock %}
     </h1>
 
@@ -149,7 +121,7 @@
     <!-- =================================================================== -->
     <!-- Footer -->
     <!-- =================================================================== -->
-{% block footer %}
+    {% block footer %}
     <footer class="page-footer font-small bg-secondary text-dark">
 
         <div class="container text-center text-md-left">

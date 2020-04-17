@@ -12,7 +12,7 @@
 {% block body %}
 <div class="container">
 
-
+    {{form_start(form)}}
     {{form_row(form.username,{
         "attr":{
             "placeholder":"entrer votre pseudo"
@@ -86,8 +86,8 @@
         },
         "label":"Image :"
     })}}
-
-
+    {{form_widget(form)}}
+    {{form_end(form)}}
 
 
 

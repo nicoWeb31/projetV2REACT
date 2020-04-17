@@ -158,37 +158,37 @@ class AdminController extends AbstractController
     }
 
 
-    /**
-     * @Route("/admin/user/create", name="admin.user.create")
-     * @Route("/admin/user/modifier/{id}", name="admin.user.modifier",methods ="GET|POST")
-     */
-    public function ModCreatUser(User $user = null,EntityManagerInterface $man, Request $req,UserPasswordEncoderInterface $encode)
-    {
-        if(!$user){
-            $user = new User();
-        }
+    // /**
+    //  * @Route("/admin/user/create", name="admin.user.create")
+    //  * @Route("/admin/user/modifier/{id}", name="admin.user.modifier",methods ="GET|POST")
+    //  */
+    // public function ModCreatUser(User $user = null,EntityManagerInterface $man, Request $req,UserPasswordEncoderInterface $encode)
+    // {
+    //     if(!$user){
+    //         $user = new User();
+    //     }
 
-        $form = $this->createForm(UserType::class,$user);
-        $form->handleRequest($req);
+    //     $form = $this->createForm(UserType::class,$user);
+    //     $form->handleRequest($req);
         
-        if($form->isSubmitted() && $form->isValid()){
-            $passEncode = $encode->encodePassword($user,$user->getPassword());
-            $user->setPassword($passEncode);
-            $modif = $user->getId() !== null;
-            $user->setRoles("ROLE_USER");
-            $user->setUpdatedAt(new DateTime('now'));
-            $man->persist($user);
-            $man->flush();
-            $this->addFlash("success",($modif) ? "Modification effectuer avec succes" : "Ajouter avec succés");
-            return $this->redirectToRoute('admin.users');
-        }
-        return $this->render('admin/usersAdmin/ModCreatUsers.html.twig',[
-            "user"=>$user,
-            "form"=> $form->createView(),
-            "modif"=> $user->getId() !== null
-        ]);
+    //     if($form->isSubmitted() && $form->isValid()){
+    //         $passEncode = $encode->encodePassword($user,$user->getPassword());
+    //         $user->setPassword($passEncode);
+    //         $modif = $user->getId() !== null;
+    //         $user->setRoles("ROLE_USER");
+    //         $user->setUpdatedAt(new DateTime('now'));
+    //         $man->persist($user);
+    //         $man->flush();
+    //         $this->addFlash("success",($modif) ? "Modification effectuer avec succes" : "Ajouter avec succés");
+    //         return $this->redirectToRoute('admin.users');
+    //     }
+    //     return $this->render('admin/usersAdmin/ModCreatUsers.html.twig',[
+    //         "user"=>$user,
+    //         "form"=> $form->createView(),
+    //         "modif"=> $user->getId() !== null
+    //     ]);
 
-    }
+    // }
 
     /**
      * @Route("/admin/user/suppr/{id}", name="admin.user.suppr",methods="sup")

@@ -16,7 +16,7 @@
     </div>
 {% endfor %}
 
-<a href="{{path('admin.user.create')}}" class="btn btn-info w-100">Ajouter un Utilisateur</a>
+{# <a href="{{path('admin.user.create')}}" class="btn btn-info w-100">Ajouter un Utilisateur</a> #}
 <table class="table">
     <tr>
         <th>photo</th>
@@ -60,7 +60,7 @@
 
         <td>
             <div class="btn-group">
-                <a href="{{path('admin.user.modifier',{"id": user.id})}}" class="btn btn-warning p-1 m-0 d-block">Modifier</a>
+                {# <a href="{{path('admin.user.modifier',{"id": user.id})}}" class="btn btn-warning p-1 m-0 d-block">Modifier</a> #}
 
                 <form method="POST" action="{{path('admin.user.suppr',{"id": user.id})}}" onsubmit="return confirm('etes vous sur ?')">
                     <input type="hidden" name="_method" value="sup">

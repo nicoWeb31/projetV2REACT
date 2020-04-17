@@ -19,7 +19,7 @@ class GlobalController extends AbstractController
      */
     public function index()
     {
-        $user = $user = $this->getUser(); //recuperation du user;
+        $user = $this->getUser(); //recuperation du user;
         return $this->render('global/home.html.twig',[
             "user" => $user
         ]);
@@ -42,7 +42,7 @@ class GlobalController extends AbstractController
             $man->persist($user);
             $man->flush();
             $this->addFlash("success","Compte crée avec succes");
-            return $this->redirectToRoute('admin.users');
+            return $this->redirectToRoute('login');
         }
         return $this->render('global/register.html.twig',[
 

@@ -114,6 +114,11 @@ class User implements UserInterface
      */
     private $updated_at;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $activationToken;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
@@ -375,6 +380,18 @@ class User implements UserInterface
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getActivationToken(): ?string
+    {
+        return $this->activationToken;
+    }
+
+    public function setActivationToken(?string $activationToken): self
+    {
+        $this->activationToken = $activationToken;
 
         return $this;
     }
