@@ -4,9 +4,12 @@ namespace App\Controller;
 
 use DateTime;
 use App\Entity\User;
+use App\Form\ContactType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Swift_Mailer;
+use Swift_Message;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -127,4 +130,41 @@ class GlobalController extends AbstractController
     {
     
     }
+
+
+
+    /**
+     * @Route("/contact", name="contact")
+     */
+    public function contact(Request $req, Swift_Mailer $mailer)
+    {
+        $form = $this->createForm(ContactType::class);
+        $form->handleRequest($req);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $contact = $form->getData();
+
+            //envoie du mail
+            $message = (new \Swift_Message('Nouveau Contact'))
+            ->setFrom($contact['email'])
+            ->setTo('nico.riot@free.fr')  //a remplacer par le mail de patrick
+            ->setBody(
+                $this->renderView(
+                    'global/email/contact.html.twig',compact('contact')
+                ),
+                'text/html'
+                )
+            ;
+
+            //envoie du message
+            $mailer->send($message);
+            $this->addFlash('messages','le message a été envoyer avec succées');
+            return $this->redirectToRoute('contact');
+        }
+
+        return $this->render('global/contact.html.twig',[
+            'contactForm' =>$form->createView()
+        ]);
+    }
+
 }
