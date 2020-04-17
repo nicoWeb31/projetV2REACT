@@ -227,6 +227,11 @@ class GlobalController extends AbstractController
                 'text/html'
             )
             ;
+
+            //on envoie
+            $mailer->send($message);
+            //on crée le message flash
+            $this->addFlash( )
         }
     }
 
