@@ -5,6 +5,7 @@ namespace App\Controller;
 use DateTime;
 use App\Entity\User;
 use App\Form\ContactType;
+use App\Form\RestPasswordType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -16,6 +17,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Mime\Message;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
 
 class GlobalController extends AbstractController
 {
@@ -30,6 +32,11 @@ class GlobalController extends AbstractController
         ]);
     }
 
+
+
+    // =========================================================================
+    // register via token
+    // =========================================================================
     /**
      * @Route("/register", name="register")
      */
@@ -84,6 +91,7 @@ class GlobalController extends AbstractController
 
     }
 
+
     /**
      * @Route("/activation/{token}", name ="activation")
      */
@@ -132,6 +140,9 @@ class GlobalController extends AbstractController
     }
 
 
+    // =========================================================================
+    // contact avec envoie de mail
+    // =========================================================================
 
     /**
      * @Route("/contact", name="contact")
@@ -165,6 +176,58 @@ class GlobalController extends AbstractController
         return $this->render('global/contact.html.twig',[
             'contactForm' =>$form->createView()
         ]);
+    }
+
+    // =========================================================================
+    // reset mot de pass oublié
+    // =========================================================================
+
+    /**
+     * @Route("/reset-pass", name="reset_password")
+     */
+    public function resetPass(Request $req, UserRepository $repoUser, Swift_Mailer $mailer, TokenGeneratorInterface $tokenGenerator,EntityManagerInterface $man)
+    {
+        //create form
+        $form =$this->createForm(RestPasswordType::class);
+        $form->handleRequest($req);
+        if($form->isSubmitted() && $form->isValid()){
+            //recup donner
+                $data = $form->getData();
+
+                //recherche si un user a cet email
+                $user =$repoUser->findOneByEmail($data['email']);
+
+                //si user n'hexiste pas
+                if(!$user){
+                    $this->addFlash('danger', 'ce mail n\'hexiste pas');
+                    $this->redirectToRoute('login');
+                }
+
+            //generation du token    
+            $token = $tokenGenerator->generateToken();   
+            try{
+                $user->setResetToken($token);
+                $man->persist($user);
+                $man->flush();
+
+            }catch(\Exception $e){
+                $this->addFlash('warining','Une eurreru est survenue : ' .$e->getMessage());
+                return $this->redirectToRoute('login');
+            }
+
+        // on genere l'url de reinitialisation de mot de passe
+            $url = $this->generateUrl('reset_password',['token' => $token ]);
+
+            //on envoie le message
+            $message = (new Swift_Message('Mot de passe oublié'))
+            ->setFrom('nico.riot@free.fr')   //a remplacer
+            ->setTo($user->getMail())
+            ->setBody(
+                "<p>Une demande de réinitialisation de mot de passe a été effecctuée pour le site VTT veuillez cliquer sur le lien suivant : " .$url ."</p>",
+                'text/html'
+            )
+            ;
+        }
     }
 
 }

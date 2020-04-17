@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!{% endblock %}
+{% block monTitle %}Mots de pass oublit{% endblock %}
+
+{% block body %}
+<!-- ======================================================================= -->
+<!-- message flash -->
+<!-- ======================================================================= -->
+<!-- {% for mess in app.flashes('messages') %}
+    <div class="alert alert-success">
+        {{mess}}
+    </div>
+{% endfor %} -->
+
+
+<div class="container">
+
+    {{form(resetForm)}}
+
+</div>
+
+{% endblock %}

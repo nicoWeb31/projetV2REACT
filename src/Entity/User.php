@@ -119,6 +119,11 @@ class User implements UserInterface
      */
     private $activationToken;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $resetToken;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
@@ -392,6 +397,18 @@ class User implements UserInterface
     public function setActivationToken(?string $activationToken): self
     {
         $this->activationToken = $activationToken;
+
+        return $this;
+    }
+
+    public function getResetToken(): ?string
+    {
+        return $this->resetToken;
+    }
+
+    public function setResetToken(?string $resetToken): self
+    {
+        $this->resetToken = $resetToken;
 
         return $this;
     }
