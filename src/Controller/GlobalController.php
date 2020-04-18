@@ -5,6 +5,7 @@ namespace App\Controller;
 use DateTime;
 use App\Entity\User;
 use App\Form\ContactType;
+use App\Form\NewPassType;
 use App\Form\RestPasswordType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
@@ -248,6 +249,12 @@ class GlobalController extends AbstractController
      */
     public function resetPassword($token, Request $req, UserPasswordEncoderInterface $encode,UserRepository $repo, EntityManagerInterface $man)
     {
+        
+        
+        $form = $this->createForm(NewPassType::class);
+        $form->handleRequest($req);
+
+
         //on recherche avec le token
         $user = $repo->findOneBy(['resetToken' => $token]);
         //si pas de user avec token :
@@ -257,9 +264,12 @@ class GlobalController extends AbstractController
             return $this->redirectToRoute('login');
         }
 
-        if($req->isMethod('POST')){
+        if($form->isSubmitted() && $form->isValid()){
+            //recup donner
+            $data = $form->getData();
+            //dd($req->request->get('new_pass')['password']);
             $user->setResetToken(null);
-            $user->setPassword($encode->encodePassword($user,$req->request->get('pass')));
+            $user->setPassword($encode->encodePassword($user,$req->request->get('new_pass')['password']));
             $man->persist($user);
             $man->flush();
 
@@ -267,7 +277,8 @@ class GlobalController extends AbstractController
             return $this->redirectToRoute('login');
         }else{
             return $this->render('global/ChangPassAfterReset.html.twig',[
-                'token'=>$token
+                'token'=>$token,
+                'form'=>$form->createView()
             ]);
         }
     }
