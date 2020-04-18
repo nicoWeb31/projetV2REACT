@@ -19,6 +19,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\User\User as UserUser;
 
+    /**
+     * @Route("/admin")
+     */
 class AdminController extends AbstractController
 {
 
@@ -28,7 +31,7 @@ class AdminController extends AbstractController
     // =========================================================================
 
     /**
-     * @Route("/admin/post", name="admin.post")
+     * @Route("/post", name="admin.post")
      */
     public function showAllPost(PostRepository $repo)
     {
@@ -39,8 +42,8 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/post/create", name="admin.post.create")
-     * @Route("/admin/post/modifier/{id}", name="admin.post.modifier",methods ="GET|POST")
+     * @Route("/post/create", name="admin.post.create")
+     * @Route("/post/modifier/{id}", name="admin.post.modifier",methods ="GET|POST")
      * 
      */
     public function creatMod(Post $post = null,EntityManagerInterface $man,Request $req)
@@ -70,7 +73,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/post/suppr/{id}", name="admin.post.suppr",methods="sup")
+     * @Route("/post/suppr/{id}", name="admin.post.suppr",methods="sup")
      */
     public function suppr(Post $post, Request $req, EntityManagerInterface $man)
     {
@@ -87,7 +90,7 @@ class AdminController extends AbstractController
     // =========================================================================
 
     /**
-     * @Route("/admin/photo", name="admin.photo")
+     * @Route("/photo", name="admin.photo")
      */
     public function showAllPhoto(PhotoRepository $repo)
     {
@@ -99,8 +102,8 @@ class AdminController extends AbstractController
 
 
     /**
-     * @Route("/admin/photo/create", name="admin.photo.create")
-     * @Route("/admin/photo/modifier/{id}", name="admin.photo.modifier",methods ="GET|POST")
+     * @Route("/photo/create", name="admin.photo.create")
+     * @Route("/photo/modifier/{id}", name="admin.photo.modifier",methods ="GET|POST")
      */
     public function ModCreatPhoto(Photo $photo = null,EntityManagerInterface $man, Request $req)
     {
@@ -128,7 +131,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/photo/suppr/{id}", name="admin.photo.suppr",methods="sup")
+     * @Route("/photo/suppr/{id}", name="admin.photo.suppr",methods="sup")
      */
     public function supprPhoto(Photo $photo, Request $req, EntityManagerInterface $man)
     {
@@ -147,7 +150,7 @@ class AdminController extends AbstractController
     // =========================================================================
     
     /**
-     * @Route("/admin/users", name="admin.users")
+     * @Route("/users", name="admin.users")
      */
     public function showAllUser(UserRepository $repo)
     {
@@ -159,8 +162,8 @@ class AdminController extends AbstractController
 
 
     // /**
-    //  * @Route("/admin/user/create", name="admin.user.create")
-    //  * @Route("/admin/user/modifier/{id}", name="admin.user.modifier",methods ="GET|POST")
+    //  * @Route("/user/create", name="admin.user.create")
+    //  * @Route("/user/modifier/{id}", name="admin.user.modifier",methods ="GET|POST")
     //  */
     // public function ModCreatUser(User $user = null,EntityManagerInterface $man, Request $req,UserPasswordEncoderInterface $encode)
     // {
@@ -191,7 +194,7 @@ class AdminController extends AbstractController
     // }
 
     /**
-     * @Route("/admin/user/suppr/{id}", name="admin.user.suppr",methods="sup")
+     * @Route("/user/suppr/{id}", name="admin.user.suppr",methods="sup")
      */
     public function supprUser(User $user, Request $req, EntityManagerInterface $man)
     {
