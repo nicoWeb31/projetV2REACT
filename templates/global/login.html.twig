@@ -10,6 +10,27 @@
 </dir>
 {% endif %}
 
+<!-- ======================================================================= -->
+<!-- message flash -->
+<!-- ======================================================================= -->
+{% for message in app.flashes('messages') %}
+  <dir class="alert alert-success">
+    {{message}}
+  </dir>
+{% endfor %}
+
+{% for message in app.flashes('warning') %}
+  <dir class="alert alert-warning">
+    {{message}}
+  </dir>
+{% endfor %}
+
+{% for message in app.flashes('danger') %}
+  <dir class="alert alert-danger">
+    {{message}}
+  </dir>
+{% endfor %}
+
 {% block nav1 %}{% endblock %}
 {% block nav2 %}{% endblock %}
 
@@ -29,12 +50,15 @@
             <input type="text" class="form-control mb-2" placeholder="Pseudo" required autofocus required name="_username" value="{{lastUserName}}">
             <input type="password" class="form-control mb-2" placeholder="Password" required required name="_password">
             <input type="submit" class="btn btn-primary" value="Envoyer">
+            <a href="{{path('reset_password')}}" class="float-left">Mot de passe oublié</a>
 
           </form>
         </div>
       </div>
       <a href="{{path('register')}}" class="float-right">Rejoignez-nous</a>
       <a href="{{path('home')}}" class="float-left">Retour</a>
+
+
 
     </div>
   </div>

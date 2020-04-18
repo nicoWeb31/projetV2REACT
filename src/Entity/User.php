@@ -72,7 +72,7 @@ class User implements UserInterface
 
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255 )
      * @Assert\Email(message = "Cette adresse mail '{{ value }}' n'est pas valide.")
      * 
      */

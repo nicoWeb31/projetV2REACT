@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!{% endblock %}
+{% block monTitle %}Entrer Nouveau mot de passe{% endblock %}
+
+{% block body %}
+<!-- ======================================================================= -->
+<!-- message flash -->
+<!-- ======================================================================= -->
+<!-- {% for mess in app.flashes('messages') %}
+    <div class="alert alert-success">
+        {{mess}}
+    </div>
+{% endfor %} -->
+
+
+<div class="container">
+    <h2>Nouveau mot de passe :</h2>
+
+    <form action="" method="POST">
+        <label for="pass">Mots de pass</label>
+        <input type="password" name="pass" >
+        <input type="hidden" name="token" value ={{token}}>
+
+        <button>Valider</button>
+    </form>
+
+</div>
+
+{% endblock %}

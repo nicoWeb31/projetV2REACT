@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Mime\Message;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
@@ -195,7 +196,7 @@ class GlobalController extends AbstractController
                 $data = $form->getData();
 
                 //recherche si un user a cet email
-                $user =$repoUser->findOneByEmail($data['email']);
+                $user =$repoUser->findOneBy(['mail' => $data['mail']]);
 
                 //si user n'hexiste pas
                 if(!$user){
@@ -216,7 +217,7 @@ class GlobalController extends AbstractController
             }
 
         // on genere l'url de reinitialisation de mot de passe
-            $url = $this->generateUrl('reset_password',['token' => $token ]);
+            $url = $this->generateUrl('reset_password_token',['token' => $token ],UrlGeneratorInterface::ABSOLUTE_URL);
 
             //on envoie le message
             $message = (new Swift_Message('Mot de passe oublié'))
@@ -231,7 +232,43 @@ class GlobalController extends AbstractController
             //on envoie
             $mailer->send($message);
             //on crée le message flash
-            $this->addFlash( )
+            $this->addFlash('message','un e-mail de réinitialisation de mot de passe a été envoyé');
+            return $this->redirectToRoute('login');
+        }
+
+        //on envoie vers la page de demande de l'e-mail
+        return $this->render('global/passReset.html.twig' ,[
+            'resetForm'=> $form->createView()
+        ]);
+    }
+
+
+    /**
+     * @Route("/reset-password/{token}", name="reset_password_token")
+     */
+    public function resetPassword($token, Request $req, UserPasswordEncoderInterface $encode,UserRepository $repo, EntityManagerInterface $man)
+    {
+        //on recherche avec le token
+        $user = $repo->findOneBy(['resetToken' => $token]);
+        //si pas de user avec token :
+        if(!$user)
+        {
+            $this->addFlash('danger', 'Token iconnu');
+            return $this->redirectToRoute('login');
+        }
+
+        if($req->isMethod('POST')){
+            $user->setResetToken(null);
+            $user->setPassword($encode->encodePassword($user,$req->request->get('pass')));
+            $man->persist($user);
+            $man->flush();
+
+            $this->addFlash('message','mot de passe modifier avec succes');
+            return $this->redirectToRoute('login');
+        }else{
+            return $this->render('global/ChangPassAfterReset.html.twig',[
+                'token'=>$token
+            ]);
         }
     }
 
