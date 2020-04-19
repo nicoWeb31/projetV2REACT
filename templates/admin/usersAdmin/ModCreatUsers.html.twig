@@ -2,97 +2,103 @@
 
 {% block title %}Hello CategoryController!{% endblock %}
 {% block monTitle %}
-    {% if modif %}
-        Modification {{user.name}}
-        {% else %}
-        Ajout d'un nouvelle utilisateur
-    {% endif %}
+{% if modif %}
+Modification {{user.name}}
+{% else %}
+Ajout d'un nouvelle utilisateur
+{% endif %}
 {% endblock %}
 
 {% block body %}
-<div class="container">
 
-    {{form_start(form)}}
-    {{form_row(form.username,{
+<div class="row p-5">
+    <div class="col-6">
+
+        {{form_start(form)}}
+        {{form_row(form.username,{
         "attr":{
             "placeholder":"entrer votre pseudo"
         },
         "label":"Pseudo :"
-    })}} 
-    {{form_row(form.name,{
+    })}}
+        {{form_row(form.name,{
         "attr":{
             "placeholder":"entrer votre Nom"
         },
         "label":"Nom :"
-    })}} 
-    {{form_row(form.prenom,{
+    })}}
+        {{form_row(form.prenom,{
         "attr":{
             "placeholder":"entrer votre Prénom"
         },
         "label":"Prénom :"
-    })}} 
+    })}}
 
-    {{form_row(form.adresse,{
+        {{form_row(form.adresse,{
         "attr":{
             "placeholder":"entrer votre adresse"
         },
         "label":" Adresse:"
-    })}} 
+    })}}
+    </div>
+    <div class="col-6">
 
-    {{form_row(form.codePostal,{
+
+        {{form_row(form.codePostal,{
         "attr":{
             "placeholder":"entrer votre code postal"
         },
         "label":"Code postal :"
-    })}} 
+    })}}
 
-    {{form_row(form.ville,{
+        {{form_row(form.ville,{
         "attr":{
             "placeholder":"entrer votre ville"
         },
         "label":"Ville :"
-    })}} 
+    })}}
 
-    {{form_row(form.password,{
-        "attr":{
-            "placeholder":"entrer votre mot de passe"
-        },
-        "label":"Mot de passe :"
-    })}} 
 
-    {{form_row(form.mail,{
+        {{form_row(form.mail,{
         "attr":{
             "placeholder":"entrer votre adresse mail"
         },
         "label":"Mail :"
     })}}
 
-    {{form_row(form.phone,{
+        {{form_row(form.phone,{
         "attr":{
             "placeholder":"entrer votre numéro de télephone"
         },
         "label":"Numéro de telephone :"
-    })}} 
+    })}}
+    </div>
+</div>
 
-    {# {{form_row(form.role,{
+<div class="row p-5">
+    <div class="col-2">
+
+        {{form_row(form.roles,{
         "attr":{
             "placeholder":"entrer votre code Role"
         },
         "label":"Role :"
-    })}}  #}
-    {{form_row(form.imageFile,{
-        "attr":{
-            "placeholder":"Photo profil jpg"
-        },
-        "label":"Image :"
     })}}
-    {{form_widget(form)}}
-    {{form_end(form)}}
+    </div>
 
+    <div class="col-2">
 
+        {{form_widget(form)}}
 
-    <input type="submit" class="btn btn-success" value="envoyer">
-    
+    </div>
+
+    <div class="col-2">
+
+        <button type="submit" class="btn btn-success">valider</button>
+        {{form_end(form)}}
+    </div>
 
 </div>
+
+
 {% endblock %}

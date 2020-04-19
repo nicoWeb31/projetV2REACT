@@ -2,18 +2,18 @@
 
 namespace App\Form;
 
-
 use App\Entity\User;
 use App\Entity\CatergoryUser;
+use PhpParser\Parser\Multiple;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class UserType extends AbstractType
+class EditUserAdminType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -23,18 +23,28 @@ class UserType extends AbstractType
             ->add('prenom')
             ->add('adresse')
             ->add('codePostal')
-            ->add('password',PasswordType::class)
-            ->add('verifPassword',PasswordType::class)
             ->add('ville')
             ->add('mail',EmailType::class)
             ->add('phone')
-            ->add('imageFile',FileType::class,['required'=>false])
+            ->add('roles',ChoiceType::class,[
+                'choices'=>[
+
+                    'Utilisateurs' =>'ROLE_USER',
+                    'Membre actif'=> 'ROLE_MEMBRE',
+                    'Admin'=> 'ROLE_ADMIN'
+                ],
+                'expanded' =>true,
+                'multiple' => true,
+                'label'=>'Rôles'
+            ])
             ->add('catergoryUsers',EntityType::class,[
                 'class'=>CatergoryUser::class,
                 'choice_label'=>'name',
                 'multiple'=> true,
-                'expanded' => true,///check-box choix multiple
+                'expanded' => true,
+                'label'=>'Carégories :'///check-box choix multiple
             ])
+            
         ;
     }
 

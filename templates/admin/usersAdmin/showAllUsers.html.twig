@@ -19,15 +19,14 @@
 {# <a href="{{path('admin.user.create')}}" class="btn btn-info w-100">Ajouter un Utilisateur</a> #}
 <table class="table">
     <tr>
-        <th>photo</th>
+
         <th>Pseudo</th>
         <th>Nom</th>
         <th>Prenom</th>
-        {# <th>Adresse</th>
-        <th>Code postale</th> #}
+        <th>Adresse</th>
+        <th>Code postale</th>
         <th>Ville</th>
-        {# <th>password</th>
-        <th>Adresse Mail</th> #}
+        <th>Adresse Mail</th> 
         <th>Télephone</th>
         <th>Sport</th>
         <th>Role</th>
@@ -36,16 +35,16 @@
     </tr>
         {% for user in users %}
     <tr>
-        <td>{{user.photo}}</td>
+
         <td>{{user.username}}</td>
         <td>{{user.name}}</td>
         <td>{{user.prenom}}</td>
-        {# <td>{{user.adresse}}</td>
-        <td>{{user.codePostal}}</td> #}
+        <td>{{user.adresse}}</td>
+        <td>{{user.codePostal}}</td>
         <td>{{user.ville}}</td>
-        {# <td>{{user.password}}</td>
-        <td>{{user.mail}}</td> #}
+        <td>{{user.mail}}</td> 
         <td>{{user.phone}}</td>
+
         <td>
             {% for sport in user.catergoryUsers %}
                 <div class="d-inline m-1">{{sport.name}}</div>
@@ -60,7 +59,7 @@
 
         <td>
             <div class="btn-group">
-                {# <a href="{{path('admin.user.modifier',{"id": user.id})}}" class="btn btn-warning p-1 m-0 d-block">Modifier</a> #}
+                <a href="{{path('admin.user.modifier',{"id": user.id})}}" class="btn btn-warning p-1 m-0 d-block">Modifier</a>
 
                 <form method="POST" action="{{path('admin.user.suppr',{"id": user.id})}}" onsubmit="return confirm('etes vous sur ?')">
                     <input type="hidden" name="_method" value="sup">
