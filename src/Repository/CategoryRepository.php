@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Category;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query;
 
 /**
  * @method Category|null find($id, $lockMode = null, $lockVersion = null)
@@ -18,6 +19,22 @@ class CategoryRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Category::class);
     }
+
+
+    // public function findAllWhitPaginator($value): Query
+    // {
+    //     return $this->createQueryBuilder('c')
+    //     ->andWhere('c.name = :val')
+    //     ->setParameter('val', $value)
+    //     ->getQuery();
+    // }
+
+
+    // public function findWhitPaginator(): Query
+    // {
+    //     return $this->createQueryBuilder('c')
+    //     ->getQuery();
+    // }
 
     // /**
     //  * @return Category[] Returns an array of Category objects
@@ -47,4 +64,15 @@ class CategoryRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findByNameCat($value)
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.name = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    
 }

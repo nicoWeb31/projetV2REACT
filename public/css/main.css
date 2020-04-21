@@ -21,3 +21,9 @@ h1,h2,h3,h4{
 ._pfont{
     font-size: 18px;
 }
+
+._photoCaroussel{
+height: auto;
+}
+
+/* carouselle partenaire */

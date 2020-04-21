@@ -3,10 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Category;
-use App\Repository\CategoryRepository;
 use App\Repository\PostRepository;
+use App\Repository\CategoryRepository;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 
 class CategoryController extends AbstractController
 {
@@ -16,7 +19,8 @@ class CategoryController extends AbstractController
      */
     public function trail(CategoryRepository $repCat, PostRepository $repPost)
     {
-        $cat = $repCat->findBy(['name'=>'Trail']);   // mes post par categorie
+        
+        $cat  =$repCat->findByNameCat('Trail');// mes post par categorie  
         $postLastSeven = $repPost->findLastSeven();  //liste des derniers post
         return $this->render('category/trail.html.twig',[
             'cat'=>$cat,
@@ -27,9 +31,11 @@ class CategoryController extends AbstractController
     /**
      * @Route("/category/Trek", name="Trek")
      */
-    public function trek(CategoryRepository $rep,PostRepository $repPost)
+    public function trek(CategoryRepository $repCat,PostRepository $repPost)
     {
-        $cat = $rep->findBy(['name'=>'Trek']);
+
+        
+        $cat  =$repCat->findByNameCat('Trek');// mes post par categorie  
         $postLastSeven = $repPost->findLastSeven();  //liste des derniers post
 
         return $this->render('category/trek.html.twig',[
@@ -44,7 +50,8 @@ class CategoryController extends AbstractController
      */
     public function vtt(CategoryRepository $rep,PostRepository $repPost)
     {
-        $cat = $rep->findBy(['name'=>'Vtt']);
+
+        $cat  =$rep->findByNameCat('Vtt');
         $postLastSeven = $repPost->findLastSeven();  //liste des derniers post
 
         return $this->render('category/vtt.html.twig',[
@@ -59,7 +66,9 @@ class CategoryController extends AbstractController
      */
     public function actu(CategoryRepository $rep,PostRepository $repPost)
     {
-        $cat = $rep->findBy(['name'=>'Actualités']);
+
+        $cat  =$rep->findByNameCat('Actualités');
+
         $postLastSeven = $repPost->findLastSeven();  //liste des derniers post
 
         return $this->render('category/actu.html.twig',[

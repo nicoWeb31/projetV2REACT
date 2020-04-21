@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello PostsController!{% endblock %}
-{% block monTitle %}{{post.title}} - {{post.category.name}} {% endblock %}
+{% block monTitle %}{{post.title}}{% endblock %}
 
 
 
@@ -17,48 +17,95 @@
 {% endfor %}
 
 
-<h1>Le {{post.createdAt | date}}</h1>
-<h2>{{post.subTitle}}</h2>
-<p>{{post.content}}</p>
-<!-- <h4>{{post.category.name}}</h4> -->
-<a href="/category/{{post.category.name}}"><button type="button" class="btn btn-warning">retour</button></a>
+<div class="row border-bottom border-light m-5">
+    <div class="col-5 p-5 d-flex flex-column justify-content-center">
+        <h1>Le {{post.createdAt | date("d/m/Y", "Europe/Paris")}}</h1>
+        <h2>{{post.subTitle}}</h2>
+        <p>{{post.content}}</p>
+        <!-- <h4>{{post.category.name}}</h4> -->
+        <a href="/category/{{post.category.name}}"><button type="button" class="btn btn-warning ">retour</button></a>
+    </div>
 
-<div class="row">
-    {% for photo in post.photos %}
-    <img src="{{asset('images/post/'~ photo.url)}}" alt="{{photo.alt}}">
-{% endfor %}
 
+
+    <!-- =================================================================== -->
+    <!-- caroussel -->
+    <!-- =================================================================== -->
+    {% if post.photos %}
+    <div class="col-6 p-5">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            {% for photo in post.photos %}
+            <div class="carousel-item {% if loop.index0 == 0 %} active {% endif %} img-fluid">
+                <img src="{{asset('images/post/'~ photo.url)}}" alt="{{photo.alt}}" class="d-block w-100 m-4 _photoCaroussel">
+            </div>
+            {% endfor %}
+
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    </div>
+    {% endif %}
+
+
+        <!-- <div class="col-6">
+            <div class="row">
+                {% for photo in post.photos %}
+                <img src="{{asset('images/post/'~ photo.url)}}" alt="{{photo.alt}}">
+                {% endfor %}
+            </div>
+        </div> -->
 </div>
+
+
 
 
 <!-- ======================================================================= -->
 <!-- form commentaire  -->
 <!-- ======================================================================= -->
 
-{% if app.user %}
-
-    <h2> {{post.comments | length}} Commentaires : </h2>
-    {{form_start(form)}}
-    {{form_widget(form)}}
-    <button class="btn btn-success">Commenter</button>
-    {{form_end(form)}}
-
-{% endif %}
-
-
-
+<div class="row">
+<div class="col"></div>    
+<div class="col-6 p-5 ">
 {% for com in post.comments %}
 
-<h3>{{com.user.username}}</h3>
-<p>commentaire du {{com.createdAd | date}}</p>
-<p>{{com.comment}}</p>
-<div class="btn-group">
-    <div class="btn btn-warning p-1">modifier</div>
-    <div class="btn btn-danger p-1">supprimer</div>
+    <h3>{{com.user.username}}</h3>
+    <p>commentaire du {{com.createdAd | date("d/m/Y", "Europe/Paris")}} :</p>
+    <p>{{com.comment}}</p>
+    <div class="btn-group">
+        <div class="btn btn-warning p-1">modifier</div>
+        <div class="btn btn-danger p-1">supprimer</div>
+    </div>
+{% endfor %}
+</div>
+<div class="col"></div>
+</div>
+
+<div class="row">
+<div class="col"></div>
+
+{% if app.user %}
+
+    <div class="col-6 p-5">
+        <h2> {{post.comments | length}} Commentaires : </h2>
+        {{form_start(form)}}
+        {{form_widget(form)}}
+        <button class="btn btn-success">Commenter</button>
+        {{form_end(form)}}
+
+    {% endif %}
+</div>
+<div class="col"></div>
 
 </div>
 
-{% endfor %}
 
 
 {% endblock %}
