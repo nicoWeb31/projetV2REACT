@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Treck{% endblock %}
-{% block monTitle %}Treck{% endblock %}
+{% block monTitle %}Trek{% endblock %}
 
 {% block body %}
 <div>
@@ -34,17 +34,25 @@
     {% include '/partial/section/ListDernierPost.html.twig' %}
 </div>
 
+
+<div class="row">
+    <div class="col"></div>
+<div class="col-6 m-5">
 {% for trek in  cat %}
-<h1>{{trek.name}}</h1>
+<!-- <h1>{{trek.name}}</h1> -->
 {% for post in trek.posts %}
-<h1>{{post.id}}</h1>
-<h2>{{post.title}}</h2>
-<p>{{post.content}}</p>
-<a href="{{path('post',{'id':post.id})}}" class="btn btn-info">Voir plus</a>
+        <div class="border-bottom border-light m-5">
+<!-- <h1>{{post.id}}</h1> -->
+<h2 class="text-warning">{{post.title}}</h2>
+<p class="_pfont" >{{post.content}}</p>
+<a href="{{path('post',{'id':post.id})}}" class="btn btn-success p-2">Voir plus</a>
 
 
+</div>
 {% endfor %}
 {% endfor %}
-
+</div>
+<div class="col"></div>
+</div>
 
 {% endblock %}

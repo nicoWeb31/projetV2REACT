@@ -33,17 +33,24 @@
 {% include '/partial/section/ListDernierPost.html.twig' %}
 
 </div>
-{% for vtt in  cat %}
-    <h1>{{vtt.name}}</h1>
-    {% for post in vtt.posts %}
-        <h1>{{post.id}}</h1>
-        <h2>{{post.title}}</h2>
-        <p>{{post.content}}</p>
+<div class="row">
+    <div class="col"></div>
+    <div class="col-6">
 
-        <a href="{{path('post',{'id':post.id})}}" class="btn btn-info">Voir plus</a>
+        {% for vtt in  cat %}
+            <!-- <h1>{{vtt.name}}</h1> -->
+            {% for post in vtt.posts %}
+            <div class="border-bottom border-light m-5">
+                <!-- <h1>{{post.id}}</h1> -->
+                <h2 class="text-warning">{{post.title}}</h2>
+                <p class="_pfont ">{{post.content}}</p>
 
-{% endfor %}
-{% endfor %}
-
+                <a href="{{path('post',{'id':post.id})}}" class="btn btn-success p-2">Voir plus</a>
+            </div>    
+            {% endfor %}
+        {% endfor %}
+    </div>
+    <div class="col"></div>
+</div>
 
 {% endblock %}
