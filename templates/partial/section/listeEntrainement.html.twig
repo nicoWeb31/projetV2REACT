@@ -1,11 +1,141 @@
-
 <!-- ======================================================================= -->
 <!-- liste des entrainements -->
 <!-- ======================================================================= -->
 <div class="row border-bottom border-light m-5">
     <div class="col-3 jumbotron">
-        <h4 class="display-5">Planning des entrainements</h4>
+        <h4 class="display-5 p-3">Planning des entrainements</h4>
         <hr class="my-4 my-light">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <div class="btn-group p-3">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">Lundi</button>
+            {# <!-- Modal --> #}
+            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">Mercredi</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3">Vendredi</button>
+        </div>
+        <div class="btn-group p-3">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal4">Samedi</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal5">Dimanche</button>
+        </div>
+
+
+
+
+
+
+<!-- ======================================================================= -->
+<!-- modal lundi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">Lundi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-white">
+                            Entrainement Trail a partir de 19h15 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!-- ======================================================================= -->
+<!-- modal mercredi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">Mercredi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-white">
+                            Entrainement Trail à partir de 19h15 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+<!-- ======================================================================= -->
+<!-- modal vendredi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">Vendredi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-white">
+                            Entrainement avec les irréductibles bipèdes à Cazères à 19H15.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!-- ======================================================================= -->
+<!-- modal samedi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Samedi et/ou Dimache</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-white">
+                    Sortie Vtt et/ou Randonnée en fonction de la météo
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+</div>
+
+<!-- ======================================================================= -->
+<!-- modal dimanche -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Samedi et/ou Dimache</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-white">
+                    Sortie Vtt et/ou Randonnée en fonction de la météo
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+</div>
+
+
         {# <img src="{{asset('images/imagesAutre/logoVTT.jpg')}}" alt="logoAsso" class="_logoVtt img-fluid"> #}
     </div>

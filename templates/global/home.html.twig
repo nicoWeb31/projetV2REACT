@@ -13,17 +13,15 @@
 
     </ol>
 </nav>
-
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v6.0">
 </script>
-    <div class="row border-bottom border-light m-5">
-        <div class="col-3 jumbotron">
-            <h4 class="display-5">Planning des entrainements</h4>
-            <hr class="my-4 my-light">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            {# <img src="{{asset('images/imagesAutre/logoVTT.jpg')}}" alt="logoAsso" class="_logoVtt img-fluid"> #}
-        </div>
+
+
+<!-- ======================================================================= -->
+<!-- liste des entrainements -->
+<!-- ======================================================================= -->
+{% include "/partial/section/listeEntrainement.html.twig" %}
 
         <div class="col-6">
             <h2 class="text-center p-3 text-white">Qui sommes nous ?</h2>
