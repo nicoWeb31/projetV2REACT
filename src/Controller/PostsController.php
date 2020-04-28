@@ -18,8 +18,11 @@ class PostsController extends AbstractController
      */
     public function showOnePost(Post $post,Request $req, EntityManagerInterface $man)
     {
-        $comment = new Comment();   
-        $user = $this->getUser(); //recuperation du user
+        $comment = new Comment();
+        if($this->getUser()){
+            
+            $user = $this->getUser(); //recuperation du user
+        }   
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($req);
 
@@ -32,7 +35,7 @@ class PostsController extends AbstractController
 
             $man->persist($comment);
             $man->flush();
-            $this->addFlash("success","Commentaire ajouter avec succés");
+            $this->addFlash("ok","Commentaire ajouté avec succès");
 
             return $this->redirectToRoute('post',['id' => $post->getId()]);
         }
@@ -40,6 +43,7 @@ class PostsController extends AbstractController
         return $this->render('posts/showOnePost.html.twig',[
             'post'=>$post,
             'form'=> $form->createView()
+
         ]);
     }
 
@@ -69,6 +73,7 @@ class PostsController extends AbstractController
     
                 $man->persist($comment);
                 $man->flush();
+                $this->addFlash("ok","Commentaire modifié avec succès");
                 return $this->redirectToRoute('post',['id' => $idPost]);
                 exit();
     
@@ -107,6 +112,7 @@ class PostsController extends AbstractController
 
                 $man->remove($comment);
                 $man->flush();
+                $this->addFlash('ok', "Commentaire supprimé avec succès");
                 return $this->redirectToRoute('post',['id' => $idPost]);
 
 

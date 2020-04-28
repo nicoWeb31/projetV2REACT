@@ -10,11 +10,12 @@
 <!-- ======================================================================= -->
 <!-- message flash -->
 <!-- ======================================================================= -->
-{% for message in app.flashes('success') %}
+{% for message in app.flashes('ok') %}
 <div class="alert alert-success">
     {{message}}
 </div>
 {% endfor %}
+
 
 
 <div class="row border-bottom border-light m-5">
@@ -81,13 +82,24 @@
         <p class="text-justify _pfont">{{com.comment}}</p>
     <div class="btn-group">
 
-        <a href="{{path('comment_edit',{'id':com.id})}}" class="btn btn-warning p-1">modifier</a>
 
-        <form method="POST" action="{{path('comment_sup',{"id":com.id})}}" onsubmit="return confirm('êtes-vous sûr de vouloir supprimer le message ?')">
-            <input type="hidden" name="_method" value="sup">
-            <input type="hidden" name="_token" value="{{csrf_token('sup' ~ com.id)}}" >
-            <input type="submit" class="btn btn-danger p-1 " value="supprimer">
-        </form>
+        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+            {% if app.user.username == com.user.username or is_granted('ROLE_ADMIN') %}
+            
+            <a href="{{path('comment_edit',{'id':com.id})}}" class="btn btn-warning p-1">modifier</a>
+
+            <form method="POST" action="{{path('comment_sup',{"id":com.id})}}" onsubmit="return confirm('êtes-vous sûr de vouloir supprimer le message ?')">
+                <input type="hidden" name="_method" value="sup">
+                <input type="hidden" name="_token" value="{{csrf_token('sup' ~ com.id)}}" >
+                <input type="submit" class="btn btn-danger p-1 " value="supprimer">
+            </form>
+            
+            
+            {% endif %}
+        
+        {% endif %}
+        
+        
 
     </div>
 </div>    

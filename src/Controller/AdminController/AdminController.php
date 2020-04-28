@@ -65,7 +65,7 @@ class AdminController extends AbstractController
             $modif = $post->getId() !== null;
             $man->persist($post);
             $man->flush();
-            $this->addFlash("success",($modif) ? "Modification effectué avec succes" : "Ajouter avec succés");
+            $this->addFlash("success",($modif) ? "Modification effectuée avec succès" : "Ajouté avec succès");
             return $this->redirectToRoute("admin.post");
         }
 
@@ -86,7 +86,7 @@ class AdminController extends AbstractController
         if($this->isCsrfTokenValid("sup".$post->getId(), $req->get("_token"))){
             $man->remove($post);
             $man->flush();
-            $this->addFlash('success', "Supprimer avec succes");
+            $this->addFlash('success', "Post supprimé avec succès");
             return $this->redirectToRoute('admin.post');
         }
     }
@@ -129,7 +129,7 @@ class AdminController extends AbstractController
             $photo->setUpdated_at(new DateTime('now'));
             $man->persist($photo);
             $man->flush();
-            $this->addFlash("success",($modif) ? "Modification effectuer avec succes" : "Ajouter avec succés");
+            $this->addFlash("success",($modif) ? "Modification effectuée avec succès" : "Ajoutée avec succès");
             return $this->redirectToRoute('admin.photo');
         }
         return $this->render('admin/photoAdmin/ModCreatPhoto.html.twig',[
@@ -148,7 +148,7 @@ class AdminController extends AbstractController
         if($this->isCsrfTokenValid("sup".$photo->getId(), $req->get("_token"))){
             $man->remove($photo);
             $man->flush();
-            $this->addFlash('success', "Supprimer effectués avec succes");
+            $this->addFlash('success', "Photo supprimée avec succès");
             return $this->redirectToRoute('admin.photo');
         }
     }
@@ -195,7 +195,7 @@ class AdminController extends AbstractController
             $user->setUpdatedAt(new DateTime('now'));
             $man->persist($user);
             $man->flush();
-            $this->addFlash("success",($modif) ? "Modification effectuer avec succes" : "Ajouter avec succés");
+            $this->addFlash("success",($modif) ? "Modification effectuée avec succès" : "Ajouté avec succès");
             return $this->redirectToRoute('admin.users');
         }
         return $this->render('admin/usersAdmin/ModCreatUsers.html.twig',[
@@ -214,7 +214,7 @@ class AdminController extends AbstractController
         if($this->isCsrfTokenValid("sup".$user->getId(), $req->get("_token"))){
             $man->remove($user);
             $man->flush();
-            $this->addFlash('success', "Supprimer effectués avec succes");
+            $this->addFlash('success', "Utilisateur supprimé avec succès");
             return $this->redirectToRoute('admin.users');
         }
     }
