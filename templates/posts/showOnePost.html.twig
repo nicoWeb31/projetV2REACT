@@ -80,8 +80,15 @@
         <p>commentaire du {{com.createdAd | date("d/m/Y", "Europe/Paris")}} :</p>
         <p class="text-justify _pfont">{{com.comment}}</p>
     <div class="btn-group">
-        <div class="btn btn-warning p-1">modifier</div>
-        <div class="btn btn-danger p-1">supprimer</div>
+
+        <a href="{{path('comment_edit',{'id':com.id})}}" class="btn btn-warning p-1">modifier</a>
+
+        <form method="POST" action="{{path('comment_sup',{"id":com.id})}}" onsubmit="return confirm('êtes-vous sûr de vouloir supprimer le message ?')">
+            <input type="hidden" name="_method" value="sup">
+            <input type="hidden" name="_token" value="{{csrf_token('sup' ~ com.id)}}" >
+            <input type="submit" class="btn btn-danger p-1 " value="supprimer">
+        </form>
+
     </div>
 </div>    
 {% endfor %}
