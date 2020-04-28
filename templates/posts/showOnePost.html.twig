@@ -73,16 +73,17 @@
 
 <div class="row">
 <div class="col"></div>    
-<div class="col-6 p-5 ">
+<div class="col-6 p-5">
 {% for com in post.comments %}
-
+<div class=" border-bottom border-light m-4">
     <h3>{{com.user.username}}</h3>
-    <p>commentaire du {{com.createdAd | date("d/m/Y", "Europe/Paris")}} :</p>
-    <p>{{com.comment}}</p>
+        <p>commentaire du {{com.createdAd | date("d/m/Y", "Europe/Paris")}} :</p>
+        <p class="text-justify _pfont">{{com.comment}}</p>
     <div class="btn-group">
         <div class="btn btn-warning p-1">modifier</div>
         <div class="btn btn-danger p-1">supprimer</div>
     </div>
+</div>    
 {% endfor %}
 </div>
 <div class="col"></div>
