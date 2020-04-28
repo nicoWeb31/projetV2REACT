@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query;
 
 /**
  * @method User|null find($id, $lockMode = null, $lockVersion = null)
@@ -18,6 +19,19 @@ class UserRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, User::class);
     }
+
+
+
+    // =========================================================================
+    // paginator
+    // =========================================================================
+    public function findAllWithPaginator():Query
+    {
+        return $this->createQueryBuilder('u')
+        ->getQuery();
+    }
+
+
 
     // /**
     //  * @return User[] Returns an array of User objects

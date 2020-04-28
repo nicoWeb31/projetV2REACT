@@ -17,20 +17,20 @@
 {% endfor %}
 
 {# <a href="{{path('admin.user.create')}}" class="btn btn-info w-100">Ajouter un Utilisateur</a> #}
-<table class="table">
+<table class="table m-5">
     <tr>
 
-        <th>Pseudo</th>
-        <th>Nom</th>
-        <th>Prenom</th>
-        <th>Adresse</th>
-        <th>Code postale</th>
-        <th>Ville</th>
-        <th>Adresse Mail</th> 
-        <th>Télephone</th>
-        <th>Sport</th>
-        <th>Role</th>
-        <th colspan="2">Action</th>
+        <th class="text-info">Pseudo</th>
+        <th class="text-info">Nom</th>
+        <th class="text-info">Prenom</th>
+        <th class="text-info">Adresse</th>
+        <th class="text-info">Code postale</th>
+        <th class="text-info">Ville</th>
+        <th class="text-info">Adresse Mail</th> 
+        <th class="text-info">Télephone</th>
+        <th class="text-info">Sport</th>
+        <th class="text-info">Role</th>
+        <th colspan="2" class="text-info">Action</th>
 
     </tr>
         {% for user in users %}
@@ -73,5 +73,11 @@
 
     {% endfor %}
 </table>
+{# display navigation #}
+<div class="navigation p-5">
+    {{ knp_pagination_render(users) }}
 </div>
+</div>
+
+
 {% endblock %}

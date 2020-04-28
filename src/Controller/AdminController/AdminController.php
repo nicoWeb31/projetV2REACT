@@ -14,6 +14,7 @@ use App\Repository\PostRepository;
 use App\Repository\PhotoRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,9 +35,13 @@ class AdminController extends AbstractController
     /**
      * @Route("/post", name="admin.post")
      */
-    public function showAllPost(PostRepository $repo)
+    public function showAllPost(PostRepository $repo,PaginatorInterface $pagi, Request $req)
     {
-        $posts = $repo->findAll();
+        $posts = $pagi->paginate(
+            $repo->findAllWhitPaginator(), /* query NOT result */
+            $req->query->getInt('page', 1), /*page number*/
+            5 /*limit per page*/
+        );
         return $this->render('admin/postAdmin/showAll.html.twig',[
             "posts"=>$posts
         ]);
@@ -93,9 +98,13 @@ class AdminController extends AbstractController
     /**
      * @Route("/photo", name="admin.photo")
      */
-    public function showAllPhoto(PhotoRepository $repo)
+    public function showAllPhoto(PhotoRepository $repo,PaginatorInterface $pagi, Request $req)
     {
-        $photos = $repo->findAll();
+        $photos = $pagi->paginate(
+            $repo->findAllWhitPaginator(), /* query NOT result */
+            $req->query->getInt('page', 1), /*page number*/
+            6 /*limit per page*/
+        );
         return $this->render('admin/photoAdmin/showAllPhoto.html.twig',[
             "photos"=>$photos
         ]);
@@ -153,9 +162,14 @@ class AdminController extends AbstractController
     /**
      * @Route("/users", name="admin.users")
      */
-    public function showAllUser(UserRepository $repo)
+    public function showAllUser(UserRepository $repo, PaginatorInterface $pagi, Request $req)
     {
-        $users = $repo->findAll();
+
+        $users = $pagi->paginate(
+        $repo->findAllWithPaginator(), /* query NOT result */
+        $req->query->getInt('page', 1), /*page number*/
+        5 /*limit per page*/
+    );
         return $this->render('admin/usersAdmin/showAllUsers.html.twig',[
             "users"=>$users
         ]);

@@ -44,5 +44,9 @@
 
         {% endfor %}
     </div>
+    {# display navigation #}
+        <div class="navigation">
+            {{ knp_pagination_render(photos) }}
+        </div>
 </div>
 {% endblock %}

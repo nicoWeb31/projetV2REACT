@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Photo;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method Photo|null find($id, $lockMode = null, $lockVersion = null)
@@ -17,6 +18,17 @@ class PhotoRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Photo::class);
+    }
+
+
+    // =========================================================================
+    // paginator sur admin
+    // =========================================================================
+
+    public function findAllWhitPaginator():Query
+    {
+        return $this->createQueryBuilder('p')
+        ->getQuery();
     }
 
     // /**
