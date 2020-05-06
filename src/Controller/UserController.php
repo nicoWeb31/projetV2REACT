@@ -24,7 +24,7 @@ class UserController extends AbstractController
         $user = $repo->find($userSession->getId());
 
         return $this->render('user/index.html.twig',[
-            "user" => $user,
+            "user" => $user
 
         ]);
     }
