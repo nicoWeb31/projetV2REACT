@@ -2,9 +2,29 @@
 
 {% block title %}Hello UserController!{% endblock %}
 
-{% block monTitle %}{{user.name}}{% endblock %}
+{% block monTitle %}Profile Utilisateur{% endblock %}
 {% block body %}
-<h2>{{user.username}}</h2>
-<img src="{{asset('images/imagesUsers/' ~ user.photo)}}" class="rounded-circle _profileImg" alt="" >
+
+<img src="{{asset('images/imagesUsers/' ~ user.photo)}}" class="_profileImg mx-auto d-block m-4" alt="" >
+<div class="row">
+    <div class="col-6 d-flex flex-column justify-content-center align-items-center p-4">
+        <h4>Nom : {{user.name}}</h4>
+        <h4>Prenom : {{user.prenom}}</h4>
+        <h4>Tél : {{user.phone}}</h4>
+
+    </div>
+    <div class="col-6 d-flex flex-column justify-content-center align-items-center p-4">
+        <h4>Adresse : {{user.adresse}}</h4>
+        <h4>Ville : {{user.ville}}</h4>
+        <h4>Code postal :{{user.codePostal}} </h4>
+        
+
+    </div>
+</div>
+
+<a href="{{path('user_gestion')}}" class="btn btn-warning w-25 mx-auto d-block p-2 m-5" >Modifier</a>
+
+
+
 
 {% endblock %}

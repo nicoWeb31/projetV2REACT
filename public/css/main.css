@@ -15,11 +15,15 @@ h1,h2,h3,h4{
 }
 
 ._profileImg{
-    width: 200px;
+    width: 150px;
+    height: 150px;
+    border-radius:50%;
+    border:solid 6px rgb(249, 157, 28)
 }
 
 ._pfont{
     font-size: 18px;
+    
 }
 
 ._photoCaroussel{
