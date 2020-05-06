@@ -2,15 +2,16 @@
 
 namespace App\Entity;
 
+
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\Common\Collections\ArrayCollection;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -19,6 +20,13 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  * message="le pseudo existe déjà")
  * @Vich\Uploadable
  */
+
+
+ //The problem is, when User Entity was implementing the UserInterface,
+ // the user provider(actually the Doctrine, behind the scene) tried to Serializing the User object to store it in the session but because of the file that I assigned it to this class, it fails it's career!
+ //https://stackoverflow.com/questions/49782167/serialization-of-symfony-component-httpfoundation-file-file-is-not-allowed-sy
+
+
 class User implements UserInterface
 {
     /**
@@ -412,4 +420,8 @@ class User implements UserInterface
 
         return $this;
     }
+
+
+
+
 }
