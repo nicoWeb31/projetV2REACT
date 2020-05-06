@@ -27,7 +27,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  //https://stackoverflow.com/questions/49782167/serialization-of-symfony-component-httpfoundation-file-file-is-not-allowed-sy
 
 
-class User implements UserInterface
+class User implements UserInterface,\Serializable
 {
     /**
      * @ORM\Id()
@@ -421,7 +421,35 @@ class User implements UserInterface
         return $this;
     }
 
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->mail,
+            $this->password,
+            $this->name,
+            $this->prenom,
+            $this->activationToken,
+            $this->username,
+            $this->photo,
+            //$this->imageFile
+        ));
+    }
 
+    public function unserialize($serialized)
+    {
+        list(
+            $this->id,
+            $this->mail,
+            $this->password,
+            $this->name,
+            $this->prenom,
+            $this->activationToken,
+            $this->username,
+            $this->photo,
+            //$this->imageFile
+        ) = unserialize($serialized, array('allowed_classes' => false));
+    }
 
 
 }
