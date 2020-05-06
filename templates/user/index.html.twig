@@ -5,6 +5,19 @@
 {% block monTitle %}Profile Utilisateur{% endblock %}
 {% block body %}
 
+
+<!-- ======================================================================= -->
+<!-- message flash -->
+<!-- ======================================================================= -->
+{% for message in app.flashes('ok') %}
+<div class="alert alert-success">
+    {{message}}
+</div>
+{% endfor %}
+
+
+
+
 <img src="{{asset('images/imagesUsers/' ~ user.photo)}}" class="_profileImg mx-auto d-block m-4" alt="" >
 <div class="row">
     <div class="col-6 d-flex flex-column justify-content-center align-items-center p-4">

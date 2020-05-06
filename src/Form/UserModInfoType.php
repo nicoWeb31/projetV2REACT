@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -21,7 +22,8 @@ class UserModInfoType extends AbstractType
             // ->add('password')
             //->add('mail')
             ->add('phone')
-            ->add('photo')
+            //->add('photo')
+            ->add('imageFile',FileType::class,['required'=>false])
             // ->add('roles')
             //->add('updated_at')
             // ->add('activationToken')

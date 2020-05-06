@@ -18,7 +18,8 @@ h1,h2,h3,h4{
     width: 150px;
     height: 150px;
     border-radius:50%;
-    border:solid 6px rgb(249, 157, 28)
+    border:solid 6px rgb(249, 157, 28);
+    overflow: hidden;
 }
 
 ._pfont{
