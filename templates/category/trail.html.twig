@@ -9,7 +9,26 @@
 <!-- ======================================================================= -->
 <!-- liste des entrainements -->
 <!-- ======================================================================= -->
-{% include "/partial/section/listeEntrainement.html.twig" %}
+{{ render(path('meteo')) }}
+
+<!-- api meteo -->
+<div>
+    <div>
+        <h3 class="p-3">meteo {{ville}}</h3>
+        <form action="" method="GET">
+            <label for="ville"> Ville :</label>
+            <input type="text" name="ville">
+            <button class="btn btn-info p-1 m-1" type="submit">rechercher</button>
+        </form>
+    
+        <img src={{asset(meteo.current_condition.icon)}} alt="">
+    
+    </div>
+
+</div>
+
+<!-- attention div fermente du partial entrainement -->
+</div>
 
 
 <!-- =================================================================== -->
