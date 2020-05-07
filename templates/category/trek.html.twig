@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Treck{% endblock %}
-{% block monTitle %}Trek{% endblock %}
+{% block title %}Treck | {{parent()}}{% endblock %}
+{% block monTitle %}Section Trek{% endblock %}
 
 {% block body %}
 <div>
@@ -15,8 +15,7 @@
     <!-- corp de pages -->
     <!-- =================================================================== -->
     <div class="col-6">
-        <h2 class="text-center p-3 text-white">Section Trek</h2>
-        <p class="text-justify h4 m-4 text-white">
+        <p class="text-justify h4 m-5 text-white">
             La section « Trek », ou trekking, est notre section loisir de randonnée pédestre en montagne (de préférence).
             Dans la mesure du possible et selon la météo, nous faisons une sortie par week-end, le samedi ou le dimanche.
             Aux beaux jours de nombreuses randonnées sont programmées dans les plus beaux endroits dont regorgent nos

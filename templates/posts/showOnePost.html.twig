@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PostsController!{% endblock %}
+{% block title %}{{post.title}} | {{parent()}}{% endblock %}
 {% block monTitle %}{{post.title}}{% endblock %}
 
 

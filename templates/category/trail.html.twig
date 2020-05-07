@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Trail{% endblock %}
-{% block monTitle %} Trail {% endblock %}
+{% block title %}Trail | {{parent()}}{% endblock %}
+{% block monTitle %}Section Trail{% endblock %}
 {% block body %}
 
 
@@ -16,9 +16,8 @@
 <!-- corp de pages -->
 <!-- =================================================================== -->
 <div class="col-6">
-    <h2 class="text-center p-3 text-white">Section Trail
-    </h2>
-    <p class="text-justify h4 m-4 text-white">
+    <!-- <h2 class="text-center p-3 text-white">Section Trail</h2> -->
+    <p class="text-justify h4 m-5 text-white">
         Notre section VTT, encore discrète mais qui ne demande qu’à grandir, permet de découvrir des sentiers forestiers
         tout en alliant l’aspect physique et l’aspect technique de cette discipline.
         Les sorties/entraînements se font le week-end, le samedi ou le dimanche en fonction de la météo. Tous les
