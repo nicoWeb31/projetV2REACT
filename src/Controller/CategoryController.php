@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Exception;
 use App\Entity\Category;
 use App\Repository\PostRepository;
 use App\Repository\CategoryRepository;
@@ -19,7 +20,7 @@ class CategoryController extends AbstractController
 
     public function __construct()
     {
-        
+
     }
 
 
@@ -42,12 +43,20 @@ class CategoryController extends AbstractController
     $meteo = file_get_contents("https://www.prevision-meteo.ch/services/json/".$ville);
     $meteo = $seria->decode($meteo,'json');
 
+         //test key error and return bool for twig
+        if(isset($meteo["errors"])){
+            $err = true;
+        }else{
+            $err = false;
+        }
+
 
         return $this->render('category/trail.html.twig',[
             'cat'=>$cat,
             'lastPost'=>$postLastSeven,
             'meteo'=>$meteo,
-            'ville'=>$ville
+            'ville'=>$ville,
+            'err'=>$err
         ]);
     }
 
@@ -62,20 +71,32 @@ class CategoryController extends AbstractController
         $postLastSeven = $repPost->findLastSeven();  //liste des derniers post
 
 
-         //je recupere ma ville en get avec request
+    //get town with request in method get
     $ville = $req->query->get('ville');
     if(!$ville){
         $ville ="montespan";
     }
+
+
     $meteo = file_get_contents("https://www.prevision-meteo.ch/services/json/".$ville);
     $meteo = $seria->decode($meteo,'json');
+
+
+    //test key error and return bool for twig
+    if(isset($meteo["errors"])){
+        $err = true;
+    }else{
+        $err = false;
+    }
 
 
         return $this->render('category/trek.html.twig',[
             'cat'=>$cat,
             'lastPost'=>$postLastSeven,
             'meteo'=>$meteo,
-            'ville'=>$ville
+            'ville'=>$ville,
+            'err' => $err
+
 
         ]);
     }
@@ -90,19 +111,34 @@ class CategoryController extends AbstractController
         $postLastSeven = $repPost->findLastSeven();  //liste des derniers post
 
 
-         //je recupere ma ville en get avec request
-    $ville = $req->query->get('ville');
-    if(!$ville){
-        $ville ="montespan";
-    }
-    $meteo = file_get_contents("https://www.prevision-meteo.ch/services/json/".$ville);
-    $meteo = $seria->decode($meteo,'json');
+        //je recupere ma ville en get avec request
+        $ville = $req->query->get('ville');
+        
+        if(!$ville){
+            $ville ="montespan";
+        }
+        
+        
+
+        $meteo = file_get_contents("https://www.prevision-meteo.ch/services/json/".$ville);
+        $meteo = $seria->decode($meteo,'json');
+
+            //test key error and return bool for twig
+            if(isset($meteo["errors"])){
+                $err = true;
+            }else{
+                $err = false;
+            }
+
+
+
 
         return $this->render('category/vtt.html.twig',[
             'cat'=>$cat,
             'lastPost'=>$postLastSeven,
             'meteo'=>$meteo,
-            'ville'=>$ville
+            'ville'=>$ville,
+            'err'=>$err
 
         ]);
     }
@@ -133,12 +169,19 @@ class CategoryController extends AbstractController
     $meteo = $seria->decode($meteo,'json');
 
 
+         //test key error and return bool for twig
+         if(isset($meteo["errors"])){
+            $err = true;
+        }else{
+            $err = false;
+        }
 
         return $this->render('category/actu.html.twig',[
             'cat'=>$cat,
             'lastPost'=>$postLastSeven,
             'meteo'=>$meteo,
-            'ville'=>$ville
+            'ville'=>$ville,
+            'err'=>$err
 
         ]);
     }

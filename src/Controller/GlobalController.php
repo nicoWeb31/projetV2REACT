@@ -3,20 +3,21 @@
 namespace App\Controller;
 
 use DateTime;
+use Swift_Mailer;
+use Swift_Message;
 use App\Entity\User;
+use App\Form\UserType;
 use App\Form\ContactType;
 use App\Form\NewPassType;
 use App\Form\RestPasswordType;
-use App\Form\UserType;
 use App\Repository\UserRepository;
+use Symfony\Component\Mime\Message;
 use Doctrine\ORM\EntityManagerInterface;
-use Swift_Mailer;
-use Swift_Message;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Mime\Message;
+use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
@@ -26,11 +27,30 @@ class GlobalController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index()
+    public function index(SerializerInterface $seria, Request $req)
     {
-        $user = $this->getUser(); //recuperation du user;
+
+        //je recupere ma ville en get avec request
+        $ville = $req->query->get('ville');
+        if(!$ville){
+        $ville ="montespan";
+    }
+    $meteo = file_get_contents("https://www.prevision-meteo.ch/services/json/".$ville);
+    $meteo = $seria->decode($meteo,'json');
+
+
+         //test key error and return bool for twig
+        if(isset($meteo["errors"])){
+            $err = true;
+        }else{
+            $err = false;
+        }
+
+
         return $this->render('global/home.html.twig',[
-            "user" => $user
+            'meteo'=>$meteo,
+            'ville'=>$ville,
+            'err'=>$err
         ]);
     }
 
