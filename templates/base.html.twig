@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.css" />
     <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
     <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/591f90ff63.js" crossorigin="anonymous"></script>
 
     {% block stylesheets %}{% endblock %}
 </head>
@@ -98,13 +99,13 @@
                 <!-- class active sur le btn sur la route courante /  app.request.get('') -> route courante-->
 
                 <li class="nav-item">
-                    <a class=" {{app.request.get('_route') == 'Vtt' ? '_btnActive nav-link h2 m-3 p-5 bg-light text-dark' : 'nav-link h2 m-3 p-5'}}" href="{{ path('Vtt') }}">VTT</a>
+                    <a class=" {{app.request.get('_route') == 'Vtt' ? '_btnActive nav-link h2 m-3 p-5 ' : 'nav-link h2 m-3 p-5'}}" href="{{ path('Vtt') }}">VTT</a>
                 </li>
                 <li class="nav-item">
-                    <a class="{{app.request.get('_route') == 'Trail' ? '_btnActive nav-link h2 m-3 p-5 bg-light text-dark' : 'nav-link h2 m-3 p-5'}}" href="{{ path('Trail') }}">Trail</a>
+                    <a class="{{app.request.get('_route') == 'Trail' ? '_btnActive nav-link h2 m-3 p-5 ' : 'nav-link h2 m-3 p-5'}}" href="{{ path('Trail') }}">Trail</a>
                 </li>
                 <li class="nav-item">
-                    <a class="{{app.request.get('_route') == 'Trek' ? '_btnActive nav-link h2 m-3 p-5 bg-light text-dark' : 'nav-link h2 m-3 p-5'}}" href="{{ path('Trek') }}">Trek</a>
+                    <a class="{{app.request.get('_route') == 'Trek' ? '_btnActive nav-link h2 m-3 p-5 ' : 'nav-link h2 m-3 p-5'}}" href="{{ path('Trek') }}">Trek</a>
                 </li>
 
 

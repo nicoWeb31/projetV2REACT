@@ -115,14 +115,6 @@ class AdminController extends AbstractController
     }
 
 
-
-
-
-
-
-
-
-
     /**
      * @Route("/post/create", name="admin.post.create")
      * @Route("/post/modifier/{id}", name="admin.post.modifier",methods ="GET|POST")
@@ -250,6 +242,35 @@ class AdminController extends AbstractController
             "users"=>$users
         ]);
     }
+
+
+
+    /**
+     * recu user by name
+     * @Route("/users-name", name="admin_users_by_name")
+     */
+    public function showAllUserByName(UserRepository $repo, PaginatorInterface $pagi, Request $req)
+    {
+
+        //je recupere ma ville en get avec request
+        $userFiled = $req->query->get('user');
+
+        
+        $users = $pagi->paginate(
+        $repo->findAllWithPaginatorByName($userFiled), /* query NOT result */
+        $req->query->getInt('page', 1), /*page number*/
+        5 /*limit per page*/
+    );
+        return $this->render('admin/usersAdmin/showAllUsers.html.twig',[
+            "users"=>$users
+        ]);
+    }
+
+
+
+
+
+
 
 
     /**

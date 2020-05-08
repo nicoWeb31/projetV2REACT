@@ -17,6 +17,15 @@
 {% endfor %}
 
 {# <a href="{{path('admin.user.create')}}" class="btn btn-info w-100">Ajouter un Utilisateur</a> #}
+
+<div>
+    <form action="{{path('admin_users_by_name')}}" method="GET">
+        <input type="text" name="user" class="">
+        <button class="btn btn-info p-1 m-1 mx-auto " type="submit"><i class="fas fa-search"></i></button>
+        <a href="{{path('admin.users')}}" class="btn btn-primary p-1 m-1 mx-auto">Voir Tout</a>
+    </form>
+</div>
+
 <table class="table m-5">
     <tr>
 

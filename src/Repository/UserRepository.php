@@ -33,6 +33,25 @@ class UserRepository extends ServiceEntityRepository
 
 
 
+    
+
+    // =========================================================================
+    // paginator and by name or pre 
+    // =========================================================================
+    public function findAllWithPaginatorByName($value):Query
+    {
+        return $this->createQueryBuilder('u')
+        ->where('u.prenom LIKE :val')
+        ->orWhere('u.name LIKE :val')
+        ->setParameter('val', '%'.$value.'%')
+        ->getQuery();
+    }
+
+
+
+
+
+
     // /**
     //  * @return User[] Returns an array of User objects
     //  */
