@@ -47,6 +47,82 @@ class AdminController extends AbstractController
         ]);
     }
 
+
+
+
+    /**
+     * filter by category
+     * @Route("/post-trail", name="admin_post_trail")
+     */
+    public function showAllPostCatTrail(PostRepository $repo,PaginatorInterface $pagi, Request $req)
+    {
+        $posts = $pagi->paginate(
+            $repo->findAllWhitPaginatorByCategory(1), /* query NOT result */
+            $req->query->getInt('page', 1), /*page number*/
+            5 /*limit per page*/
+        );
+        return $this->render('admin/postAdmin/showAll.html.twig',[
+            "posts"=>$posts
+        ]);
+    }
+
+    /**
+     * filter by category
+     * @Route("/post-trek", name="admin_post_trek")
+     */
+    public function showAllPostCatTreck(PostRepository $repo,PaginatorInterface $pagi, Request $req)
+    {
+        $posts = $pagi->paginate(
+            $repo->findAllWhitPaginatorByCategory(3), /* query NOT result */
+            $req->query->getInt('page', 1), /*page number*/
+            5 /*limit per page*/
+        );
+        return $this->render('admin/postAdmin/showAll.html.twig',[
+            "posts"=>$posts
+        ]);
+    }
+
+    /**
+     * filter by category
+     * @Route("/post-VTT", name="admin_post_vtt")
+     */
+    public function showAllPostCatVTT(PostRepository $repo,PaginatorInterface $pagi, Request $req)
+    {
+        $posts = $pagi->paginate(
+            $repo->findAllWhitPaginatorByCategory(4), /* query NOT result */
+            $req->query->getInt('page', 1), /*page number*/
+            5 /*limit per page*/
+        );
+        return $this->render('admin/postAdmin/showAll.html.twig',[
+            "posts"=>$posts
+        ]);
+    }
+
+    /**
+     * filter by category
+     * @Route("/post-actu", name="admin_post_actu")
+     */
+    public function showAllPostCatActu(PostRepository $repo,PaginatorInterface $pagi, Request $req)
+    {
+        $posts = $pagi->paginate(
+            $repo->findAllWhitPaginatorByCategory(5), /* query NOT result */
+            $req->query->getInt('page', 1), /*page number*/
+            5 /*limit per page*/
+        );
+        return $this->render('admin/postAdmin/showAll.html.twig',[
+            "posts"=>$posts
+        ]);
+    }
+
+
+
+
+
+
+
+
+
+
     /**
      * @Route("/post/create", name="admin.post.create")
      * @Route("/post/modifier/{id}", name="admin.post.modifier",methods ="GET|POST")

@@ -33,6 +33,16 @@ class PostRepository extends ServiceEntityRepository
     }
 
 
+    public function findAllWhitPaginatorByCategory($val):Query
+    {
+        return $this->createQueryBuilder('p')
+        ->andWhere('p.category = :val')
+        ->setParameter('val', $val)
+
+
+        ->getQuery();
+    }
+
 
 
     /**

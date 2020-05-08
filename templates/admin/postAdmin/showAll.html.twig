@@ -16,6 +16,19 @@
     {% endfor %}
 
     <a href="{{path("admin.post.create")}}" class="btn btn-info w-100">Ajouter un post</a>
+
+    <div class="d-flex justify-content-around m-3">
+        <a href="{{path('admin.post')}}" class="btn btn-secondary mx-auto">Voir tout</a>
+        <a href="{{path('admin_post_trail')}}" class="btn btn-secondary mx-auto">Catégorie Trail</a>
+        <a href="{{path('admin_post_trek')}}" class="btn btn-secondary mx-auto">Catégorie Trek</a>
+        <a href="{{path('admin_post_vtt')}}" class="btn btn-secondary mx-auto">Catégorie VTT</a>
+        <a href="{{path('admin_post_actu')}}" class="btn btn-secondary mx-auto">Catégorie Actu</a>
+    </div>
+
+
+
+
+
     <table class="table m-5">
         <tr>
             {# <th>Photos</th> #}
@@ -57,6 +70,6 @@
 </div>
     </div>
 {% endblock %}
-                
+
 
 
