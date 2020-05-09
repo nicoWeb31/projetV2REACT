@@ -13,7 +13,7 @@
 
     </ol>
 </nav>
-<div id="fb-root"></div>
+<div id="fb-root" ></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v6.0">
 </script>
 
@@ -33,13 +33,15 @@
             <input type="text" name="ville" class="mx-auto d-block">
             <button class="btn btn-info p-1 m-1 mx-auto d-block" type="submit">rechercher</button>
         </form>
-        {% if err %}
-            
-        <div class="alert alert-warning p-3 m-3">la ville n'existe pas !!!!</div>
-
-
-        {% else %}
         
+        {% if err %}
+        <div class="alert alert-warning p-3 m-3">la ville n'existe pas !!!!</div>
+        {% else %}
+
+
+        
+            {% if meteo %}
+            
             <div class="d-flex justify-content-around">
                 <img src={{asset(meteo.fcst_day_0.icon)}} alt="icone Meteo" class="d-inline">
                 <img src={{asset(meteo.fcst_day_1.icon)}} alt="icone Meteo" class="d-inline">
@@ -53,6 +55,9 @@
                 <h6>{{meteo.fcst_day_2.day_short}}</h6>
                 <h6>{{meteo.fcst_day_3.day_short}}</h6>
             </div>
+            
+            {% endif %}
+            
         
         {% endif %}
 
@@ -67,7 +72,7 @@
 
 
 
-        <div class="col-6">
+        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 _responBoot">
             <h2 class="text-center p-3 text-white">Qui sommes nous ?</h2>
             <p class="text-center h4 m-4 text-white">Une petite association intercommunale est née  En Cœur de Garonne il y a maintenant 8 mois .
                 VTT TRAIL TREK EN Cœur De Garonne réunissant des sportifs passionnés 
@@ -80,9 +85,9 @@
         <!-- =============================================================== -->
         <!-- facbook -->
         <!-- =============================================================== -->
-        <div class="col-3">
-            <div class="fb-page" data-href="https://www.facebook.com/vttencoeurdegaronne/"
-                data-tabs="timeline,events,massages" data-width="300" data-height="" data-small-header="false"
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 jumbotron _lastPost" >
+            <div class="fb-page mx-auto d-block m-0 p-0" data-href="https://www.facebook.com/vttencoeurdegaronne/"
+                data-tabs="timeline,events,massages" data-width="350" data-height="" data-small-header="false"
                 data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
                 <blockquote cite="https://www.facebook.com/vttencoeurdegaronne/" class="fb-xfbml-parse-ignore"><a
                         href="https://www.facebook.com/vttencoeurdegaronne/">Vtt trail trek en coeur de garonne</a>

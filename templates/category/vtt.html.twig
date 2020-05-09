@@ -19,13 +19,14 @@
                 <button class="btn btn-info p-1 m-1 mx-auto d-block" type="submit">rechercher</button>
             </form>
 
+            
             {% if err %}
-            
             <div class="alert alert-warning p-3 m-3">la ville n'existe pas !!!!</div>
-
-
             {% else %}
-            
+
+                {% if meteo %}
+                
+
                 <div class="d-flex justify-content-around">
                     <img src={{asset(meteo.fcst_day_0.icon)}} alt="icone Meteo" class="d-inline">
                     <img src={{asset(meteo.fcst_day_1.icon)}} alt="icone Meteo" class="d-inline">
@@ -39,6 +40,7 @@
                     <h6>{{meteo.fcst_day_2.day_short}}</h6>
                     <h6>{{meteo.fcst_day_3.day_short}}</h6>
                 </div>
+                {% endif %}
             
             {% endif %}
             

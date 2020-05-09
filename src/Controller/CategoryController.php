@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Exception;
+use App\utils\ApiMeteo;
 use App\Entity\Category;
 use App\Repository\PostRepository;
 use App\Repository\CategoryRepository;
@@ -17,17 +18,18 @@ class CategoryController extends AbstractController
 {
     
 
+    private $meteoData;
 
-    public function __construct()
+    public function __construct(ApiMeteo $api)
     {
-
+        $this->meteoData = $api;
     }
 
 
     /**
      * @Route("/category/Trail", name="Trail")
      */
-    public function trail(CategoryRepository $repCat, PostRepository $repPost,SerializerInterface $seria,Request $req)
+    public function trail(CategoryRepository $repCat, PostRepository $repPost,Request $req)
     {
         
         $cat  =$repCat->findByNameCat('Trail');// mes post par categorie  
@@ -36,27 +38,15 @@ class CategoryController extends AbstractController
 
          //je recupere ma ville en get avec request
         $ville = $req->query->get('ville');
-        if(!$ville){
-        $ville ="montespan";
-        }
-
-    $meteo = file_get_contents("https://www.prevision-meteo.ch/services/json/".$ville);
-    $meteo = $seria->decode($meteo,'json');
-
-         //test key error and return bool for twig
-        if(isset($meteo["errors"])){
-            $err = true;
-        }else{
-            $err = false;
-        }
-
+        //use my methode getMeteo 
+        $data = $this->meteoData->getMeteo($ville);
 
         return $this->render('category/trail.html.twig',[
             'cat'=>$cat,
             'lastPost'=>$postLastSeven,
-            'meteo'=>$meteo,
+            'meteo'=>$data[0],
             'ville'=>$ville,
-            'err'=>$err
+            'err'=>$data[1]
         ]);
     }
 
@@ -71,31 +61,17 @@ class CategoryController extends AbstractController
         $postLastSeven = $repPost->findLastSeven();  //liste des derniers post
 
 
-    //get town with request in method get
-    $ville = $req->query->get('ville');
-    if(!$ville){
-        $ville ="montespan";
-    }
-
-
-    $meteo = file_get_contents("https://www.prevision-meteo.ch/services/json/".$ville);
-    $meteo = $seria->decode($meteo,'json');
-
-
-    //test key error and return bool for twig
-    if(isset($meteo["errors"])){
-        $err = true;
-    }else{
-        $err = false;
-    }
-
+        //je recupere ma ville en get avec request
+        $ville = $req->query->get('ville');
+        //use my methode getMeteo 
+        $data = $this->meteoData->getMeteo($ville);
 
         return $this->render('category/trek.html.twig',[
             'cat'=>$cat,
             'lastPost'=>$postLastSeven,
-            'meteo'=>$meteo,
+            'meteo'=>$data[0],
             'ville'=>$ville,
-            'err' => $err
+            'err' => $data[1]
 
 
         ]);
@@ -110,35 +86,17 @@ class CategoryController extends AbstractController
         $cat  =$rep->findByNameCat('Vtt');
         $postLastSeven = $repPost->findLastSeven();  //liste des derniers post
 
-
         //je recupere ma ville en get avec request
         $ville = $req->query->get('ville');
-        
-        if(!$ville){
-            $ville ="montespan";
-        }
-        
-        
-
-        $meteo = file_get_contents("https://www.prevision-meteo.ch/services/json/".$ville);
-        $meteo = $seria->decode($meteo,'json');
-
-            //test key error and return bool for twig
-            if(isset($meteo["errors"])){
-                $err = true;
-            }else{
-                $err = false;
-            }
-
-
-
+        //use my methode getMeteo 
+        $data = $this->meteoData->getMeteo($ville);
 
         return $this->render('category/vtt.html.twig',[
             'cat'=>$cat,
             'lastPost'=>$postLastSeven,
-            'meteo'=>$meteo,
+            'meteo'=>$data[0],
             'ville'=>$ville,
-            'err'=>$err
+            'err'=>$data[1]
 
         ]);
     }
@@ -159,29 +117,17 @@ class CategoryController extends AbstractController
         $cat  =$rep->findByNameCat('Actualités');
         $postLastSeven = $repPost->findLastSeven();  //liste des derniers post
 
-
-    //je recupere ma ville en get avec request
-    $ville = $req->query->get('ville');
-    if(!$ville){
-        $ville ="montespan";
-    }
-    $meteo = file_get_contents("https://www.prevision-meteo.ch/services/json/".$ville);
-    $meteo = $seria->decode($meteo,'json');
-
-
-         //test key error and return bool for twig
-         if(isset($meteo["errors"])){
-            $err = true;
-        }else{
-            $err = false;
-        }
+        //je recupere ma ville en get avec request
+        $ville = $req->query->get('ville');
+        //use my methode getMeteo 
+        $data = $this->meteoData->getMeteo($ville);
 
         return $this->render('category/actu.html.twig',[
             'cat'=>$cat,
             'lastPost'=>$postLastSeven,
-            'meteo'=>$meteo,
+            'meteo'=>$data[0],
             'ville'=>$ville,
-            'err'=>$err
+            'err'=>$data[1]
 
         ]);
     }

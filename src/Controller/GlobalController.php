@@ -7,6 +7,7 @@ use Swift_Mailer;
 use Swift_Message;
 use App\Entity\User;
 use App\Form\UserType;
+use App\utils\ApiMeteo;
 use App\Form\ContactType;
 use App\Form\NewPassType;
 use App\Form\RestPasswordType;
@@ -27,30 +28,17 @@ class GlobalController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(SerializerInterface $seria, Request $req)
+    public function index(ApiMeteo $api,Request $req)
     {
 
-        //je recupere ma ville en get avec request
         $ville = $req->query->get('ville');
-        if(!$ville){
-        $ville ="montespan";
-    }
-    $meteo = file_get_contents("https://www.prevision-meteo.ch/services/json/".$ville);
-    $meteo = $seria->decode($meteo,'json');
-
-
-         //test key error and return bool for twig
-        if(isset($meteo["errors"])){
-            $err = true;
-        }else{
-            $err = false;
-        }
+        $data = $api->getMeteo($ville);
 
 
         return $this->render('global/home.html.twig',[
-            'meteo'=>$meteo,
+            'meteo'=>$data[0],
             'ville'=>$ville,
-            'err'=>$err
+            'err'=>$data[1]
         ]);
     }
 

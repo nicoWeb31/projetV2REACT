@@ -1,4 +1,4 @@
-h1,h2,h3,h4{
+h1,h2,h3,h4,h5,h6{
     font-family: 'Sigmar One', cursive;
 }
 
@@ -67,7 +67,7 @@ The classes above can be combined to create more dynamic and flexible layouts. *
     #_train {
         order: 2;
 	}
-	#_lastPost {
+	._lastPost {
         order: 3;
         padding-left: 10px;
 	}
