@@ -8,7 +8,7 @@
         <ul>
         {% for post in lastPost %}
             <li class="m-3">
-                <a href="{{path('post',{'id':post.id})}}">{{post.title}}...{{post.category.name}} du {{post.createdAt |date("m/d/Y")}}</a>
+                <a href="{{path('post',{'slug':post.slug})}}">{{post.title}}...{{post.category.name}} du {{post.createdAt |date("m/d/Y")}}</a>
                 
             </li>
         {% endfor %}

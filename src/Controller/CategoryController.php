@@ -119,7 +119,7 @@ class CategoryController extends AbstractController
 
         //je recupere ma ville en get avec request
         $ville = $req->query->get('ville');
-        dd($ville);
+        
         //use my methode getMeteo 
         $data = $this->meteoData->getMeteo($ville);
 

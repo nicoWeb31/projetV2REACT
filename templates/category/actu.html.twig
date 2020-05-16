@@ -80,7 +80,7 @@
                     <!-- <h1>{{post.id}}</h1> -->
                     <h2 class="text-warning">{{post.title}}</h2>
                     <p "_pfont text-justify">{{post.content}}</p>
-                    <a href="{{path('post',{'id':post.id})}}" class="btn btn-success p-2">Voir plus</a>
+                    <a href="{{path('post',{'slug':post.slug})}}" class="btn btn-success p-2">Voir plus</a>
                     </div>
                 {% endfor %}
             {% endfor %}

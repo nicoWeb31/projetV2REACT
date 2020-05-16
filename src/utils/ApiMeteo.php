@@ -19,9 +19,14 @@ class ApiMeteo
     {
 
         if(isset($_GET['ville'])){
+        try{
 
-        $meteo = file_get_contents($this->url.$ville);
-        $meteo = $this->seria->decode($meteo,'json');
+            $meteo = file_get_contents($this->url.$ville,0, stream_context_create(["http"=>["timeout"=>1.5]]));
+            $meteo = $this->seria->decode($meteo,'json');
+        }catch(Exception $e){
+            //echo $e->getMessage();
+            $meteo =null;
+        }
 
         }else{
         $meteo =null;

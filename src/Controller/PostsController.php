@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 class PostsController extends AbstractController
 {
     /**
-     * @Route("/post/{id}", name="post")
+     * @Route("/post/{slug}", name="post")
      */
     public function showOnePost(Post $post,Request $req, EntityManagerInterface $man)
     {
