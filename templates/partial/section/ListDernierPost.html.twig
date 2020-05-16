@@ -2,12 +2,12 @@
     <!-- liste dernier post -->
     <!-- =============================================================== -->
     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 jumbotron _lastPost" id="_lastPost">
-        <h4 class="display-5">liste des deniers posts</h4>
+        <h4 class="display-5 text-center">liste des deniers posts</h4>
         <hr class="my-4 my-light">
-        <p>Retrouver nos derniers post : </p>
+        <p class="text-center">Retrouver nos derniers post : </p>
         <ul>
         {% for post in lastPost %}
-            <li class="m-3">
+            <li class="m-3 text-center">
                 <a href="{{path('post',{'slug':post.slug})}}">{{post.title}}...{{post.category.name}} du {{post.createdAt |date("m/d/Y")}}</a>
                 
             </li>

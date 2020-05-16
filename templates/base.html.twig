@@ -39,10 +39,10 @@
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto ml-5">
 
-                <li class="nav-item h4 m-3 rounded-pill">
+                <li class="nav-item m-3 rounded-pill">
                     <a class="nav-link p-3 rounded-pill" href="#">Nocture de ?</a>
                 </li>
-                <li class="nav-item h4 m-3 rounded-pill">
+                <li class="nav-item m-3 rounded-pill">
                     <a class="nav-link p-3 rounded-pill" href="{{ path('Actu') }}">Actualités</a>
                 </li>
 
@@ -67,18 +67,18 @@
                 
                 {% if not app.user %}
                 <li class="nav-item rounded-pill">
-                    <a class="nav-link h4 m-2 rounded-pill p-3" href="{{ path('register') }}">Nous rejoindre
+                    <a class="nav-link m-2 rounded-pill p-3" href="{{ path('register') }}">Nous rejoindre
                     </a>
                 </li>
                 <li class="nav-item rounded-pill">
-                    <a href="{{ path('login') }}" class="nav-link h5 m-2 rounded-pill p-3">Login</a>
+                    <a href="{{ path('login') }}" class="nav-link m-2 rounded-pill p-3">Login</a>
                 </li>
                 {% else %}
                 <li class="nav-item rounded-pill">
-                    <a href="{{ path('user') }}" class="nav-link h5 m-2 rounded-pill p-3">Compte</a>
+                    <a href="{{ path('user') }}" class="nav-link m-2 rounded-pill p-3">Compte</a>
                 </li>
                 <li class="nav-item rounded-pill">
-                    <a href="{{ path('logout') }}" class="nav-link h5 m-2 rounded-pill p-3">déconnexion</a>
+                    <a href="{{ path('logout') }}" class="nav-link m-2 rounded-pill p-3">déconnexion</a>
                 </li>
                 {% endif %}
 
@@ -126,7 +126,7 @@
     <!-- =================================================================== -->
     <!-- h1 -->
     <!-- =================================================================== -->
-    <h1 class="border border-dark rounded text-white m-4 p-4 text-center bg-success w-90">
+    <h1 class="border border-dark rounded text-white m-3 p-3 text-center bg-success w-90">
         {% block monTitle %}{% endblock %}
     </h1>
 
@@ -225,17 +225,17 @@
 
                     <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
                         <img src="{{ asset('images/imagesAutre/facebook.png') }}"
-                            class="_imgFacebook nav-link m-1 p-0 rounded-pill" alt="logo_facebook" />
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="logo_facebook" />
                     </a>
 
                     <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
                         <img src="{{ asset('images/imagesAutre/se.png') }}"
-                            class="_imgFacebook nav-link m-1 p-0 rounded-pill" alt="logo_sport_easy" />
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="logo_sport_easy" />
                     </a>
 
                     <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
                         <img src="{{ asset('images/imagesAutre/strava.png') }}"
-                            class="_imgFacebook nav-link m-1 p-0 rounded-pill" alt="strava" />
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="strava" />
                     </a>
 
                 </div>
