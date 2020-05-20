@@ -11,4 +11,19 @@ import '../css/app.css';
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+// console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+// console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+// alert('hello');
+
+
+
+// =============================================================================
+// swup
+// =============================================================================
+// import Swup from 'swup';
+// const swup = new Swup(); // only this line when included with script tag
+
+// import SwupFadeTheme from '@swup/fade-theme';
+// const swup = new Swup({
+//     plugins: [new SwupFadeTheme()]
+//   });

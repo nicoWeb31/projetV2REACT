@@ -1,3 +1,92 @@
-body {
-    background-color: lightgray;
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Sigmar One', cursive;
 }
+
+._imgFacebook{
+    width: 60px;
+}
+
+._logoVtt{
+    width: 60%;
+}
+
+._logoNav{
+    width: 150px;
+}
+
+._profileImg{
+    width: 150px;
+    height: 150px;
+    border-radius:50%;
+    border:solid 6px rgb(249, 157, 28);
+    overflow: hidden;
+}
+
+._profileImgCom{
+    width: 80px;
+    height: 80px;
+    border-radius:50%;
+    border:solid 6px rgb(249, 157, 28);
+    overflow: hidden;
+}
+
+
+._pfont{
+    font-size: 18px;
+    
+}
+
+._photoCaroussel{
+height: auto;
+}
+
+/* ========================================================================== */
+/* btn active */
+/* ========================================================================== */
+._btnActive{
+    border:solid 6px rgb(249, 157, 28) ;
+}
+
+
+
+
+/* ========================================================================== */
+/* order col bootstrap small screen */
+/* ========================================================================== */
+
+/* The Bootstrap grid system has four classes:
+
+xs (for phones - screens less than 768px wide)
+sm (for tablets - screens equal to or greater than 768px wide)
+md (for small laptops - screens equal to or greater than 992px wide)
+lg (for laptops and desktops - screens equal to or greater than 1200px wide)
+The classes above can be combined to create more dynamic and flexible layouts. */
+
+
+@media only screen and (max-width:1201px) {
+    #_train {
+        order: 2;
+	}
+	._lastPost {
+        order: 3;
+        padding-left: 10px;
+	}
+    ._responBoot {
+        order: 1;
+    }
+    
+}
+
+
+/* ========================================================================== */
+/* swup */
+/* ========================================================================== */
+
+.transition-fade {
+    transition: 0.4s;
+    opacity: 1;
+  }
+  
+  html.is-animating .transition-fade {
+    opacity: 0;
+  }
