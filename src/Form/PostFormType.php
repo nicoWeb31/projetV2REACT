@@ -27,7 +27,8 @@ class PostFormType extends AbstractType
             ->add('photos',EntityType::class,[
                 'class'=>Photo::class,           //choix de la classe
                 'choice_label'=> 'url',          //choix du labelle
-                'multiple'=> true               //choix multiple
+                'multiple'=> true, //choix multiple
+                'required'   => true,             
             ]);
     }
 

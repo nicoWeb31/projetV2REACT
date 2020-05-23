@@ -4,22 +4,23 @@ namespace App\Controller\AdminController;
 
 use DateTime;
 use App\Entity\Post;
-use App\Entity\Photo;
 use App\Entity\User;
-use App\Form\EditUserAdminType;
+use App\Entity\Photo;
+use App\Form\UserType;
 use App\Form\PhotoType;
 use App\Form\PostFormType;
-use App\Form\UserType;
+use App\Form\EditUserAdminType;
 use App\Repository\PostRepository;
-use App\Repository\PhotoRepository;
 use App\Repository\UserRepository;
+use App\Repository\PhotoRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\CatergoryUserRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\User as UserUser;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Core\User\User as UserUser;
 
     /**
      * @Route("/admin")
@@ -252,7 +253,7 @@ class AdminController extends AbstractController
     public function showAllUserByName(UserRepository $repo, PaginatorInterface $pagi, Request $req)
     {
 
-        //je recupere ma ville en get avec request
+        //je recupere l'input pour recup le user, en get avec request
         $userFiled = $req->query->get('user');
 
         
@@ -261,6 +262,28 @@ class AdminController extends AbstractController
         $req->query->getInt('page', 1), /*page number*/
         5 /*limit per page*/
     );
+        return $this->render('admin/usersAdmin/showAllUsers.html.twig',[
+            "users"=>$users
+        ]);
+    }
+
+     /**
+     * recu user by Category Trail
+     * @Route("/users-trail", name="admin_users_trail")
+     */
+    public function showAllUserByCatTrail(CatergoryUserRepository $repo, PaginatorInterface $pagi, Request $req)
+    {
+
+        // $CategoryTrail = $repo->findOneBy(['name' =>'Trail'])->getUsers();
+        // dd($CategoryTrail);
+
+
+        $users = $pagi->paginate(
+            $repo->findOneBy(['name' =>'VTT'])->getUsers(), /* query NOT result */
+        $req->query->getInt('page', 1), /*page number*/
+        5 /*limit per page*/
+    );
+
         return $this->render('admin/usersAdmin/showAllUsers.html.twig',[
             "users"=>$users
         ]);

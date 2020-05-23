@@ -6,6 +6,8 @@ use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\Query;
+use Doctrine\ORM\Query\AST\Join;
+use Doctrine\ORM\Query\Expr\Join as ExprJoin;
 
 /**
  * @method User|null find($id, $lockMode = null, $lockVersion = null)
@@ -35,17 +37,41 @@ class UserRepository extends ServiceEntityRepository
 
     
 
-    // =========================================================================
-    // paginator and by name or pre 
-    // =========================================================================
-    public function findAllWithPaginatorByName($value):Query
-    {
-        return $this->createQueryBuilder('u')
-        ->where('u.prenom LIKE :val')
-        ->orWhere('u.name LIKE :val')
-        ->setParameter('val', '%'.$value.'%')
-        ->getQuery();
-    }
+    // // =========================================================================
+    // // paginator and by name or pre 
+    // // =========================================================================
+    // public function findAllWithPaginatorByName($value):Query
+    // {
+    //     return $this->createQueryBuilder('u')
+    //     ->where('u.prenom LIKE :val')
+    //     ->orWhere('u.name LIKE :val')
+    //     ->setParameter('val', '%'.$value.'%')
+    //     ->getQuery();
+    // }
+
+
+
+
+    // // =========================================================================
+    // // paginator and by category
+    // // =========================================================================
+    // public function findAllWithPaginatorByCategory($value):Query
+    // {
+
+
+    //     $qb = $this->createQueryBuilder('u');
+
+    //     $qb
+    //         //->innerJoin('App\Entity\CatergoryUser', 'ca', 'WITH','u.id = ca.users')
+    //         ->where('u.id = :val')
+    //         ->setParameter('val', $value)
+
+
+
+    //     ;
+
+    //     return $qb->getQuery()->getResult();
+    //}
 
 
 
