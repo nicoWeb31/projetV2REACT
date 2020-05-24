@@ -8,7 +8,7 @@ class Test extends Component {
     }
     render() {
         return (
-            <div className="">Test deux</div>
+            <div className="">Test deux ou trois</div>
         );
     }
 }

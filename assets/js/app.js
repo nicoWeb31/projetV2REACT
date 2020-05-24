@@ -33,8 +33,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import '../css/app.css';
-import ApiMeteo from './component/ApiMeteo';
 import Test from './component/Test';
 
-ReactDOM.render(<Router><ApiMeteo /></Router>, document.getElementById('apiMeteo'));
-ReactDOM.render(<Router><Test /></Router>, document.getElementById('apiMeteo'));
+ReactDOM.render(<Router><Test /></Router>, document.getElementById('Test2'));
