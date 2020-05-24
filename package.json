@@ -1,7 +1,12 @@
 {
     "devDependencies": {
+        "@babel/preset-react": "^7.9.4",
         "@symfony/webpack-encore": "^0.28.2",
+        "axios": "^0.19.2",
         "core-js": "^3.0.0",
+        "prop-types": "^15.7.2",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
         "regenerator-runtime": "^0.13.2",
         "webpack-notifier": "^1.6.0"
     },
@@ -14,7 +19,10 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "@babel/plugin-proposal-class-properties": "^7.8.3",
+        "@babel/plugin-transform-runtime": "^7.9.6",
         "@swup/fade-theme": "^1.0.5",
+        "react-router-dom": "^5.2.0",
         "swup": "^2.0.9"
     }
 }

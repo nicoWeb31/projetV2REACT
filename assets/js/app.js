@@ -7,6 +7,7 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import '../css/app.css';
+console.log('test connect');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
@@ -27,3 +28,13 @@ import '../css/app.css';
 // const swup = new Swup({
 //     plugins: [new SwupFadeTheme()]
 //   });
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import '../css/app.css';
+import ApiMeteo from './component/ApiMeteo';
+import Test from './component/Test';
+
+ReactDOM.render(<Router><ApiMeteo /></Router>, document.getElementById('apiMeteo'));
+ReactDOM.render(<Router><Test /></Router>, document.getElementById('apiMeteo'));
