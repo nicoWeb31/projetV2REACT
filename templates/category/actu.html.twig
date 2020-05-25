@@ -7,17 +7,17 @@
     <!-- ======================================================================= -->
     <!-- liste des entrainements -->
     <!-- ======================================================================= -->
-    {{ render(path('meteo')) }}
-
-
-    <div id='apiMeteo'></div>
-
-    <div id='Test2'></div>
-
-
+     {{ render(path('meteo')) }} 
+    
+    
     <div>
         <div class="border-top border-light"> 
-            <h3 class="p-3 text-center">meteo {{ville}}</h3>
+            
+            
+            {% include '/partial/section/apiMeteo.html.twig' %}
+
+
+            {# <h3 class="p-3 text-center">meteo {{ville}}</h3>
             <form action="" method="GET">
 
                 <input type="text" name="ville" class="mx-auto d-block">
@@ -46,7 +46,7 @@
             </div>
                 {% endif %}
             
-            {% endif %}
+            {% endif %} #}
         
         </div>
     
