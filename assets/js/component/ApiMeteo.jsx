@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ApiMeteoDay from './ApiMeteoDay'
+import ApiMeteoDay from './ApiMeteoDay';
+import ReactCardCarousel from "react-card-carousel";
 
 
 
@@ -13,6 +14,22 @@ class ApiMeteo extends Component {
             lastResponse:null
         };
     }
+
+    static get CARD_STYLE() {
+        return {
+          height: "200px",
+          width: "200px",
+          paddingTop: "80px",
+          textAlign: "center",
+          background: "#52C0F5",
+          color: "#FFF",
+          fontSize: "12px",
+          textTransform: "uppercase",
+          borderRadius: "10px",
+        };
+      }
+
+
 
 
     handleInputChange = (e) =>{
@@ -71,7 +88,9 @@ class ApiMeteo extends Component {
                 ):
                 (
                     ["fcst_day_0","fcst_day_1","fcst_day_2","fcst_day_3"].map(ele =>
-                        <ApiMeteoDay  key ={ele} data={this.state.lastResponse && this.state.lastResponse[ele]}/>
+                        <ReactCardCarousel autoplay={true} autoplay_speed={2500}>
+                            <ApiMeteoDay  key ={ele} data={this.state.lastResponse && this.state.lastResponse[ele]} style={ ApiMeteo.CARD_STYLE }/>
+                        </ReactCardCarousel>
                     )
                 )} 
             </div>
