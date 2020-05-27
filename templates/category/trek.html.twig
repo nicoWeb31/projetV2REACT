@@ -8,12 +8,15 @@
     <!-- ======================================================================= -->
     <!-- liste des entrainements -->
     <!-- ======================================================================= -->
-    {{ render(path('meteo')) }}
+    {{ render(path('liste-entrainement')) }}
 
     <!-- api meteo -->
     <div>
         <div class="border-top border-light">
-            <h3 class="p-3 text-center">meteo {{ville}}</h3>
+
+            {% include '/partial/section/apiMeteo.html.twig' %}
+
+            {# <h3 class="p-3 text-center">meteo {{ville}}</h3>
             <form action="" method="GET">
                 <input type="text" name="ville" class="mx-auto d-block">
                 <button class="btn btn-info p-1 m-1 mx-auto d-block" type="submit">rechercher</button>
@@ -40,7 +43,7 @@
                 <h6>{{meteo.fcst_day_3.day_short}}</h6>
             </div>
             {% endif %}
-            {% endif %}
+            {% endif %} #}
 
 
             

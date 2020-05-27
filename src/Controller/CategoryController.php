@@ -138,7 +138,7 @@ class CategoryController extends AbstractController
 
     /**
      * fragment entrainement plus api
-     * @Route("/_Fragment", name="meteo")
+     * @Route("/_Fragment", name="liste-entrainement")
      * 
      */
     public function meteo()
