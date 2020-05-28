@@ -20,12 +20,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\User\User as UserUser;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Controller\AdminController\AbstrAdmin\abstractAdminController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
     /**
      * @Route("/admin")
      */
-class AdminController extends AbstractController
+class AdminController extends abstractAdminController
 {
 
 
@@ -267,31 +268,38 @@ class AdminController extends AbstractController
         ]);
     }
 
-     /**
+
+
+
+    /**
+      * function Abstract class
      * recu user by Category Trail
      * @Route("/users-trail", name="admin_users_trail")
      */
-    public function showAllUserByCatTrail(CatergoryUserRepository $repo, PaginatorInterface $pagi, Request $req)
+    public function showAllTrail()
     {
-
-        // $CategoryTrail = $repo->findOneBy(['name' =>'Trail'])->getUsers();
-        // dd($CategoryTrail);
-
-
-        $users = $pagi->paginate(
-            $repo->findOneBy(['name' =>'VTT'])->getUsers(), /* query NOT result */
-        $req->query->getInt('page', 1), /*page number*/
-        5 /*limit per page*/
-    );
-
-        return $this->render('admin/usersAdmin/showAllUsers.html.twig',[
-            "users"=>$users
-        ]);
+        return $this->showAllUserByCat('Trail');
     }
 
+     /**
+      * function Abstract class
+     * recu user by Category Trail
+     * @Route("/users-vtt", name="admin_users_vtt")
+     */
+    public function showAllVTT()
+    {
+        return $this->showAllUserByCat('VTT');
+    }
 
-
-
+     /**
+      * function Abstract class
+     * recu user by Category Trail
+     * @Route("/users-trek", name="admin_users_trek")
+     */
+    public function showAllTrek()
+    {
+        return $this->showAllUserByCat('Trek');
+    }
 
 
 
