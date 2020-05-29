@@ -80,7 +80,7 @@ class GlobalController extends AbstractController
                 // On crée le texte avec la vue
                 ->setBody(
                     $this->renderView(
-                        'global/emailActivation.html.twig', ['token' => $user->getActivationToken()]
+                        'global/email/emailActivation.html.twig', ['token' => $user->getActivationToken()]
                     ),
                     'text/html'
                 )
@@ -233,10 +233,18 @@ class GlobalController extends AbstractController
             ->setFrom('nico.riot@free.fr')   //a remplacer
             ->setTo($user->getMail())
             ->setBody(
-                "<p>Une demande de réinitialisation de mot de passe a été effecctuée pour le site VTT veuillez cliquer sur le lien suivant : " .$url ."</p>",
+
+                $this->renderView(
+                    'global/email/demandeNewPassword.html.twig', ['url' => $url]
+                ),
                 'text/html'
-            )
-            ;
+
+                // "<p>Une demande de réinitialisation de mot de passe a été effecctuée pour le site VTT veuillez cliquer sur le lien suivant : " .$url ."</p>",
+                // 'text/html'
+                );
+
+
+
 
             //on envoie
             $mailer->send($message);

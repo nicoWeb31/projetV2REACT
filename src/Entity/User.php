@@ -57,7 +57,11 @@ class User implements UserInterface,\Serializable
     private $adresse;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
+     * @Assert\Regex(
+     * pattern="/[0-9]{5}/",
+     * match=true,
+     * message="le code postal doit contenir 5 nombre")
      */
     private $codePostal;
 
@@ -87,7 +91,12 @@ class User implements UserInterface,\Serializable
     private $mail;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
+     * @Assert\Regex(
+     * pattern="/[0-9]{10}/",
+     * match=true,
+     * message="le numero de tel doit contenir 10 chiffre")
+     * 
      */
     private $phone;
 
@@ -191,12 +200,12 @@ class User implements UserInterface,\Serializable
         return $this;
     }
 
-    public function getCodePostal(): ?int
+    public function getCodePostal(): ?string
     {
         return $this->codePostal;
     }
 
-    public function setCodePostal(int $codePostal): self
+    public function setCodePostal(string $codePostal): self
     {
         $this->codePostal = $codePostal;
 
@@ -239,12 +248,12 @@ class User implements UserInterface,\Serializable
         return $this;
     }
 
-    public function getPhone(): ?int
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
 
-    public function setPhone(int $phone): self
+    public function setPhone(string $phone): self
     {
         $this->phone = $phone;
 
