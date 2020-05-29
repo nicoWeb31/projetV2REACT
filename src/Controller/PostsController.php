@@ -37,7 +37,7 @@ class PostsController extends AbstractController
             $man->flush();
             $this->addFlash("ok","Commentaire ajouté avec succès");
 
-            return $this->redirectToRoute('post',['id' => $post->getId()]);
+            return $this->redirectToRoute('post',['slug' => $post->getSlug()]);
         }
 
         return $this->render('posts/showOnePost.html.twig',[
@@ -58,8 +58,8 @@ class PostsController extends AbstractController
         $userRole = $this->getUser()->getRoles();
         //dd($userRole);
 
-        //id du post pour la redirection
-        $idPost = $comment->getPost()->getId();
+        //slug du post pour la redirection
+        $slug = $comment->getPost()->getSlug();
         //dd($idPost);
 
         $form = $this->createForm(CommentType::class,$comment);
@@ -74,12 +74,12 @@ class PostsController extends AbstractController
                 $man->persist($comment);
                 $man->flush();
                 $this->addFlash("ok","Commentaire modifié avec succès");
-                return $this->redirectToRoute('post',['id' => $idPost]);
+                return $this->redirectToRoute('post',['slug' => $slug]);
                 exit();
     
             }
         }else{
-            return $this->redirectToRoute('post',['id' => $idPost]);
+            return $this->redirectToRoute('post',['slug' => $slug]);
         }
 
 
@@ -103,7 +103,7 @@ class PostsController extends AbstractController
 
 
         //id du post pour la redirection
-        $idPost = $comment->getPost()->getId();
+        $slug = $comment->getPost()->getSlug();
 
         if( $userRole[0] == "ROLE_ADMIN" || $userid == $comment->getUser()->getId()){
 
@@ -113,13 +113,13 @@ class PostsController extends AbstractController
                 $man->remove($comment);
                 $man->flush();
                 $this->addFlash('ok', "Commentaire supprimé avec succès");
-                return $this->redirectToRoute('post',['id' => $idPost]);
+                return $this->redirectToRoute('post',['slug' => $slug]);
 
 
             }
 
         }else{
-            return $this->redirectToRoute('post',['id' => $idPost]);
+            return $this->redirectToRoute('post',['slug' => $slug]);
         }
     }
 
