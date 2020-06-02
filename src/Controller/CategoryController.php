@@ -136,15 +136,7 @@ class CategoryController extends AbstractController
 
 
 
-    /**
-     * fragment entrainement plus api
-     * @Route("/_Fragment", name="liste-entrainement")
-     * 
-     */
-    public function meteo()
-    {
-        return $this->render('partial/section/listeEntrainement.html.twig');
-    }
+ 
 
 
 
