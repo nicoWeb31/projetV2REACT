@@ -22,22 +22,39 @@ class PostsController extends AbstractController
         if($this->getUser()){
             
             $user = $this->getUser(); //recuperation du user
+            // dd($user);
         }   
+
+
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($req);
 
 
+        
         if($form->isSubmitted() && $form->isValid()){
 
-            $comment->setCreatedAd(new DateTime())
-                    ->setPost($post)
-                    ->setUser($user);
+            if($user->getActivationToken() == null){
 
-            $man->persist($comment);
-            $man->flush();
-            $this->addFlash("ok","Commentaire ajouté avec succès");
 
-            return $this->redirectToRoute('post',['slug' => $post->getSlug()]);
+                $comment->setCreatedAd(new DateTime())
+                        ->setPost($post)
+                        ->setUser($user);
+    
+                $man->persist($comment);
+                $man->flush();
+                $this->addFlash("ok","Commentaire ajouté avec succès");
+    
+                return $this->redirectToRoute('post',['slug' => $post->getSlug()]);
+
+            }else{
+                
+                $this->addFlash("pasOk","Valider votre adresse mail pour pouvoir commenter un post, merci !");
+                return $this->redirectToRoute('post',['slug' => $post->getSlug()]);
+
+            }
+
+            
+
         }
 
         return $this->render('posts/showOnePost.html.twig',[
@@ -67,17 +84,18 @@ class PostsController extends AbstractController
 
 
         if( $userRole[0] == "ROLE_ADMIN" || $userid == $comment->getUser()->getId()){
+                
 
-            if($form->isSubmitted() && $form->isValid()){
-    
-    
-                $man->persist($comment);
-                $man->flush();
-                $this->addFlash("ok","Commentaire modifié avec succès");
-                return $this->redirectToRoute('post',['slug' => $slug]);
-                exit();
-    
-            }
+                if($form->isSubmitted() && $form->isValid()){
+        
+        
+                    $man->persist($comment);
+                    $man->flush();
+                    $this->addFlash("ok","Commentaire modifié avec succès");
+                    return $this->redirectToRoute('post',['slug' => $slug]);
+                    exit();
+        
+                }
         }else{
             return $this->redirectToRoute('post',['slug' => $slug]);
         }

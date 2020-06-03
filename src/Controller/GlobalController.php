@@ -28,18 +28,9 @@ class GlobalController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(ApiMeteo $api,Request $req)
+    public function index()
     {
-
-        $ville = $req->query->get('ville');
-        $data = $api->getMeteo($ville);
-
-
-        return $this->render('global/home.html.twig',[
-            'meteo'=>$data[0],
-            'ville'=>$ville,
-            'err'=>$data[1]
-        ]);
+        return $this->render('global/home.html.twig');
     }
 
 
@@ -298,10 +289,6 @@ class GlobalController extends AbstractController
             ]);
         }
     }
-
-
-
-
 
 
 
