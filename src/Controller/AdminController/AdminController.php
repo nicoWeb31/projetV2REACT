@@ -8,11 +8,14 @@ use App\Entity\User;
 use App\Entity\Photo;
 use App\Form\UserType;
 use App\Form\PhotoType;
+use App\Entity\LastNews;
+use App\Form\LastNewsType;
 use App\Form\PostFormType;
 use App\Form\EditUserAdminType;
 use App\Repository\PostRepository;
 use App\Repository\UserRepository;
 use App\Repository\PhotoRepository;
+use App\Repository\LastNewsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\CatergoryUserRepository;
 use Knp\Component\Pager\PaginatorInterface;
@@ -269,8 +272,6 @@ class AdminController extends abstractAdminController
     }
 
 
-
-
     /**
       * function Abstract class
      * recu user by Category Trail
@@ -346,4 +347,65 @@ class AdminController extends abstractAdminController
             return $this->redirectToRoute('admin.users');
         }
     }
+
+      // =========================================================================
+    // lastNews Admin
+    // =========================================================================
+
+    /**
+     * @Route("/lastNews", name="admin.lastNews")
+     */
+    public function showAllNews(LastNewsRepository $repo, Request $req)
+    {
+
+        $lastNews = $repo->findAll();
+
+        return $this->render('admin/lastNews/showAllNews.html.twig',[
+            "lastNews" => $lastNews
+        ]);
+    }
+
+     /**
+     * @Route("/lastNews/suppr/{id}", name="admin.lastNews.suppr",methods="sup")
+     */
+    public function supprLastNews(LastNews $new, Request $req, EntityManagerInterface $man)
+    {
+        if($this->isCsrfTokenValid("sup".$new->getId(), $req->get("_token"))){
+            $man->remove($new);
+            $man->flush();
+            $this->addFlash('success', "News supprimé avec succès");
+            return $this->redirectToRoute('admin.lastNews');
+        }
+    }
+
+    /**
+     * @Route("/lastNews/create", name="admin.lastNews.create")
+     * @Route("/lastNews/modifier/{id}", name="admin.lastNews.modifier",methods ="GET|POST")
+     */
+    public function ModCreatLastNews(LastNews $new = null,EntityManagerInterface $man, Request $req)
+    {
+        if(!$new){
+            $new = new LastNews();
+        }
+
+        $form = $this->createForm(LastNewsType::class,$new);
+        $form->handleRequest($req);
+        
+        if($form->isSubmitted() && $form->isValid()){
+
+            $modif = $new->getId() !== null;
+            $man->persist($new);
+            $man->flush();
+            $this->addFlash("success",($modif) ? "Modification effectuée avec succès" : "Ajouté avec succès");
+            return $this->redirectToRoute('admin.lastNews');
+        }
+        return $this->render('admin/lastNews/ModCreatlastNews.html.twig',[
+            "user"=>$new,
+            "form"=> $form->createView(),
+            "modif"=> $new->getId() !== null
+        ]);
+
+    }
+
+
 }

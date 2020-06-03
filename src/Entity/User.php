@@ -38,6 +38,7 @@ class User implements UserInterface,\Serializable
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=3,max=40,minMessage="Username trop court - 3 -  carctéres minimum",maxMessage="Username trop long")
      */
     private $username;
 
@@ -59,9 +60,10 @@ class User implements UserInterface,\Serializable
     /**
      * @ORM\Column(type="string")
      * @Assert\Regex(
-     * pattern="/[0-9]{5}/",
-     * match=true,
-     * message="le code postal doit contenir 5 nombre")
+     *  pattern="/[0-9]{5}/",
+     *  match=true,
+     *  message="le code postal doit contenir 5 nombre")
+     * @Assert\Length(min=5,max=5)
      */
     private $codePostal;
 
@@ -96,6 +98,7 @@ class User implements UserInterface,\Serializable
      * pattern="/[0-9]{10}/",
      * match=true,
      * message="le numero de tel doit contenir 10 chiffre")
+     * @Assert\Length(min=10,max=10,minMessage="Numéro de télephone doit contenir 10 chiffre")
      * 
      */
     private $phone;
@@ -108,6 +111,10 @@ class User implements UserInterface,\Serializable
     /**
      * 
      * @Vich\UploadableField(mapping="images_users", fileNameProperty="photo")
+     * @Assert\Image(
+     * mimeTypes="image/jpeg",
+     * mimeTypesMessage="Format non accepeté"
+     * )
      */
     private $imageFile;
 

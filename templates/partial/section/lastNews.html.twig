@@ -4,17 +4,17 @@
 
     <div>
 
-        <h4 class="display-5 text-center">Derniere News </h4>
+        <h4 class="display-5 text-center text-warning"><i class="fas fa-info-circle"></i> Derniere News <i class="fas fa-info-circle"></i></h4>
         <hr class="my-4 my-light">
 
-        <ul>
+        <ul class="list-group">
+            {% for new in LastNews %}
 
-            <li class="m-3 text-center">
-
-                test derniere news
-                
+            <li class="h-3 m-3 text-center list-group-item list-group-item-warning">
+                {{new.content}}
             </li>
-
+            
+            {% endfor %}
         </ul> 
 
     </div>

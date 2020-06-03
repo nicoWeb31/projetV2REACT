@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LastNews | {{parent()}}{% endblock %}
+{% block monTitle %}
+    {% if modif %}
+        Modification 
+        {% else %}
+        Ajout d'une nouvelle News
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    {{form_start(form)}}
+
+    {{form_widget(form)}}
+   
+    <input type="submit" class="btn btn-success" value="envoyer">
+{{form_end(form)}}
+
+</div>
+{% endblock %}

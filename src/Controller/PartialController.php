@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\LastNews;
+use App\Repository\LastNewsRepository;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PartialController extends AbstractController
 {
@@ -22,9 +24,14 @@ class PartialController extends AbstractController
      * @Route("/_Fragment-last-news", name="last-news")
      * 
      */
-    public function lastNews()
+    public function lastNews(LastNewsRepository $repo)
     {
-        return $this->render('partial/section/lastNews.html.twig');
+
+        $lastnews = $repo->findAll();
+
+        return $this->render('partial/section/lastNews.html.twig',[
+            'LastNews'=>$lastnews
+        ]);
     }
 
 }

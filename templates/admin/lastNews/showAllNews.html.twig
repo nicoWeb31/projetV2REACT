@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Last News |{{parent()}}{% endblock %}
+{% block monTitle %}Liste des News{% endblock %}
+
+{% block body %}
+<div class="container">
+    <!-- ======================================================================= -->
+    <!-- message flash -->
+    <!-- ======================================================================= -->
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{message}}
+        </div>
+    {% endfor %}
+
+    <a href="{{path("admin.lastNews.create")}}" class="btn btn-info w-100">Ajouter une news</a>
+
+
+    <table class="table m-5">
+        <tr>
+
+            <th class="text-info">Contenu</th>
+
+            <th class="text-info">Action</th>
+        </tr>
+            {% for new in lastNews %}
+        <tr>
+  
+            <td>{{new.content}}</td>
+
+            <td>
+                <div class="btn-group">
+                    <a href="{{path('admin.lastNews.modifier',{"id":new.id})}}" class="btn btn-warning p-1 m-0 d-block w-100 ">Modifier</a>
+
+                    <form method="POST" action="{{path('admin.lastNews.suppr',{'id':new.id})}}" onsubmit="return confirm('etes vous sur ?')">
+                        <input type="hidden" name="_method" value="sup">
+                        <input type="hidden" name="_token" value="{{csrf_token('sup' ~ new.id)}}" >
+                        <input type="submit" class="btn btn-danger p-1 m-0 d-block w-100 " value="supprimer">
+                    </form>
+                </div>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </table>
+
+    </div>
+{% endblock %}
