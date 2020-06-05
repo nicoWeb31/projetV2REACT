@@ -41,7 +41,7 @@ class GlobalController extends AbstractController
     /**
      * @Route("/register", name="register")
      */
-    public function regiseter(Request $req,EntityManagerInterface $man,UserPasswordEncoderInterface $encode,\Swift_Mailer $mailer)
+    public function regiseter(Request $req,EntityManagerInterface $man,UserPasswordEncoderInterface $encode,Swift_Mailer $mailer)
     {
         $user = new User();
         $form = $this->createForm(UserType::class,$user);
@@ -229,10 +229,7 @@ class GlobalController extends AbstractController
                     'global/email/demandeNewPassword.html.twig', ['url' => $url]
                 ),
                 'text/html'
-
-                // "<p>Une demande de réinitialisation de mot de passe a été effecctuée pour le site VTT veuillez cliquer sur le lien suivant : " .$url ."</p>",
-                // 'text/html'
-                );
+            );
 
 
 
