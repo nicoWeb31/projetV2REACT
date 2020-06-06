@@ -69,7 +69,8 @@
 
         <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 _responBoot">
             <h2 class="text-center p-3 text-white">Qui sommes nous ?</h2>
-            <p class="text-center h4 m-4 text-white">Une petite association intercommunale est née  En Cœur de Garonne il y a maintenant 8 mois .
+            <p class="text-center h4 m-4 text-white">
+                Une petite association intercommunale est née  En Cœur de Garonne .
                 VTT TRAIL TREK EN Cœur De Garonne réunissant des sportifs passionnés 
                 en trail, randonnée montagne et vtt 
                 c est dans ce village de Montastruc Saves de moins de 80 habitants où il a été créé.
@@ -91,7 +92,7 @@
     <!-- =================================================================== -->
     <!-- alert derniere news -->
     <!-- =================================================================== -->
-    <div class="border-bottom border-light m-5">
+    <div class="border-bottom border-light m-5 _HomeLastNews">
 
         <div class="jumbotron jumbotron-fluid">
             <div class="container-fluid">
@@ -110,10 +111,10 @@
     <div class="row border-bottom border-light m-5">
         <div class="col ">
             <h3 class="text-center text-white">Decouvrez nos 3 sections :</h3>
-            <div class="d-flex justify-content-center mb-5">
-                <a href="{{path('Vtt')}}" class="bg-light m-4 p-4 rounded-circle"><img src="{{asset('images/imagesAutre/bike.png')}}" alt="bike"></a>
-                <a href="{{path('Trail')}}" class="bg-light m-4 p-4 rounded-circle"><img src="{{asset('images/imagesAutre/run.png')}}" alt="running"></a>
-                <a href="{{path('Trek')}}" class="bg-light m-4 p-4 rounded-circle"><img src="{{asset('images/imagesAutre/hid.png')}}" alt="hid"></a>
+            <div class="d-flex justify-content-center mb-5 ">
+                <a href="{{path('Vtt')}}" class="bg-light m-auto p-4 rounded-circle"><img src="{{asset('images/imagesAutre/bike.png')}}" alt="bike" class="img-fluid"></a>
+                <a href="{{path('Trail')}}" class="bg-light m-auto p-4 rounded-circle"><img src="{{asset('images/imagesAutre/run.png')}}" alt="running" class="img-fluid"></a>
+                <a href="{{path('Trek')}}" class="bg-light m-auto p-4 rounded-circle"><img src="{{asset('images/imagesAutre/hid.png')}}" alt="hid" class="img-fluid"></a>
                 
 
             </div>
@@ -128,7 +129,7 @@
 <!-- ======================================================================= -->
 <!-- carousel -->
 <!-- ======================================================================= -->
-<div class="container p-5">
+<div class="container p-5 _cardHomeRest">
 
     <!-- ICI : les cartes -->
     <div class="card-deck">
@@ -144,20 +145,12 @@
                 <div class="carousel-inner m-0 p-0">
                     <div class="carousel-item active">
                         <a href="#"><img class="d-block w-100" src="{{asset('images/partenaire/lePRamo.jpg')}}"
-                            alt="First slide"></a>
+                            alt="petit_ramoneur"></a>
                     </div>
                     <div class="carousel-item">
                         <a href="https://www.paysages-rieumois.fr/"><img class="d-block w-100" src="{{asset('images/partenaire/chr.jpg')}}"
-                            alt="Second slide"></a>
+                            alt="paysage_rieumois"></a>
                     </div>
-                    <!-- <div class="carousel-item">
-                        <img class="d-block w-100" src="{{asset('images/partenaire/gl.png')}}"
-                            alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://www.imprimeriecazaux.fr/"><img class="d-block w-100" src="{{asset('images/partenaire/cazaux.gif')}}"
-                            alt="Second slide"></a>
-                    </div> -->
             
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -173,7 +166,11 @@
             <div class="card-body bg-white text-dark">
                 <h5 class="card-title">Nos Partenaires</h5>
                 <p>Comme nous, faites confiance à nos partenaires
-                    <a href=""></a>
+                    <ul>
+                        <li><a href="https://www.paysages-rieumois.fr/" class="text-dark">Art Et Paysages Rieumois SARL </a> 06 89 72 58 09</li>
+                        <li>Le Petit Ramoneur 05 62 62 40 87</li>
+                    </ul>
+                    
                 </p>
 
             </div>
@@ -183,13 +180,11 @@
 
 
 
-            <img src="https://believemy.com/uploads/c7fe8837368024dc01e1845337f167e9_18fb807dabb97a3e4f920d1b0c9176b1.png"
-                alt="..." class="card-img-top">
+            <img src="{{asset('images/imagesAutre/lunette_ciel_etoiles.jpg')}}"
+                alt="tns" class="card-img-top _cardHomeTns">
             <div class="card-body bg-white text-dark">
-                <h5 class="card-title">Nous contacter</h5>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis optio officiis cupiditate
-                    placeat. Eum aliquid vel delectus sed minus repudiandae suscipit consequatur voluptatem
-                    necessitatibus, quisquam eius corrupti quos, ducimus non?
+                <h5 class="card-title">Tns</h5>
+                <p>A venir Trail Nocturne en Saves
                 </p>
 
             </div>

@@ -1,3 +1,10 @@
+#swiftmailer:
+#    url: '%env(MAILER_URL)%'
+#    spool: { type: 'memory' }
+#    disable_delivery:  false
+    
+    
 swiftmailer:
-    url: '%env(MAILER_URL)%'
+    url: '%env(SWIFTMAILER_DSN)%'
     spool: { type: 'memory' }
+    disable_delivery:  false

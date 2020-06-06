@@ -40,6 +40,11 @@ h1,h2,h3,h4,h5,h6{
 height: auto;
 }
 
+
+._cardHomeTns{
+    width: auto;
+}
+
 /* ========================================================================== */
 /* btn active */
 /* ========================================================================== */
@@ -64,6 +69,12 @@ The classes above can be combined to create more dynamic and flexible layouts. *
 
 
 @media only screen and (max-width:1201px) {
+
+    bordy{
+        margin: 0;
+        padding: 0;
+    }
+
     #_train {
         order: 2;
 	}
@@ -74,7 +85,48 @@ The classes above can be combined to create more dynamic and flexible layouts. *
 	}
     ._responBoot {
         order: 1;
+        width: 100%;
+        margin: 0px !important;
+    }
+    ._responBoot p{
+        order: 1;
+        text-align: center;
+        margin: 10px !important;
+        padding: 10px !important;
+        
+    }
+
+    ._cardHomeRest{
+        margin: 10px auto !important;
+        padding: 10px !important;
+    }
+
+    ._sectionHautResp{
+        margin: 0px !important;
+    }
+
+    ._HomeLastNews{
+        width: 100%;
+        margin: 10px auto !important;
+        padding: 10px !important;
+    }
+    ._HomeLastNews ul li{
+        width: 100%;
+        margin: 10px auto !important;
+        padding: 10px !important;
     }
     
 }
+
+.TnsImg{
+    background-image: url("/images/imagesAutre/nocturne.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-top: 40px !important ;
+    padding-top: 100px !important;
+}
+
+
+
 

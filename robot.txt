@@ -1,0 +1,6 @@
+# fichier pour les robots du site http://vtt-trail-trek-en-coeur-de-garonne.fr//
+User-Agent: * (autorise l’accès à tous les robots )
+#Disallow: /intranet/ (interdit l’exploration du dossier intranet)
+Disallow: http://vtt-trail-trek-en-coeur-de-garonne.fr/login 
+Allow: /*.css?* 
+Sitemap: http://vtt-trail-trek-en-coeur-de-garonne.fr/sitemap_index.xml 

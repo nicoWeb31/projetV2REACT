@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset="UTF-8" />
-    <title>{% block title %}Coeur 2 Garonne{% endblock %}</title>
+    <html lang="fr">
+    <head>
+
+
+    <title>{% block title %}Vtt-Trail-Trek en Coeur de garonne{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.css" />
-    {# <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.css" /> #}
-
     <link rel="stylesheet" href="{{ asset('build/app.css') }}" />
     <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet" />
-    <link rel="shortcut icon" href="{{ asset('images/imagesAutre/strava.png') }}">
+    <link rel="shortcut icon" href="{{ asset('images/imagesAutre/logoIcon.png') }}">
 
     <script src="https://kit.fontawesome.com/591f90ff63.js" crossorigin="anonymous"></script>
 
@@ -26,8 +25,9 @@
 <meta name="description" content="VTT en coeur de garonne reunie des sportifs pationner. VTT,Trail,Trek au programme.">
 <meta name="keywords" content="VTT,Trail,Trek,Garonne">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="robots" content="index"/>
 
 
 <!-- ======================================================================= -->
@@ -56,7 +56,7 @@
             <ul class="navbar-nav mr-auto ml-5">
 
                 <li class="nav-item m-3 rounded-pill">
-                    <a class="nav-link p-3 rounded-pill" href="#">Trail Nocturne en Saves</a>
+                    <a class="nav-link p-3 rounded-pill " href="{{ path('tns')}}">Trail Nocturne en Saves</a>
                 </li>
                 <li class="nav-item m-3 rounded-pill">
                     <a class="nav-link p-3 rounded-pill" href="{{ path('Actu') }}">Actualités</a>

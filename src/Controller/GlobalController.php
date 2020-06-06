@@ -34,6 +34,15 @@ class GlobalController extends AbstractController
     }
 
 
+    /**
+     * @Route("/tns", name="tns")
+     */
+    public function tns()
+    {
+        return $this->render('global/tns.html.twig');
+    }
+
+
 
     // =========================================================================
     // register via token
