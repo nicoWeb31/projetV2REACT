@@ -114,7 +114,7 @@ class CategoryController extends AbstractController
     public function actu(CategoryRepository $rep,PostRepository $repPost,SerializerInterface $seria, Request $req)
     {
 
-        $cat  =$rep->findByNameCat('Actualités');
+        $cat  =$rep->findByNameCat('Actu');
         $postLastSeven = $repPost->findLastSeven();  //liste des derniers post
 
         //je recupere ma ville en get avec request

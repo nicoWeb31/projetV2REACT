@@ -87,12 +87,14 @@ The classes above can be combined to create more dynamic and flexible layouts. *
         order: 1;
         width: 100%;
         margin: 0px !important;
+        padding: 0px !important;
     }
     ._responBoot p{
         order: 1;
         text-align: center;
-        margin: 10px !important;
-        padding: 10px !important;
+        width: 100%;
+        margin: 0px !important;
+        padding: 0px !important;
         
     }
 
