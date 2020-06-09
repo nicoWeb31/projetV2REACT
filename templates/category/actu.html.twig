@@ -80,7 +80,7 @@
 
             {% for actu in  cat %}
                 <!-- <h1>{{actu.name}}</h1> -->
-                {% for post in actu.posts %}
+                {% for post in actu.posts | reverse %}
                     <div class="border-bottom border-light m-5">
                     <!-- <h1>{{post.id}}</h1> -->
                     <h2 class="text-warning">{{post.title}}</h2>

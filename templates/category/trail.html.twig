@@ -86,7 +86,7 @@ Ca vous tente, sortez vos running du placard et n’hésitez plus, venez nous re
 
         {% for trail in  cat %}
             <!-- <h1>{{trail.name}}</h1> -->
-            {% for post in trail.posts %}
+            {% for post in trail.posts | reverse %}
                 <div class="border-bottom border-light m-5">
                     <!-- <h1>{{post.id}}</h1> -->
                     <h2 class = "text-warning">{{post.title}}</h2>
