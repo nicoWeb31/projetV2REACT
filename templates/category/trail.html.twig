@@ -17,39 +17,6 @@
 
         {% include '/partial/section/apiMeteo.html.twig' %}
 
-        {# <h3 class="p-3 text-center">meteo {{ville}}</h3>
-        <form action="" method="GET">
-            <input type="text" name="ville" class="mx-auto d-block">
-            <button class="btn btn-info p-1 m-1 mx-auto d-block" type="submit">rechercher</button>
-        </form>
-        {% if err %}
-            
-        <div class="alert alert-warning p-3 m-3">la ville n'existe pas !!!!</div>
-        {% else %}
-
-                {% if meteo %}
-                
-            
-                <div class="d-flex justify-content-around">
-                    <img src={{asset(meteo.fcst_day_0.icon)}} alt="icone Meteo" class="d-inline">
-                    <img src={{asset(meteo.fcst_day_1.icon)}} alt="icone Meteo" class="d-inline">
-                    <img src={{asset(meteo.fcst_day_2.icon)}} alt="icone Meteo" class="d-inline">
-                    <img src={{asset(meteo.fcst_day_3.icon)}} alt="icone Meteo" class="d-inline">
-                    
-                </div>
-                <div class="d-flex justify-content-around">
-                    <h6>{{meteo.fcst_day_0.day_short}}</h6>
-                    <h6>{{meteo.fcst_day_1.day_short}}</h6>
-                    <h6>{{meteo.fcst_day_2.day_short}}</h6>
-                    <h6>{{meteo.fcst_day_3.day_short}}</h6>
-                </div>
-
-                
-            {% endif %}
-        
-        {% endif %} #}
-
-
     
     </div>
 
