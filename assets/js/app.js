@@ -9,23 +9,6 @@
 import '../css/app.css';
 console.log('test connect');
 
-//timer
- let dom = document.getElementById('timerTrail');
- let dateLaunch = new Date(2020,10,21);
- console.log(dom)
-
- const setDate = () =>{
-
-     const date = new Date()
-     let s = Math.floor((dateLaunch.getTime() - date.getTime())/1000) ; 
-     setTimeout(setDate,1000);
-     console.log(s)
-     dom.innerHTML = s + "  s";
- }
-
-setDate();
-
-
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
 
