@@ -9,6 +9,23 @@
 import '../css/app.css';
 console.log('test connect');
 
+//timer
+ let dom = document.getElementById('timerTrail');
+ let dateLaunch = new Date(2020,10,21);
+ console.log(dom)
+
+ const setDate = () =>{
+
+     const date = new Date()
+     let s = Math.floor((dateLaunch.getTime() - date.getTime())/1000) ; 
+     setTimeout(setDate,1000);
+     console.log(s)
+     dom.innerHTML = s + "  s";
+ }
+
+setDate();
+
+
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
 
@@ -34,8 +51,13 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import '../css/app.css';
 import Test from './component/Test';
-import Apimeteo from './component/ApiMeteo'
+import Apimeteo from './component/ApiMeteo';
+import TimerTrail from './component/TimerTrail';
 
-
+ //api meteo
 ReactDOM.render(<Router><Apimeteo /></Router>, document.getElementById('apiMeteo'));
+
+
+
+
 
