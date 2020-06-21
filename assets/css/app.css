@@ -120,6 +120,24 @@ The classes above can be combined to create more dynamic and flexible layouts. *
     
 }
 
+
+@media only screen and (max-width:768px) {
+
+    ._tnsTI{
+
+        flex-wrap: wrap !important;
+        font-size: 50px;
+        text-align: center !important;
+
+
+    }
+
+
+}
+
+
+
+
 .TnsImg{
     background-image: url("/images/imagesAutre/nocturne.jpg");
     background-repeat: no-repeat;
