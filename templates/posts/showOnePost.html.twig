@@ -24,7 +24,7 @@
 
 
 <div class="row border-bottom border-light m-5">
-    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 p-5 d-flex flex-column justify-content-center">
+    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 p-5 d-flex flex-column justify-content-center _respoZero768">
         <h1>Le {{post.createdAt | date("d/m/Y", "Europe/Paris")}}</h1>
         <h2>{{post.subTitle}}</h2>
         <p>{{post.content}}</p>
@@ -42,10 +42,10 @@
 
     {# si une seule photo pas de caroussel #}
     {% if post.photos |length == 1 %}
-    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 p-5">
+    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 p-5 _respoZero768">
         {% for photo in post.photos %}
             <div class="img-fluid">
-                <img src="{{asset('images/post/'~ photo.url)}}" alt="{{photo.alt}}" class="d-block w-100  _photoCaroussel">
+                <img src="{{asset('images/post/'~ photo.url)}}" alt="{{photo.alt}}" class="d-block w-100  _photoCaroussel ">
             </div>
         {% endfor %}
     </div> 

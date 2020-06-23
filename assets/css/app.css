@@ -133,6 +133,15 @@ The classes above can be combined to create more dynamic and flexible layouts. *
     }
 
 
+
+    ._respoZero768 {
+
+        margin: 10px auto !important;
+        padding: 10px !important;
+
+    }
+
+
 }
 
 
