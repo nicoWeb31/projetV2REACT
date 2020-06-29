@@ -203,19 +203,25 @@ class GlobalController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             //recup donner
                 $data = $form->getData();
-
+                
                 //recherche si un user a cet email
-                $user =$repoUser->findOneBy(['mail' => $data['mail']]);
-
+                $user = $repoUser->findOneBy(['mail' => $data['mail']]);
+                
+                
                 //si user n'hexiste pas
-                if(!$user){
+                if($user == null){
+                    
+                    
                     $this->addFlash('danger', 'ce mail n\'hexiste pas');
-                    $this->redirectToRoute('login');
+                    return $this->redirectToRoute('login');
+
                 }
+
 
             //generation du token    
             $token = $tokenGenerator->generateToken();   
             try{
+                //dd($user);
                 $user->setResetToken($token);
                 $man->persist($user);
                 $man->flush();
@@ -248,6 +254,7 @@ class GlobalController extends AbstractController
             //on crée le message flash
             $this->addFlash('message','un e-mail de réinitialisation de mot de passe a été envoyé');
             return $this->redirectToRoute('login');
+        
         }
 
         //on envoie vers la page de demande de l'e-mail
