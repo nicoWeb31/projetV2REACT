@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import ApiMeteoDay from './ApiMeteoDay';
-
-
 
 
 class ApiMeteo extends Component {

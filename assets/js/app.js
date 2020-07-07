@@ -33,9 +33,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import '../css/app.css';
-import Test from './component/Test';
-import Apimeteo from './component/ApiMeteo';
-import TimerTrail from './component/TimerTrail';
+// import Test from './component/Test';
+// import Apimeteo from './component/ApiMeteo';
+// import TimerTrail from './component/TimerTrail';
 import Meteo from './component/Meteo';
 
  //api meteo
