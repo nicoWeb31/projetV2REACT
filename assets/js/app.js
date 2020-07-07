@@ -36,9 +36,10 @@ import '../css/app.css';
 import Test from './component/Test';
 import Apimeteo from './component/ApiMeteo';
 import TimerTrail from './component/TimerTrail';
+import Meteo from './component/Meteo';
 
  //api meteo
-ReactDOM.render(<Router><Apimeteo /></Router>, document.getElementById('apiMeteo'));
+ReactDOM.render(<Router><Meteo /></Router>, document.getElementById('apiMeteo'));
 
 
 
