@@ -1,0 +1,3148 @@
+PHPUnit 7.5.20 by Sebastian Bergmann and contributors.
+
+Testing Project Test Suite
+.<!DOCTYPE html>
+
+    <html lang="fr">
+    <head>
+
+
+    <title>Accueil | Vtt-Trail-Trek en Coeur de garonne</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.css" />
+    <link rel="stylesheet" href="/build/app.17cdced1.css" />
+    <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="/images/imagesAutre/logoIcon.png">
+
+    <script src="https://kit.fontawesome.com/591f90ff63.js" crossorigin="anonymous"></script>
+
+
+<!-- ======================================================================= -->
+<!-- Meta -->
+<!-- ======================================================================= -->
+<!-- Primary Meta Tags -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="French">
+<meta name="description" content="VTT en coeur de garonne reunie des sportifs pationner. VTT,Trail,Trek au programme.">
+<meta name="keywords" content="VTT,Trail,Trek,Garonne">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="robots" content="index"/>
+
+
+<!-- ======================================================================= -->
+<!-- tarte au citron -->
+<!-- ======================================================================= -->
+
+
+
+    </head>
+
+<body class="" >
+    <!-- =================================================================== -->
+    <!-- nav bar 1 -->
+    <!-- =================================================================== -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top ">
+        <a class="navbar-link rounded-pill ml-5 h4 m-3 p-3" href="/">Accueil</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto ml-5">
+
+                <li class="nav-item m-3 rounded-pill">
+                    <a class="nav-link p-3 rounded-pill " href="/tns">Trail Nocturne en Saves</a>
+                </li>
+                <li class="nav-item m-3 rounded-pill">
+                    <a class="nav-link p-3 rounded-pill" href="/category/Actu">Actualités</a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto mr-5">
+
+                                
+                
+                                <li class="nav-item rounded-pill">
+                    <a class="nav-link m-2 rounded-pill p-3" href="/register">Nous rejoindre
+                    </a>
+                </li>
+                <li class="nav-item rounded-pill">
+                    <a href="/login" class="nav-link m-2 rounded-pill p-3">Login</a>
+                </li>
+                
+
+            </ul>
+        </div>
+    </nav>
+    
+
+    <!-- =================================================================== -->
+    <!-- baniere -->
+    <!-- =================================================================== -->
+        <img src="/images/imagesAutre/testBaniere.png" class="w-100 img-fluid" alt="banniere-montagne" />
+    
+
+    <!-- =================================================================== -->
+    <!-- narbar 2 -->
+    <!-- =================================================================== -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarColor02">
+            <ul class="navbar-nav d-flex justify-content-center">
+
+
+                <!-- class active sur le btn sur la route courante /  app.request.get('') -> route courante-->
+
+                <li class="nav-item">
+                    <a class=" nav-link h2 m-3 p-5" href="/category/Vtt">VTT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link h2 m-3 p-5" href="/category/Trail">Trail</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link h2 m-3 p-5" href="/category/Trek">Trek</a>
+                </li>
+
+
+            </ul>
+        </div>
+    </nav>
+        <!-- =================================================================== -->
+    <!-- h1 -->
+    <!-- =================================================================== -->
+    <h1 class="border border-dark rounded text-white m-3 p-3 text-center bg-success w-90">
+        Bienvenue en Coeur de Garonne    </h1>
+
+    <!-- =============================================================== -->
+    <!-- block body -->
+    <!-- =============================================================== -->
+    <div class="container-fluid P-0 " >
+        <div class="container-fluid">
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v7.0"></script>
+
+
+<!-- ======================================================================= -->
+<!-- liste des entrainements -->
+<!-- ======================================================================= -->
+
+<!-- ======================================================================= -->
+<!-- liste des entrainements -->
+<!-- ======================================================================= -->
+<div class="row border-bottom border-light m-5 _sectionHautResp">
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 jumbotron" id="_train">
+        <h4 class="display-5 p-2 text-center">Planning des entrainements</h4>
+        <hr class="my-4 my-light">
+        <div class="btn-group p-3 d-flex flex-wrap justify-content-center">
+            <button class="btn btn-primary p-2 " data-toggle="modal"  data-target="#exampleModal1">Lundi</button>
+                        <button class="btn btn-primary p-2 " data-toggle="modal" data-target="#exampleModal2">Mercredi</button>
+            <button class="btn btn-primary p-2 " data-toggle="modal" data-target="#exampleModal3">Vendredi</button>
+        </div>
+        <div class="btn-group p-3 d-flex flex-wrap justify-content-center">
+            <button class="btn btn-primary p-2 " data-toggle="modal" data-target="#exampleModal4">Samedi</button>
+            <button class="btn btn-primary p-2 " data-toggle="modal" data-target="#exampleModal5">Dimanche</button>
+        </div>
+
+    
+
+<!-- ======================================================================= -->
+<!-- modal lundi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">Lundi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-white">
+                            Entrainement Trail a partir de 19h15 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!-- ======================================================================= -->
+<!-- modal mercredi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">Mercredi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-white">
+                            Entrainement Trail à partir de 19h15 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+<!-- ======================================================================= -->
+<!-- modal vendredi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">Vendredi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-white">
+                            Entrainement avec les irréductibles bipèdes à Cazères à 19H15.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!-- ======================================================================= -->
+<!-- modal samedi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Samedi et/ou Dimache</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-white">
+                    Sortie Vtt et/ou Randonnée en fonction de la météo
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+</div>
+
+<!-- ======================================================================= -->
+<!-- modal dimanche -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Samedi et/ou Dimache</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-white">
+                    Sortie Vtt et/ou Randonnée en fonction de la météo
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
+
+
+
+
+<!-- api meteo -->
+<div>
+    <div class="border-top border-light">
+
+        <!-- ======================================================================= -->
+<!-- entré api meteo -->
+<!-- ======================================================================= -->
+
+<div id='apiMeteo'> </div>
+    </div>
+        
+</div>
+        
+
+
+<!-- attention div fermente du partial entrainement -->
+</div>
+
+
+
+        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 _responBoot">
+            <h2 class="text-center p-3 text-white">Qui sommes nous ?</h2>
+            <p class="text-center h4 m-4 text-white">
+                Une petite association intercommunale est née  En Cœur de Garonne .
+                VTT TRAIL TREK EN Cœur De Garonne réunissant des sportifs passionnés 
+                en trail, randonnée montagne et vtt 
+                c est dans ce village de Montastruc Saves de moins de 80 habitants où il a été créé.
+                cette association au statut intercommunal a vu le jour avec des habitants de la commune de Forgues, Rieumes et Montastruc Saves .</p>
+                <img src="/images/imagesAutre/logoNav.png" alt="logoAsso" class="_logoVtt img-fluid d-block mx-auto mb-5">
+        </div>
+
+        <!-- =============================================================== -->
+        <!-- facbook -->
+        <!-- =============================================================== -->
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 jumbotron _lastPost" >
+            <div class="fb-page" data-href="https://www.facebook.com/vttencoeurdegaronne/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div>
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================================== -->
+    <!-- alert derniere news -->
+    <!-- =================================================================== -->
+    <div class="border-bottom border-light m-5 _HomeLastNews">
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container-fluid">
+                    <!-- =============================================================== -->
+    <!-- last News -->
+    <!-- =============================================================== -->
+
+    <div>
+
+        <h4 class="display-5 text-center text-warning"><i class="fas fa-info-circle"></i> Derniere News <i class="fas fa-info-circle"></i></h4>
+        <hr class="my-4 my-light">
+
+        <ul class="list-group">
+            
+            <li class="h-3 m-3 text-center list-group-item list-group-item-warning">
+                Lancement du site internet a venir !
+            </li>
+            
+                    </ul> 
+
+    </div>
+
+
+            </div> 
+        </div>
+
+
+    </div>
+
+
+
+<!-- ======================================================================= -->
+<!-- decouvrez section + icones -->
+<!-- ======================================================================= -->
+    <div class="row border-bottom border-light m-5">
+        <div class="col ">
+            <h3 class="text-center text-white">Decouvrez nos 3 sections :</h3>
+            <div class="d-flex justify-content-center mb-5 ">
+                <a href="/category/Vtt" class="bg-light m-auto p-4 rounded-circle"><img src="/images/imagesAutre/bike.png" alt="bike" class="img-fluid"></a>
+                <a href="/category/Trail" class="bg-light m-auto p-4 rounded-circle"><img src="/images/imagesAutre/run.png" alt="running" class="img-fluid"></a>
+                <a href="/category/Trek" class="bg-light m-auto p-4 rounded-circle"><img src="/images/imagesAutre/hid.png" alt="hid" class="img-fluid"></a>
+                
+
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+<!-- ======================================================================= -->
+<!-- carousel -->
+<!-- ======================================================================= -->
+<div class="container p-5 _cardHomeRest">
+
+    <!-- ICI : les cartes -->
+    <div class="card-deck">
+
+
+        <div class="card">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+
+                </ol>
+                <div class="carousel-inner m-0 p-0">
+                    <div class="carousel-item active">
+                        <a href="#"><img class="d-block w-100" src="/images/partenaire/lePRamo.jpg"
+                            alt="petit_ramoneur"></a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://www.paysages-rieumois.fr/"><img class="d-block w-100" src="/images/partenaire/chr.jpg"
+                            alt="paysage_rieumois"></a>
+                    </div>
+            
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            
+            <div class="card-body bg-white text-dark">
+                <h5 class="card-title">Nos Partenaires</h5>
+                <p>Comme nous, faites confiance à nos partenaires
+                    <ul>
+                        <li><a href="https://www.paysages-rieumois.fr/" class="text-dark">Art Et Paysages Rieumois SARL </a> 06 89 72 58 09</li>
+                        <li>Le Petit Ramoneur 05 62 62 40 87</li>
+                    </ul>
+                    
+                </p>
+
+            </div>
+        </div>
+
+        <div class="card">
+
+
+
+            <img src="/images/imagesAutre/lunette_ciel_etoiles.jpg"
+                alt="tns" class="card-img-top _cardHomeTns">
+            <div class="card-body bg-white text-dark">
+                <h5 class="card-title">Tns</h5>
+                <p>A venir Trail Nocturne en Saves
+                </p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- Footer -->
+    <!-- =================================================================== -->
+        <footer class="page-footer font-small bg-secondary text-dark">
+
+        <div class="container text-center text-md-left">
+
+            <div class="row">
+
+                <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">
+                        Vtt en coeur de garonne
+                    </h5>
+
+                    <p>
+                        Une petite association intercommunale est née En Cœur de Garonne.
+                        <span>VTT</span>   <spant>TRAIL</spant> <span>TREK</span> EN Cœur De Garonne réunissant des sportifs
+                        passionnés en vtt, trail et randonnée.
+                    </p>
+                </div>
+
+                <hr class="clearfix w-100 d-md-none" />
+                <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Liens</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <p>
+                                <a href="#">Nocturne du Saves</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Actu">Actualités</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Trail">Trail</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Vtt">VTT</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Trek">Trek</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <hr class="clearfix w-100 d-md-none" />
+
+
+                <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Contact</h5>
+
+                    <ul class="list-unstyled">
+                        <!-- <li>
+                            <p class="my-2"> Montastruc Saves</p>
+                        </li> -->
+                        <li>
+                            <a href="/contact" class="my-2">Contact</a>
+
+                        </li>
+                        <li>
+                            <p class="my-2"> 06 51 61 58 96</p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <hr class="clearfix w-100 d-md-none" />
+
+                <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Nous suivre</h5>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/facebook.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="logo_facebook" />
+                    </a>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/se.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="logo_sport_easy" />
+                    </a>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/strava.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="strava" />
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright text-center py-3">
+            © 2020 Copyright:
+            <a href="#">Riot Nicolas</a>
+        </div>
+    </footer>
+    
+
+    <!-- =================================================================== -->
+    <!-- block js -->
+    <!-- =================================================================== -->
+        
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="/build/runtime.420770e4.js"></script><script src="/build/0.dd5a5b9a.js"></script><script src="/build/app.3bf7ab74.js"></script>
+    
+
+    
+</body>
+
+</html>[41;37mF[0m.<!DOCTYPE html>
+
+    <html lang="fr">
+    <head>
+
+
+    <title>Contact | Vtt-Trail-Trek en Coeur de garonne </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.css" />
+    <link rel="stylesheet" href="/build/app.17cdced1.css" />
+    <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="/images/imagesAutre/logoIcon.png">
+
+    <script src="https://kit.fontawesome.com/591f90ff63.js" crossorigin="anonymous"></script>
+
+
+<!-- ======================================================================= -->
+<!-- Meta -->
+<!-- ======================================================================= -->
+<!-- Primary Meta Tags -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="French">
+<meta name="description" content="VTT en coeur de garonne reunie des sportifs pationner. VTT,Trail,Trek au programme.">
+<meta name="keywords" content="VTT,Trail,Trek,Garonne">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="robots" content="index"/>
+
+
+<!-- ======================================================================= -->
+<!-- tarte au citron -->
+<!-- ======================================================================= -->
+
+
+
+    </head>
+
+<body class="" >
+    <!-- =================================================================== -->
+    <!-- nav bar 1 -->
+    <!-- =================================================================== -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top ">
+        <a class="navbar-link rounded-pill ml-5 h4 m-3 p-3" href="/">Accueil</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto ml-5">
+
+                <li class="nav-item m-3 rounded-pill">
+                    <a class="nav-link p-3 rounded-pill " href="/tns">Trail Nocturne en Saves</a>
+                </li>
+                <li class="nav-item m-3 rounded-pill">
+                    <a class="nav-link p-3 rounded-pill" href="/category/Actu">Actualités</a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto mr-5">
+
+                                
+                
+                                <li class="nav-item rounded-pill">
+                    <a class="nav-link m-2 rounded-pill p-3" href="/register">Nous rejoindre
+                    </a>
+                </li>
+                <li class="nav-item rounded-pill">
+                    <a href="/login" class="nav-link m-2 rounded-pill p-3">Login</a>
+                </li>
+                
+
+            </ul>
+        </div>
+    </nav>
+    
+
+    <!-- =================================================================== -->
+    <!-- baniere -->
+    <!-- =================================================================== -->
+        <img src="/images/imagesAutre/testBaniere.png" class="w-100 img-fluid" alt="banniere-montagne" />
+    
+
+    <!-- =================================================================== -->
+    <!-- narbar 2 -->
+    <!-- =================================================================== -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarColor02">
+            <ul class="navbar-nav d-flex justify-content-center">
+
+
+                <!-- class active sur le btn sur la route courante /  app.request.get('') -> route courante-->
+
+                <li class="nav-item">
+                    <a class=" nav-link h2 m-3 p-5" href="/category/Vtt">VTT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link h2 m-3 p-5" href="/category/Trail">Trail</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link h2 m-3 p-5" href="/category/Trek">Trek</a>
+                </li>
+
+
+            </ul>
+        </div>
+    </nav>
+        <!-- =================================================================== -->
+    <!-- h1 -->
+    <!-- =================================================================== -->
+    <h1 class="border border-dark rounded text-white m-3 p-3 text-center bg-success w-90">
+        Contact    </h1>
+
+    <!-- =============================================================== -->
+    <!-- block body -->
+    <!-- =============================================================== -->
+    <div class="container-fluid P-0 " >
+        <!-- ======================================================================= -->
+<!-- message flash -->
+<!-- ======================================================================= -->
+
+
+<div class="container">
+
+    <form name="contact" method="post"><div id="contact"><div class="form-group"><label for="contact_nom" class="required">Nom</label><input type="text" id="contact_nom" name="contact[nom]" required="required" class="form-control" /></div><div class="form-group"><label for="contact_email" class="required">Email</label><input type="email" id="contact_email" name="contact[email]" required="required" class="form-control" /></div><div class="form-group"><label for="contact_message" class="required">Message</label><textarea id="contact_message" name="contact[message]" required="required" class="form-control"></textarea></div><div class="form-group"><button type="submit" id="contact_Envoyer" name="contact[Envoyer]" class="btn-primary btn">Envoyer</button></div><input type="hidden" id="contact__token" name="contact[_token]" value="E0lVjv9F6vb1LTPk-1VoKEuHMbqeCExJq1AdKYyT7Cs" /></div></form>
+
+</div>
+
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- Footer -->
+    <!-- =================================================================== -->
+        <footer class="page-footer font-small bg-secondary text-dark">
+
+        <div class="container text-center text-md-left">
+
+            <div class="row">
+
+                <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">
+                        Vtt en coeur de garonne
+                    </h5>
+
+                    <p>
+                        Une petite association intercommunale est née En Cœur de Garonne.
+                        <span>VTT</span>   <spant>TRAIL</spant> <span>TREK</span> EN Cœur De Garonne réunissant des sportifs
+                        passionnés en vtt, trail et randonnée.
+                    </p>
+                </div>
+
+                <hr class="clearfix w-100 d-md-none" />
+                <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Liens</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <p>
+                                <a href="#">Nocturne du Saves</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Actu">Actualités</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Trail">Trail</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Vtt">VTT</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Trek">Trek</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <hr class="clearfix w-100 d-md-none" />
+
+
+                <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Contact</h5>
+
+                    <ul class="list-unstyled">
+                        <!-- <li>
+                            <p class="my-2"> Montastruc Saves</p>
+                        </li> -->
+                        <li>
+                            <a href="/contact" class="my-2">Contact</a>
+
+                        </li>
+                        <li>
+                            <p class="my-2"> 06 51 61 58 96</p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <hr class="clearfix w-100 d-md-none" />
+
+                <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Nous suivre</h5>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/facebook.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="logo_facebook" />
+                    </a>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/se.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="logo_sport_easy" />
+                    </a>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/strava.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="strava" />
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright text-center py-3">
+            © 2020 Copyright:
+            <a href="#">Riot Nicolas</a>
+        </div>
+    </footer>
+    
+
+    <!-- =================================================================== -->
+    <!-- block js -->
+    <!-- =================================================================== -->
+        
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="/build/runtime.420770e4.js"></script><script src="/build/0.dd5a5b9a.js"></script><script src="/build/app.3bf7ab74.js"></script>
+    
+
+    
+</body>
+
+</html>.<!DOCTYPE html>
+
+    <html lang="fr">
+    <head>
+
+
+    <title>Login | Vtt-Trail-Trek en Coeur de garonne</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.css" />
+    <link rel="stylesheet" href="/build/app.17cdced1.css" />
+    <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="/images/imagesAutre/logoIcon.png">
+
+    <script src="https://kit.fontawesome.com/591f90ff63.js" crossorigin="anonymous"></script>
+
+
+<!-- ======================================================================= -->
+<!-- Meta -->
+<!-- ======================================================================= -->
+<!-- Primary Meta Tags -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="French">
+<meta name="description" content="VTT en coeur de garonne reunie des sportifs pationner. VTT,Trail,Trek au programme.">
+<meta name="keywords" content="VTT,Trail,Trek,Garonne">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="robots" content="index"/>
+
+
+<!-- ======================================================================= -->
+<!-- tarte au citron -->
+<!-- ======================================================================= -->
+
+
+
+    </head>
+
+<body class="" >
+    <!-- =================================================================== -->
+    <!-- nav bar 1 -->
+    <!-- =================================================================== -->
+    
+
+    <!-- =================================================================== -->
+    <!-- baniere -->
+    <!-- =================================================================== -->
+        <img src="/images/imagesAutre/testBaniere.png" class="w-100 img-fluid" alt="banniere-montagne" />
+    
+
+    <!-- =================================================================== -->
+    <!-- narbar 2 -->
+    <!-- =================================================================== -->
+        <!-- =================================================================== -->
+    <!-- h1 -->
+    <!-- =================================================================== -->
+    <h1 class="border border-dark rounded text-white m-3 p-3 text-center bg-success w-90">
+        Login    </h1>
+
+    <!-- =============================================================== -->
+    <!-- block body -->
+    <!-- =============================================================== -->
+    <div class="container-fluid P-0 " >
+        <div class="container">
+
+<!-- ======================================================================= -->
+<!-- message flash -->
+<!-- ======================================================================= -->
+
+
+
+
+
+<div class="container pt-3">
+  <div class="row justify-content-sm-center">
+    <div class="col-sm-6 col-md-4">
+
+      <div class="card border-info text-center">
+        <div class="card-header">
+            Connexion
+        </div>
+        <div class="card-body">
+          <img src="/images/imagesAutre/logoVTT.jpg" class="img-fluid">
+          <h4 class="text-center">Vtt en Coeur de Garonne</h4>
+          <form class="form-signin" action="/login" method="POST">
+            <input type="text" class="form-control mb-2" placeholder="Pseudo" required autofocus required name="_username" value="">
+            <input type="password" class="form-control mb-2" placeholder="Password" required required name="_password">
+            <input type="submit" class="btn btn-primary" value="Envoyer">
+            <a href="/reset-pass" class="float-left">Mot de passe oublié</a>
+
+          </form>
+        </div>
+      </div>
+      <a href="/register" class="float-right">Rejoignez-nous</a>
+      <a href="/" class="float-left">Retour</a>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+    </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- Footer -->
+    <!-- =================================================================== -->
+    
+
+    <!-- =================================================================== -->
+    <!-- block js -->
+    <!-- =================================================================== -->
+        
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="/build/runtime.420770e4.js"></script><script src="/build/0.dd5a5b9a.js"></script><script src="/build/app.3bf7ab74.js"></script>
+    
+
+    
+</body>
+
+</html>.<!DOCTYPE html>
+
+    <html lang="fr">
+    <head>
+
+
+    <title>Nous rejoindre | Vtt-Trail-Trek en Coeur de garonne</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.css" />
+    <link rel="stylesheet" href="/build/app.17cdced1.css" />
+    <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="/images/imagesAutre/logoIcon.png">
+
+    <script src="https://kit.fontawesome.com/591f90ff63.js" crossorigin="anonymous"></script>
+
+
+<!-- ======================================================================= -->
+<!-- Meta -->
+<!-- ======================================================================= -->
+<!-- Primary Meta Tags -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="French">
+<meta name="description" content="VTT en coeur de garonne reunie des sportifs pationner. VTT,Trail,Trek au programme.">
+<meta name="keywords" content="VTT,Trail,Trek,Garonne">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="robots" content="index"/>
+
+
+<!-- ======================================================================= -->
+<!-- tarte au citron -->
+<!-- ======================================================================= -->
+
+
+
+    </head>
+
+<body class="" >
+    <!-- =================================================================== -->
+    <!-- nav bar 1 -->
+    <!-- =================================================================== -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top ">
+        <a class="navbar-link rounded-pill ml-5 h4 m-3 p-3" href="/">Accueil</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto ml-5">
+
+                <li class="nav-item m-3 rounded-pill">
+                    <a class="nav-link p-3 rounded-pill " href="/tns">Trail Nocturne en Saves</a>
+                </li>
+                <li class="nav-item m-3 rounded-pill">
+                    <a class="nav-link p-3 rounded-pill" href="/category/Actu">Actualités</a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto mr-5">
+
+                                
+                
+                                <li class="nav-item rounded-pill">
+                    <a class="nav-link m-2 rounded-pill p-3" href="/register">Nous rejoindre
+                    </a>
+                </li>
+                <li class="nav-item rounded-pill">
+                    <a href="/login" class="nav-link m-2 rounded-pill p-3">Login</a>
+                </li>
+                
+
+            </ul>
+        </div>
+    </nav>
+    
+
+    <!-- =================================================================== -->
+    <!-- baniere -->
+    <!-- =================================================================== -->
+        <img src="/images/imagesAutre/testBaniere.png" class="w-100 img-fluid" alt="banniere-montagne" />
+    
+
+    <!-- =================================================================== -->
+    <!-- narbar 2 -->
+    <!-- =================================================================== -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarColor02">
+            <ul class="navbar-nav d-flex justify-content-center">
+
+
+                <!-- class active sur le btn sur la route courante /  app.request.get('') -> route courante-->
+
+                <li class="nav-item">
+                    <a class=" nav-link h2 m-3 p-5" href="/category/Vtt">VTT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link h2 m-3 p-5" href="/category/Trail">Trail</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link h2 m-3 p-5" href="/category/Trek">Trek</a>
+                </li>
+
+
+            </ul>
+        </div>
+    </nav>
+        <!-- =================================================================== -->
+    <!-- h1 -->
+    <!-- =================================================================== -->
+    <h1 class="border border-dark rounded text-white m-3 p-3 text-center bg-success w-90">
+        Rejoindre VTT en coeur de garonne    </h1>
+
+    <!-- =============================================================== -->
+    <!-- block body -->
+    <!-- =============================================================== -->
+    <div class="container-fluid P-0 " >
+        
+<form name="user" method="post" enctype="multipart/form-data">
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-12 col-md-6 col-xl-6">
+            <div class="form-group"><label for="user_name" class="required">Nom :</label><input type="text" id="user_name" name="user[name]" required="required" maxlength="255" placeholder="entrer votre Nom" class="form-control" /></div>
+            <div class="form-group"><label for="user_prenom" class="required">Prénom :</label><input type="text" id="user_prenom" name="user[prenom]" required="required" maxlength="255" placeholder="entrer votre Prénom" class="form-control" /></div>
+
+            <div class="form-group"><label for="user_adresse" class="required"> Adresse:</label><input type="text" id="user_adresse" name="user[adresse]" required="required" maxlength="255" placeholder="entrer votre adresse" class="form-control" /></div>
+
+            <div class="form-group"><label for="user_codePostal" class="required">Code postal :</label><input type="text" id="user_codePostal" name="user[codePostal]" required="required" maxlength="5" pattern=".*[0-9]{5}.*" placeholder="entrer votre code postal" class="form-control" /></div>
+
+            <div class="form-group"><label for="user_ville" class="required">Ville :</label><input type="text" id="user_ville" name="user[ville]" required="required" maxlength="255" placeholder="entrer votre ville" class="form-control" /></div>
+
+            <div class="form-group"><label for="user_phone" class="required">Numéro de telephone :</label><input type="text" id="user_phone" name="user[phone]" required="required" maxlength="10" pattern=".*[0-9]{10}.*" placeholder="entrer votre numéro de télephone" type="number" class="form-control" /></div>
+        
+        <div class="form-group"><label for="user_imageFile">Image :</label><div class="custom-file"><input type="file" id="user_imageFile" name="user[imageFile]" placeholder="Photo profil jpg" class="custom-file-input" /><label for="user_imageFile"  class="custom-file-label">Photo profil jpg</label>
+    </div>
+</div>
+        <div>
+            <small>format photo de profil : 'jpeg'</small>
+        </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-6">
+            <div class="form-group"><label for="user_username" class="required">Pseudo :</label><input type="text" id="user_username" name="user[username]" required="required" maxlength="40" pattern=".{3,}" placeholder="entrer votre pseudo" class="form-control" /></div>
+
+            <div class="form-group"><label for="user_mail" class="required">Mail :</label><input type="email" id="user_mail" name="user[mail]" required="required" placeholder="entrer votre adresse mail" class="form-control" /></div>
+
+
+            <div class="form-group"><label for="user_password" class="required">Mot de passe :</label><input type="password" id="user_password" name="user[password]" required="required" placeholder="entrer votre mot de passe" class="form-control" /></div>
+
+            <div class="form-group"><label for="user_verifPassword" class="required">Confirmer votre mot de passe :</label><input type="password" id="user_verifPassword" name="user[verifPassword]" required="required" placeholder="Confirmer votre mot de passe" class="form-control" /></div>
+
+            <fieldset class="form-group"><legend class="col-form-label required">Categories :</legend><div id="user_catergoryUsers" placeholder="Categories"><div class="form-check">        <input type="checkbox" id="user_catergoryUsers_2" name="user[catergoryUsers][]" class="form-check-input" value="2" />
+        <label class="form-check-label" for="user_catergoryUsers_2">Trail</label></div><div class="form-check">        <input type="checkbox" id="user_catergoryUsers_3" name="user[catergoryUsers][]" class="form-check-input" value="3" />
+        <label class="form-check-label" for="user_catergoryUsers_3">Trek</label></div><div class="form-check">        <input type="checkbox" id="user_catergoryUsers_4" name="user[catergoryUsers][]" class="form-check-input" value="4" />
+        <label class="form-check-label" for="user_catergoryUsers_4">VTT</label></div></div></fieldset>
+
+        <input type="submit" class="btn btn-success" value="envoyer">
+        </div>
+    </div>
+</div>
+<input type="hidden" id="user__token" name="user[_token]" value="Tztqu6hhwGUwMiXBNrvABDof4MmY--mijI-FM6W0rIg" /></form>
+
+
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- Footer -->
+    <!-- =================================================================== -->
+        <footer class="page-footer font-small bg-secondary text-dark">
+
+        <div class="container text-center text-md-left">
+
+            <div class="row">
+
+                <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">
+                        Vtt en coeur de garonne
+                    </h5>
+
+                    <p>
+                        Une petite association intercommunale est née En Cœur de Garonne.
+                        <span>VTT</span>   <spant>TRAIL</spant> <span>TREK</span> EN Cœur De Garonne réunissant des sportifs
+                        passionnés en vtt, trail et randonnée.
+                    </p>
+                </div>
+
+                <hr class="clearfix w-100 d-md-none" />
+                <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Liens</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <p>
+                                <a href="#">Nocturne du Saves</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Actu">Actualités</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Trail">Trail</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Vtt">VTT</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Trek">Trek</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <hr class="clearfix w-100 d-md-none" />
+
+
+                <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Contact</h5>
+
+                    <ul class="list-unstyled">
+                        <!-- <li>
+                            <p class="my-2"> Montastruc Saves</p>
+                        </li> -->
+                        <li>
+                            <a href="/contact" class="my-2">Contact</a>
+
+                        </li>
+                        <li>
+                            <p class="my-2"> 06 51 61 58 96</p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <hr class="clearfix w-100 d-md-none" />
+
+                <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Nous suivre</h5>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/facebook.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="logo_facebook" />
+                    </a>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/se.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="logo_sport_easy" />
+                    </a>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/strava.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="strava" />
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright text-center py-3">
+            © 2020 Copyright:
+            <a href="#">Riot Nicolas</a>
+        </div>
+    </footer>
+    
+
+    <!-- =================================================================== -->
+    <!-- block js -->
+    <!-- =================================================================== -->
+        
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="/build/runtime.420770e4.js"></script><script src="/build/0.dd5a5b9a.js"></script><script src="/build/app.3bf7ab74.js"></script>
+    
+
+    
+</body>
+
+</html>.<!DOCTYPE html>
+
+    <html lang="fr">
+    <head>
+
+
+    <title>TNS | Vtt-Trail-Trek en Coeur de garonne</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.css" />
+    <link rel="stylesheet" href="/build/app.17cdced1.css" />
+    <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="/images/imagesAutre/logoIcon.png">
+
+    <script src="https://kit.fontawesome.com/591f90ff63.js" crossorigin="anonymous"></script>
+
+
+<!-- ======================================================================= -->
+<!-- Meta -->
+<!-- ======================================================================= -->
+<!-- Primary Meta Tags -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="French">
+<meta name="description" content="VTT en coeur de garonne reunie des sportifs pationner. VTT,Trail,Trek au programme.">
+<meta name="keywords" content="VTT,Trail,Trek,Garonne">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="robots" content="index"/>
+
+
+<!-- ======================================================================= -->
+<!-- tarte au citron -->
+<!-- ======================================================================= -->
+
+
+
+    </head>
+
+<body class="" >
+    <!-- =================================================================== -->
+    <!-- nav bar 1 -->
+    <!-- =================================================================== -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top ">
+        <a class="navbar-link rounded-pill ml-5 h4 m-3 p-3" href="/">Accueil</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto ml-5">
+
+                <li class="nav-item m-3 rounded-pill">
+                    <a class="nav-link p-3 rounded-pill " href="/tns">Trail Nocturne en Saves</a>
+                </li>
+                <li class="nav-item m-3 rounded-pill">
+                    <a class="nav-link p-3 rounded-pill" href="/category/Actu">Actualités</a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto mr-5">
+
+                                
+                
+                                <li class="nav-item rounded-pill">
+                    <a class="nav-link m-2 rounded-pill p-3" href="/register">Nous rejoindre
+                    </a>
+                </li>
+                <li class="nav-item rounded-pill">
+                    <a href="/login" class="nav-link m-2 rounded-pill p-3">Login</a>
+                </li>
+                
+
+            </ul>
+        </div>
+    </nav>
+    
+
+    <!-- =================================================================== -->
+    <!-- baniere -->
+    <!-- =================================================================== -->
+        <img src="/images/imagesAutre/testBaniere.png" class="w-100 img-fluid" alt="banniere-montagne" />
+    
+
+    <!-- =================================================================== -->
+    <!-- narbar 2 -->
+    <!-- =================================================================== -->
+        <!-- =================================================================== -->
+    <!-- h1 -->
+    <!-- =================================================================== -->
+    <h1 class="border border-dark rounded text-white m-3 p-3 text-center bg-success w-90">
+        Trail Nocture en Savès    </h1>
+
+    <!-- =============================================================== -->
+    <!-- block body -->
+    <!-- =============================================================== -->
+    <div class="container-fluid P-0 " >
+        <div class="container-fluid TnsImg">
+
+    <div class="m-4 p-4">
+        <div class="text-center text-white display-4 font-italic"> 1ère édition !!! </div>
+
+    </div>
+
+    <div>
+        <div class="display-4 text-white text-center text-warning p-4 " >
+            Forgues Samedi 21 Novembre
+        </div>
+    </div>
+
+        <div>
+            <p class=" display-3 text-white text-center font-weight-bold p-2 _tnsTI">Trail Nocture en Saves</p>
+
+        </div>
+            
+
+
+    <div class="row p-3">
+        <div class="col-lg-6 display-4 text-white text-center p-2" >
+            <div>La Salamandre</div>
+            <div class="text-danger font-weight-bold"> 11KM    300D+ </div>
+
+            
+        </div>
+
+
+
+
+        <div class="col-lg-6 display-4 text-white text-center p-5" >
+            <div>La Casteras</div>
+            <div class="text-danger font-weight-bold">22KM      600D+</div>
+
+            
+        </div>
+
+    </div>
+
+    <div> 
+        <h4 id='timerTrail' class="text-center text-bold text-warning"></h4>
+    </div>
+
+    <div class="p-4  m-5 display-5 text-center text-info">
+        Plus d'information a venir... restez connecté
+    </div>
+
+
+
+
+
+
+</div>
+
+
+<script src="/build/runtime.420770e4.js"></script><script src="/build/timer.9ae2ca4f.js"></script>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- Footer -->
+    <!-- =================================================================== -->
+        <footer class="page-footer font-small bg-secondary text-dark">
+
+        <div class="container text-center text-md-left">
+
+            <div class="row">
+
+                <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">
+                        Vtt en coeur de garonne
+                    </h5>
+
+                    <p>
+                        Une petite association intercommunale est née En Cœur de Garonne.
+                        <span>VTT</span>   <spant>TRAIL</spant> <span>TREK</span> EN Cœur De Garonne réunissant des sportifs
+                        passionnés en vtt, trail et randonnée.
+                    </p>
+                </div>
+
+                <hr class="clearfix w-100 d-md-none" />
+                <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Liens</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <p>
+                                <a href="#">Nocturne du Saves</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Actu">Actualités</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Trail">Trail</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Vtt">VTT</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Trek">Trek</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <hr class="clearfix w-100 d-md-none" />
+
+
+                <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Contact</h5>
+
+                    <ul class="list-unstyled">
+                        <!-- <li>
+                            <p class="my-2"> Montastruc Saves</p>
+                        </li> -->
+                        <li>
+                            <a href="/contact" class="my-2">Contact</a>
+
+                        </li>
+                        <li>
+                            <p class="my-2"> 06 51 61 58 96</p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <hr class="clearfix w-100 d-md-none" />
+
+                <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Nous suivre</h5>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/facebook.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="logo_facebook" />
+                    </a>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/se.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="logo_sport_easy" />
+                    </a>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/strava.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="strava" />
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright text-center py-3">
+            © 2020 Copyright:
+            <a href="#">Riot Nicolas</a>
+        </div>
+    </footer>
+    
+
+    <!-- =================================================================== -->
+    <!-- block js -->
+    <!-- =================================================================== -->
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="/build/0.dd5a5b9a.js"></script><script src="/build/app.3bf7ab74.js"></script>
+    
+
+    
+</body>
+
+</html>.<!DOCTYPE html>
+
+    <html lang="fr">
+    <head>
+
+
+    <title>Trail | Vtt-Trail-Trek en Coeur de garonne</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.css" />
+    <link rel="stylesheet" href="/build/app.17cdced1.css" />
+    <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="/images/imagesAutre/logoIcon.png">
+
+    <script src="https://kit.fontawesome.com/591f90ff63.js" crossorigin="anonymous"></script>
+
+
+<!-- ======================================================================= -->
+<!-- Meta -->
+<!-- ======================================================================= -->
+<!-- Primary Meta Tags -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="French">
+<meta name="description" content="VTT en coeur de garonne reunie des sportifs pationner. VTT,Trail,Trek au programme.">
+<meta name="keywords" content="VTT,Trail,Trek,Garonne">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="robots" content="index"/>
+
+
+<!-- ======================================================================= -->
+<!-- tarte au citron -->
+<!-- ======================================================================= -->
+
+
+
+    </head>
+
+<body class="" >
+    <!-- =================================================================== -->
+    <!-- nav bar 1 -->
+    <!-- =================================================================== -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top ">
+        <a class="navbar-link rounded-pill ml-5 h4 m-3 p-3" href="/">Accueil</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto ml-5">
+
+                <li class="nav-item m-3 rounded-pill">
+                    <a class="nav-link p-3 rounded-pill " href="/tns">Trail Nocturne en Saves</a>
+                </li>
+                <li class="nav-item m-3 rounded-pill">
+                    <a class="nav-link p-3 rounded-pill" href="/category/Actu">Actualités</a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto mr-5">
+
+                                
+                
+                                <li class="nav-item rounded-pill">
+                    <a class="nav-link m-2 rounded-pill p-3" href="/register">Nous rejoindre
+                    </a>
+                </li>
+                <li class="nav-item rounded-pill">
+                    <a href="/login" class="nav-link m-2 rounded-pill p-3">Login</a>
+                </li>
+                
+
+            </ul>
+        </div>
+    </nav>
+    
+
+    <!-- =================================================================== -->
+    <!-- baniere -->
+    <!-- =================================================================== -->
+        <img src="/images/imagesAutre/testBaniere.png" class="w-100 img-fluid" alt="banniere-montagne" />
+    
+
+    <!-- =================================================================== -->
+    <!-- narbar 2 -->
+    <!-- =================================================================== -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarColor02">
+            <ul class="navbar-nav d-flex justify-content-center">
+
+
+                <!-- class active sur le btn sur la route courante /  app.request.get('') -> route courante-->
+
+                <li class="nav-item">
+                    <a class=" nav-link h2 m-3 p-5" href="/category/Vtt">VTT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="_btnActive nav-link h2 m-3 p-5 " href="/category/Trail">Trail</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link h2 m-3 p-5" href="/category/Trek">Trek</a>
+                </li>
+
+
+            </ul>
+        </div>
+    </nav>
+        <!-- =================================================================== -->
+    <!-- h1 -->
+    <!-- =================================================================== -->
+    <h1 class="border border-dark rounded text-white m-3 p-3 text-center bg-success w-90">
+        Section Trail    </h1>
+
+    <!-- =============================================================== -->
+    <!-- block body -->
+    <!-- =============================================================== -->
+    <div class="container-fluid P-0 " >
+        
+
+<div>
+<!-- ======================================================================= -->
+<!-- liste des entrainements -->
+<!-- ======================================================================= -->
+<!-- ======================================================================= -->
+<!-- liste des entrainements -->
+<!-- ======================================================================= -->
+<div class="row border-bottom border-light m-5 _sectionHautResp">
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 jumbotron" id="_train">
+        <h4 class="display-5 p-2 text-center">Planning des entrainements</h4>
+        <hr class="my-4 my-light">
+        <div class="btn-group p-3 d-flex flex-wrap justify-content-center">
+            <button class="btn btn-primary p-2 " data-toggle="modal"  data-target="#exampleModal1">Lundi</button>
+                        <button class="btn btn-primary p-2 " data-toggle="modal" data-target="#exampleModal2">Mercredi</button>
+            <button class="btn btn-primary p-2 " data-toggle="modal" data-target="#exampleModal3">Vendredi</button>
+        </div>
+        <div class="btn-group p-3 d-flex flex-wrap justify-content-center">
+            <button class="btn btn-primary p-2 " data-toggle="modal" data-target="#exampleModal4">Samedi</button>
+            <button class="btn btn-primary p-2 " data-toggle="modal" data-target="#exampleModal5">Dimanche</button>
+        </div>
+
+    
+
+<!-- ======================================================================= -->
+<!-- modal lundi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">Lundi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-white">
+                            Entrainement Trail a partir de 19h15 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!-- ======================================================================= -->
+<!-- modal mercredi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">Mercredi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-white">
+                            Entrainement Trail à partir de 19h15 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+<!-- ======================================================================= -->
+<!-- modal vendredi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">Vendredi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-white">
+                            Entrainement avec les irréductibles bipèdes à Cazères à 19H15.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!-- ======================================================================= -->
+<!-- modal samedi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Samedi et/ou Dimache</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-white">
+                    Sortie Vtt et/ou Randonnée en fonction de la météo
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+</div>
+
+<!-- ======================================================================= -->
+<!-- modal dimanche -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Samedi et/ou Dimache</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-white">
+                    Sortie Vtt et/ou Randonnée en fonction de la météo
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
+
+
+
+<!-- api meteo -->
+<div>
+    <div class="border-top border-light">
+
+        <!-- ======================================================================= -->
+<!-- entré api meteo -->
+<!-- ======================================================================= -->
+
+<div id='apiMeteo'> </div>
+    
+    </div>
+
+</div>
+
+<!-- attention div fermente du partial entrainement -->
+</div>
+
+
+<!-- =================================================================== -->
+<!-- corp de pages -->
+<!-- =================================================================== -->
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 _responBoot">
+    <!-- <h2 class="text-center p-3 text-white">Section Trail</h2> -->
+    <p class="text-justify h5 m-5 text-white">
+        Le groupe de Trail est composé d’une vingtaine de personnes allant du débutant jusqu'à l'ultra-traileur...Mais tous, nous nous retrouvons le Lundi et le Mercredi quelque soit le niveau dans nos belles forêts de Rieumes/Lahage afin de pratiquer cette belle discipline en toute décontraction et dans la bonne humeur...L'hiver, nous gardons nos sorties avec la frontale…
+Nous utilisons Sporteasy pour programmer nos sorties. Selon nos disponibilités en dehors des 2 entraînements semaine, des sorties sont proposées vers d'autres horizons tel que le Cagire, Mont Vallier, Pic du Tourroc, Pic du Gar, Pic de Sauvegarde entre autres afin de faire du dénivelés toujours en restant dans la bonne humeur…
+Certains Vendredi, nous nous rendons sur la piste des Irréductibles Bipèdes de Cazères avec qui nous avons passé une entente pour effectuer des séances de fractionné et inversement…. L'ambiance y est toute aussi bonne…
+Beaucoup de projets à venir, avec une course de nuit en Novembre ….
+Ca vous tente, sortez vos running du placard et n’hésitez plus, venez nous rejoindre… « Seul on va plus vite, à plusieurs on va plus loin »
+    </p>
+    <img src="/images/imagesAutre/logoNav.png" alt="logoAsso"
+        class="_logoVtt img-fluid d-block mx-auto mb-5">
+</div>
+
+<!-- =============================================================== -->
+<!-- liste dernier post -->
+<!-- =============================================================== -->
+    <!-- =============================================================== -->
+    <!-- liste dernier post -->
+    <!-- =============================================================== -->
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 jumbotron _lastPost" id="_lastPost">
+        <h4 class="display-5 text-center">liste des deniers posts</h4>
+        <hr class="my-4 my-light">
+        <p class="text-center">Retrouver nos derniers post : </p>
+        <ul>
+                    <li class="m-3 text-center">
+                <a href="/post/test-dfg">test...Actu du 06/09/2020</a>
+                
+            </li>
+                    <li class="m-3 text-center">
+                <a href="/post/test-test">test...Trail du 06/09/2020</a>
+                
+            </li>
+                    <li class="m-3 text-center">
+                <a href="/post/dfgdfg-sdfsdf">dfgdfg...Trail du 05/30/2020</a>
+                
+            </li>
+                    <li class="m-3 text-center">
+                <a href="/post/ghfghfgh-fghf">ghfghfgh...Trek du 05/23/2020</a>
+                
+            </li>
+                    <li class="m-3 text-center">
+                <a href="/post/test-top">test...Trail du 05/16/2020</a>
+                
+            </li>
+                    <li class="m-3 text-center">
+                <a href="/post/test-test-du-slug">test...Vtt du 05/16/2020</a>
+                
+            </li>
+                    <li class="m-3 text-center">
+                <a href="/post/montagne-dimanche">sortie montagne...Trail du 04/15/2020</a>
+                
+            </li>
+                </ul> 
+            </div></div>
+<div class="row">
+    <div class="col-xl col-lg col-md-0 col-sm-0 col-0"></div>
+    <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12 col-12">
+
+                    <!-- <h1>Trail</h1> -->
+                            <div class="border-bottom border-light m-5">
+                    <!-- <h1>33</h1> -->
+                    <h2 class = "text-warning">test</h2>
+                    <p class= "_pfont ">sdfsdf</p>
+                    <a href="/post/test-test" class="btn btn-success p-2">Voir plus</a>
+                </div>
+                                <div class="border-bottom border-light m-5">
+                    <!-- <h1>32</h1> -->
+                    <h2 class = "text-warning">dfgdfg</h2>
+                    <p class= "_pfont ">dfgdfgdfgdf</p>
+                    <a href="/post/dfgdfg-sdfsdf" class="btn btn-success p-2">Voir plus</a>
+                </div>
+                                <div class="border-bottom border-light m-5">
+                    <!-- <h1>29</h1> -->
+                    <h2 class = "text-warning">test</h2>
+                    <p class= "_pfont ">What is Lorem Ipsum?
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#039;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <a href="/post/test-top" class="btn btn-success p-2">Voir plus</a>
+                </div>
+                                <div class="border-bottom border-light m-5">
+                    <!-- <h1>24</h1> -->
+                    <h2 class = "text-warning">sortie montagne</h2>
+                    <p class= "_pfont ">dimanche 12 mai
+
+Nous organisons notre première sortie montagne .😊
+Celle ci est ouverte au simple marcheur et pourquoi pas en famille
+
+Randonnée avec 500 mètre de dénivelé positif .
+
+Nous irons au pic du Tourroc
+
+500m de dénivelé , le circuit fait 2h30 aller/retour
+(niveau marcheur pour les sites des randonnées)
+
+RDV à 8h45 1 Place du Foirail A Rieumes
+
+Départ À 9h00 pour covoiturage jusqu&#039;à Sacoué (environ 1h05 de trajet)
+
+Prévoir un pique nique midi et de quoi boire bien sur
+
+Randonnée
+
+* Depuis la carrière (1025m) – Dénivelé +500m – 2h30 aller/retour – 8,1km – Niveau: Marcheur
+
+Nous vous demandons svp de nous signaler votre présence par mail ou messenger pour comptabiliser le nombre et l organisation du covoiturage..
+
+pour tout renseignement
+appelez nous ou laissez nous un message
+
+pour Vtt Coeur De Garonne
+Éric, Youssef et Jean-Yves</p>
+                    <a href="/post/montagne-dimanche" class="btn btn-success p-2">Voir plus</a>
+                </div>
+                                <div class="border-bottom border-light m-5">
+                    <!-- <h1>20</h1> -->
+                    <h2 class = "text-warning">Sortie trail</h2>
+                    <p class= "_pfont ">Sortie trail tous niveaux lundi 15 juillet . rdv route de samatan parking a gauche milieu de la foret. Parcours entièrement en sous bois .
+19h00</p>
+                    <a href="/post/trail-parcour" class="btn btn-success p-2">Voir plus</a>
+                </div>
+                                            </div>
+            <div class="col"></div>
+        </div>
+
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- Footer -->
+    <!-- =================================================================== -->
+        <footer class="page-footer font-small bg-secondary text-dark">
+
+        <div class="container text-center text-md-left">
+
+            <div class="row">
+
+                <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">
+                        Vtt en coeur de garonne
+                    </h5>
+
+                    <p>
+                        Une petite association intercommunale est née En Cœur de Garonne.
+                        <span>VTT</span>   <spant>TRAIL</spant> <span>TREK</span> EN Cœur De Garonne réunissant des sportifs
+                        passionnés en vtt, trail et randonnée.
+                    </p>
+                </div>
+
+                <hr class="clearfix w-100 d-md-none" />
+                <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Liens</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <p>
+                                <a href="#">Nocturne du Saves</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Actu">Actualités</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Trail">Trail</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Vtt">VTT</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Trek">Trek</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <hr class="clearfix w-100 d-md-none" />
+
+
+                <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Contact</h5>
+
+                    <ul class="list-unstyled">
+                        <!-- <li>
+                            <p class="my-2"> Montastruc Saves</p>
+                        </li> -->
+                        <li>
+                            <a href="/contact" class="my-2">Contact</a>
+
+                        </li>
+                        <li>
+                            <p class="my-2"> 06 51 61 58 96</p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <hr class="clearfix w-100 d-md-none" />
+
+                <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Nous suivre</h5>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/facebook.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="logo_facebook" />
+                    </a>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/se.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="logo_sport_easy" />
+                    </a>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/strava.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="strava" />
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright text-center py-3">
+            © 2020 Copyright:
+            <a href="#">Riot Nicolas</a>
+        </div>
+    </footer>
+    
+
+    <!-- =================================================================== -->
+    <!-- block js -->
+    <!-- =================================================================== -->
+        
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="/build/runtime.420770e4.js"></script><script src="/build/0.dd5a5b9a.js"></script><script src="/build/app.3bf7ab74.js"></script>
+    
+
+    
+</body>
+
+</html>.<!DOCTYPE html>
+
+    <html lang="fr">
+    <head>
+
+
+    <title>Treck | Vtt-Trail-Trek en Coeur de garonne</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.css" />
+    <link rel="stylesheet" href="/build/app.17cdced1.css" />
+    <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="/images/imagesAutre/logoIcon.png">
+
+    <script src="https://kit.fontawesome.com/591f90ff63.js" crossorigin="anonymous"></script>
+
+
+<!-- ======================================================================= -->
+<!-- Meta -->
+<!-- ======================================================================= -->
+<!-- Primary Meta Tags -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="French">
+<meta name="description" content="VTT en coeur de garonne reunie des sportifs pationner. VTT,Trail,Trek au programme.">
+<meta name="keywords" content="VTT,Trail,Trek,Garonne">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="robots" content="index"/>
+
+
+<!-- ======================================================================= -->
+<!-- tarte au citron -->
+<!-- ======================================================================= -->
+
+
+
+    </head>
+
+<body class="" >
+    <!-- =================================================================== -->
+    <!-- nav bar 1 -->
+    <!-- =================================================================== -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top ">
+        <a class="navbar-link rounded-pill ml-5 h4 m-3 p-3" href="/">Accueil</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto ml-5">
+
+                <li class="nav-item m-3 rounded-pill">
+                    <a class="nav-link p-3 rounded-pill " href="/tns">Trail Nocturne en Saves</a>
+                </li>
+                <li class="nav-item m-3 rounded-pill">
+                    <a class="nav-link p-3 rounded-pill" href="/category/Actu">Actualités</a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto mr-5">
+
+                                
+                
+                                <li class="nav-item rounded-pill">
+                    <a class="nav-link m-2 rounded-pill p-3" href="/register">Nous rejoindre
+                    </a>
+                </li>
+                <li class="nav-item rounded-pill">
+                    <a href="/login" class="nav-link m-2 rounded-pill p-3">Login</a>
+                </li>
+                
+
+            </ul>
+        </div>
+    </nav>
+    
+
+    <!-- =================================================================== -->
+    <!-- baniere -->
+    <!-- =================================================================== -->
+        <img src="/images/imagesAutre/testBaniere.png" class="w-100 img-fluid" alt="banniere-montagne" />
+    
+
+    <!-- =================================================================== -->
+    <!-- narbar 2 -->
+    <!-- =================================================================== -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarColor02">
+            <ul class="navbar-nav d-flex justify-content-center">
+
+
+                <!-- class active sur le btn sur la route courante /  app.request.get('') -> route courante-->
+
+                <li class="nav-item">
+                    <a class=" nav-link h2 m-3 p-5" href="/category/Vtt">VTT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link h2 m-3 p-5" href="/category/Trail">Trail</a>
+                </li>
+                <li class="nav-item">
+                    <a class="_btnActive nav-link h2 m-3 p-5 " href="/category/Trek">Trek</a>
+                </li>
+
+
+            </ul>
+        </div>
+    </nav>
+        <!-- =================================================================== -->
+    <!-- h1 -->
+    <!-- =================================================================== -->
+    <h1 class="border border-dark rounded text-white m-3 p-3 text-center bg-success w-90">
+        Section Trek    </h1>
+
+    <!-- =============================================================== -->
+    <!-- block body -->
+    <!-- =============================================================== -->
+    <div class="container-fluid P-0 " >
+        <div>
+    <!-- ======================================================================= -->
+    <!-- liste des entrainements -->
+    <!-- ======================================================================= -->
+    <!-- ======================================================================= -->
+<!-- liste des entrainements -->
+<!-- ======================================================================= -->
+<div class="row border-bottom border-light m-5 _sectionHautResp">
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 jumbotron" id="_train">
+        <h4 class="display-5 p-2 text-center">Planning des entrainements</h4>
+        <hr class="my-4 my-light">
+        <div class="btn-group p-3 d-flex flex-wrap justify-content-center">
+            <button class="btn btn-primary p-2 " data-toggle="modal"  data-target="#exampleModal1">Lundi</button>
+                        <button class="btn btn-primary p-2 " data-toggle="modal" data-target="#exampleModal2">Mercredi</button>
+            <button class="btn btn-primary p-2 " data-toggle="modal" data-target="#exampleModal3">Vendredi</button>
+        </div>
+        <div class="btn-group p-3 d-flex flex-wrap justify-content-center">
+            <button class="btn btn-primary p-2 " data-toggle="modal" data-target="#exampleModal4">Samedi</button>
+            <button class="btn btn-primary p-2 " data-toggle="modal" data-target="#exampleModal5">Dimanche</button>
+        </div>
+
+    
+
+<!-- ======================================================================= -->
+<!-- modal lundi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">Lundi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-white">
+                            Entrainement Trail a partir de 19h15 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!-- ======================================================================= -->
+<!-- modal mercredi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">Mercredi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-white">
+                            Entrainement Trail à partir de 19h15 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+<!-- ======================================================================= -->
+<!-- modal vendredi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">Vendredi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-white">
+                            Entrainement avec les irréductibles bipèdes à Cazères à 19H15.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!-- ======================================================================= -->
+<!-- modal samedi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Samedi et/ou Dimache</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-white">
+                    Sortie Vtt et/ou Randonnée en fonction de la météo
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+</div>
+
+<!-- ======================================================================= -->
+<!-- modal dimanche -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Samedi et/ou Dimache</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-white">
+                    Sortie Vtt et/ou Randonnée en fonction de la météo
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
+
+
+
+    <!-- api meteo -->
+    <div>
+        <div class="border-top border-light">
+
+            <!-- ======================================================================= -->
+<!-- entré api meteo -->
+<!-- ======================================================================= -->
+
+<div id='apiMeteo'> </div>
+        
+        </div>
+    
+    </div>
+
+<!-- attention div fermente du partial entrainement -->
+</div>
+
+
+    <!-- =================================================================== -->
+    <!-- corp de pages -->
+    <!-- =================================================================== -->
+    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 _responBoot">
+        <p class="text-justify h5 m-5 text-white">
+            Notre groupe de randonneurs conjugue leurs sorties montagne avec une détermination de gravir tous nos sites fabuleux des Pyrénées et au delà .
+            il est composé depuis un an d'une bonne vingtaine de pratiquants.
+            Notre section Trek a profité l'année dernière d'un week-end montagne à Porté Puy Morens avec la participation d un accompagnateur de moyenne montagne .
+            Notre devise et nos projets, c est d adhérer fin 2020 à la FFCAM federation des clubs de montagne afin d être formé pour plusieurs d'entre nous pour accompagner et pratiquer la montagne dans de bonnes conditions et sans danger .
+            N'hésitez pas à nous rejoindre .
+            Nos sorties sont magnifiques et dans la bonne humeur .
+        </p>
+        <img src="/images/imagesAutre/logoNav.png" alt="logoAsso"
+            class="_logoVtt img-fluid d-block mx-auto mb-5">
+    </div>
+
+    <!-- =============================================================== -->
+    <!-- liste dernier post -->
+    <!-- =============================================================== -->
+        <!-- =============================================================== -->
+    <!-- liste dernier post -->
+    <!-- =============================================================== -->
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 jumbotron _lastPost" id="_lastPost">
+        <h4 class="display-5 text-center">liste des deniers posts</h4>
+        <hr class="my-4 my-light">
+        <p class="text-center">Retrouver nos derniers post : </p>
+        <ul>
+                    <li class="m-3 text-center">
+                <a href="/post/test-dfg">test...Actu du 06/09/2020</a>
+                
+            </li>
+                    <li class="m-3 text-center">
+                <a href="/post/test-test">test...Trail du 06/09/2020</a>
+                
+            </li>
+                    <li class="m-3 text-center">
+                <a href="/post/dfgdfg-sdfsdf">dfgdfg...Trail du 05/30/2020</a>
+                
+            </li>
+                    <li class="m-3 text-center">
+                <a href="/post/ghfghfgh-fghf">ghfghfgh...Trek du 05/23/2020</a>
+                
+            </li>
+                    <li class="m-3 text-center">
+                <a href="/post/test-top">test...Trail du 05/16/2020</a>
+                
+            </li>
+                    <li class="m-3 text-center">
+                <a href="/post/test-test-du-slug">test...Vtt du 05/16/2020</a>
+                
+            </li>
+                    <li class="m-3 text-center">
+                <a href="/post/montagne-dimanche">sortie montagne...Trail du 04/15/2020</a>
+                
+            </li>
+                </ul> 
+            </div></div>
+
+
+<div class="row">
+    <div class="col-xl col-lg col-md-0 col-sm-0 col-0"></div>
+<div class="col-xl-6 col-lg-8 col-md-12 col-sm-12 col-12 m-5">
+<!-- <h1>Trek</h1> -->
+        <div class="border-bottom border-light m-5">
+<!-- <h1>17</h1> -->
+<h2 class="text-warning">Montagne slug</h2>
+<p class="_pfont" >Sortie splendide de la section rando , ce weekend avec une météo de ouf 😊</p>
+<a href="/post/montagne-slug-cagire" class="btn btn-success p-2">Voir plus</a>
+
+
+</div>
+        <div class="border-bottom border-light m-5">
+<!-- <h1>19</h1> -->
+<h2 class="text-warning">Haute Ariège</h2>
+<p class="_pfont" >Ce weekend de Novembre a été marquée par un séjour rando en Haute Ariège avec le section Trek Randonnée
+Avec 26 adhérents et 10 jeunes ados nous avons organisé des randos et profité de la présence d un guide montagne pour apprendre les points essentiels pour pratiquer la randonnée en montagne.
+Super weekend
+A renouveler sans modération 😊</p>
+<a href="/post/ariege-rando" class="btn btn-success p-2">Voir plus</a>
+
+
+</div>
+        <div class="border-bottom border-light m-5">
+<!-- <h1>21</h1> -->
+<h2 class="text-warning">lac d&#039;oo</h2>
+<p class="_pfont" >Sortie rando au lac d&#039;oo et espingo demain .sortie accessible a tous et toutes ( famille) .
+Prévoir picnique . rendez vous a 8h place du foirail a rieumes . n&#039;hésitez a franchir le cap et venir découvrir nos activités.
+Évidemment nous surveillons la météo et annulerons en cas d&#039;orages.</p>
+<a href="/post/lac-sortie" class="btn btn-success p-2">Voir plus</a>
+
+
+</div>
+        <div class="border-bottom border-light m-5">
+<!-- <h1>31</h1> -->
+<h2 class="text-warning">ghfghfgh</h2>
+<p class="_pfont" >fghfgh</p>
+<a href="/post/ghfghfgh-fghf" class="btn btn-success p-2">Voir plus</a>
+
+
+</div>
+</div>
+<div class="col"></div>
+</div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- Footer -->
+    <!-- =================================================================== -->
+        <footer class="page-footer font-small bg-secondary text-dark">
+
+        <div class="container text-center text-md-left">
+
+            <div class="row">
+
+                <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">
+                        Vtt en coeur de garonne
+                    </h5>
+
+                    <p>
+                        Une petite association intercommunale est née En Cœur de Garonne.
+                        <span>VTT</span>   <spant>TRAIL</spant> <span>TREK</span> EN Cœur De Garonne réunissant des sportifs
+                        passionnés en vtt, trail et randonnée.
+                    </p>
+                </div>
+
+                <hr class="clearfix w-100 d-md-none" />
+                <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Liens</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <p>
+                                <a href="#">Nocturne du Saves</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Actu">Actualités</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Trail">Trail</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Vtt">VTT</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Trek">Trek</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <hr class="clearfix w-100 d-md-none" />
+
+
+                <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Contact</h5>
+
+                    <ul class="list-unstyled">
+                        <!-- <li>
+                            <p class="my-2"> Montastruc Saves</p>
+                        </li> -->
+                        <li>
+                            <a href="/contact" class="my-2">Contact</a>
+
+                        </li>
+                        <li>
+                            <p class="my-2"> 06 51 61 58 96</p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <hr class="clearfix w-100 d-md-none" />
+
+                <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Nous suivre</h5>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/facebook.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="logo_facebook" />
+                    </a>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/se.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="logo_sport_easy" />
+                    </a>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/strava.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="strava" />
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright text-center py-3">
+            © 2020 Copyright:
+            <a href="#">Riot Nicolas</a>
+        </div>
+    </footer>
+    
+
+    <!-- =================================================================== -->
+    <!-- block js -->
+    <!-- =================================================================== -->
+        
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="/build/runtime.420770e4.js"></script><script src="/build/0.dd5a5b9a.js"></script><script src="/build/app.3bf7ab74.js"></script>
+    
+
+    
+</body>
+
+</html>.                                                           9 / 9 (100%)<!DOCTYPE html>
+
+    <html lang="fr">
+    <head>
+
+
+    <title>VTT | Vtt-Trail-Trek en Coeur de garonne</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.css" />
+    <link rel="stylesheet" href="/build/app.17cdced1.css" />
+    <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="/images/imagesAutre/logoIcon.png">
+
+    <script src="https://kit.fontawesome.com/591f90ff63.js" crossorigin="anonymous"></script>
+
+
+<!-- ======================================================================= -->
+<!-- Meta -->
+<!-- ======================================================================= -->
+<!-- Primary Meta Tags -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="French">
+<meta name="description" content="VTT en coeur de garonne reunie des sportifs pationner. VTT,Trail,Trek au programme.">
+<meta name="keywords" content="VTT,Trail,Trek,Garonne">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="robots" content="index"/>
+
+
+<!-- ======================================================================= -->
+<!-- tarte au citron -->
+<!-- ======================================================================= -->
+
+
+
+    </head>
+
+<body class="" >
+    <!-- =================================================================== -->
+    <!-- nav bar 1 -->
+    <!-- =================================================================== -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top ">
+        <a class="navbar-link rounded-pill ml-5 h4 m-3 p-3" href="/">Accueil</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto ml-5">
+
+                <li class="nav-item m-3 rounded-pill">
+                    <a class="nav-link p-3 rounded-pill " href="/tns">Trail Nocturne en Saves</a>
+                </li>
+                <li class="nav-item m-3 rounded-pill">
+                    <a class="nav-link p-3 rounded-pill" href="/category/Actu">Actualités</a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto mr-5">
+
+                                
+                
+                                <li class="nav-item rounded-pill">
+                    <a class="nav-link m-2 rounded-pill p-3" href="/register">Nous rejoindre
+                    </a>
+                </li>
+                <li class="nav-item rounded-pill">
+                    <a href="/login" class="nav-link m-2 rounded-pill p-3">Login</a>
+                </li>
+                
+
+            </ul>
+        </div>
+    </nav>
+    
+
+    <!-- =================================================================== -->
+    <!-- baniere -->
+    <!-- =================================================================== -->
+        <img src="/images/imagesAutre/testBaniere.png" class="w-100 img-fluid" alt="banniere-montagne" />
+    
+
+    <!-- =================================================================== -->
+    <!-- narbar 2 -->
+    <!-- =================================================================== -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarColor02">
+            <ul class="navbar-nav d-flex justify-content-center">
+
+
+                <!-- class active sur le btn sur la route courante /  app.request.get('') -> route courante-->
+
+                <li class="nav-item">
+                    <a class=" _btnActive nav-link h2 m-3 p-5 " href="/category/Vtt">VTT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link h2 m-3 p-5" href="/category/Trail">Trail</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link h2 m-3 p-5" href="/category/Trek">Trek</a>
+                </li>
+
+
+            </ul>
+        </div>
+    </nav>
+        <!-- =================================================================== -->
+    <!-- h1 -->
+    <!-- =================================================================== -->
+    <h1 class="border border-dark rounded text-white m-3 p-3 text-center bg-success w-90">
+        Section VTT    </h1>
+
+    <!-- =============================================================== -->
+    <!-- block body -->
+    <!-- =============================================================== -->
+    <div class="container-fluid P-0 " >
+        <div>
+<!-- ======================================================================= -->
+<!-- liste des entrainements -->
+<!-- ======================================================================= -->
+<!-- ======================================================================= -->
+<!-- liste des entrainements -->
+<!-- ======================================================================= -->
+<div class="row border-bottom border-light m-5 _sectionHautResp">
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 jumbotron" id="_train">
+        <h4 class="display-5 p-2 text-center">Planning des entrainements</h4>
+        <hr class="my-4 my-light">
+        <div class="btn-group p-3 d-flex flex-wrap justify-content-center">
+            <button class="btn btn-primary p-2 " data-toggle="modal"  data-target="#exampleModal1">Lundi</button>
+                        <button class="btn btn-primary p-2 " data-toggle="modal" data-target="#exampleModal2">Mercredi</button>
+            <button class="btn btn-primary p-2 " data-toggle="modal" data-target="#exampleModal3">Vendredi</button>
+        </div>
+        <div class="btn-group p-3 d-flex flex-wrap justify-content-center">
+            <button class="btn btn-primary p-2 " data-toggle="modal" data-target="#exampleModal4">Samedi</button>
+            <button class="btn btn-primary p-2 " data-toggle="modal" data-target="#exampleModal5">Dimanche</button>
+        </div>
+
+    
+
+<!-- ======================================================================= -->
+<!-- modal lundi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">Lundi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-white">
+                            Entrainement Trail a partir de 19h15 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!-- ======================================================================= -->
+<!-- modal mercredi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">Mercredi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-white">
+                            Entrainement Trail à partir de 19h15 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+<!-- ======================================================================= -->
+<!-- modal vendredi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">Vendredi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-white">
+                            Entrainement avec les irréductibles bipèdes à Cazères à 19H15.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!-- ======================================================================= -->
+<!-- modal samedi -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Samedi et/ou Dimache</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-white">
+                    Sortie Vtt et/ou Randonnée en fonction de la météo
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+</div>
+
+<!-- ======================================================================= -->
+<!-- modal dimanche -->
+<!-- ======================================================================= -->
+<div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Samedi et/ou Dimache</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-white">
+                    Sortie Vtt et/ou Randonnée en fonction de la météo
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
+
+
+
+    <!-- api meteo -->
+    <div>
+        <div class="border-top border-light">
+
+            <!-- ======================================================================= -->
+<!-- entré api meteo -->
+<!-- ======================================================================= -->
+
+<div id='apiMeteo'> </div>
+        </div>
+    
+    </div>
+
+<!-- attention div fermente du partial entrainement -->
+</div>
+
+
+
+<!-- =================================================================== -->
+<!-- corp de pages -->
+<!-- =================================================================== -->
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 _responBoot">
+
+    <p class="text-justify h5 m-5 text-white">
+        la section vtt est celle qui regroupe le plus large panel d'adhérents-tes,du simple débutant a l'expérimenté,le groupe a déjà arpenté les pistes de nos différentes forêts de coeur de garonne ,tout comme les pentes du comminge ou des pyrénées .
+Que ce soit en "musculaire " ou en "assistance électrique " nos adhérents s'organisent sur les sorties ,les jours et les horaires.
+Comme les deux autres sections l'utilisation d'une application permet a chacuns-es de lancer une sortie .
+Des sorties spécifiques aux  différentes pratiques (cross country , dh ou enduro).
+Nous avons en prévisions des sorties sur un week end avec comme leitmotiv la bonne humeur et convivialité ( devise de l'association).
+ En espérant partager des sentiers avec vous toute l'équipe de vtt en coeur de garonne vous souhaite le meilleur.
+    </p>
+    <img src="/images/imagesAutre/logoNav.png" alt="logoAsso"
+        class="_logoVtt img-fluid d-block mx-auto mb-5">
+</div>
+
+<!-- =============================================================== -->
+<!-- liste dernier post -->
+<!-- =============================================================== -->
+    <!-- =============================================================== -->
+    <!-- liste dernier post -->
+    <!-- =============================================================== -->
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 jumbotron _lastPost" id="_lastPost">
+        <h4 class="display-5 text-center">liste des deniers posts</h4>
+        <hr class="my-4 my-light">
+        <p class="text-center">Retrouver nos derniers post : </p>
+        <ul>
+                    <li class="m-3 text-center">
+                <a href="/post/test-dfg">test...Actu du 06/09/2020</a>
+                
+            </li>
+                    <li class="m-3 text-center">
+                <a href="/post/test-test">test...Trail du 06/09/2020</a>
+                
+            </li>
+                    <li class="m-3 text-center">
+                <a href="/post/dfgdfg-sdfsdf">dfgdfg...Trail du 05/30/2020</a>
+                
+            </li>
+                    <li class="m-3 text-center">
+                <a href="/post/ghfghfgh-fghf">ghfghfgh...Trek du 05/23/2020</a>
+                
+            </li>
+                    <li class="m-3 text-center">
+                <a href="/post/test-top">test...Trail du 05/16/2020</a>
+                
+            </li>
+                    <li class="m-3 text-center">
+                <a href="/post/test-test-du-slug">test...Vtt du 05/16/2020</a>
+                
+            </li>
+                    <li class="m-3 text-center">
+                <a href="/post/montagne-dimanche">sortie montagne...Trail du 04/15/2020</a>
+                
+            </li>
+                </ul> 
+            </div>
+</div>
+<div class="row">
+    <div class="col-xl col-lg col-md-0 col-sm-0 col-0"></div>
+    <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12 col-12">
+
+                    <!-- <h1>Vtt</h1> -->
+                        <div class="border-bottom border-light m-5">
+                <!-- <h1>23</h1> -->
+                <h2 class="text-warning">sortie VTT</h2>
+                <p class="_pfont ">Super sortie VTT ce matin . de nouvelles traces , une super descente .un dérailleur h s de la gadoue. Super matinée pour des papas. Bonne fête a eux .
+Sportivement</p>
+
+                <a href="/post/vtt-super" class="btn btn-success p-2">Voir plus</a>
+            </div>    
+                        <div class="border-bottom border-light m-5">
+                <!-- <h1>28</h1> -->
+                <h2 class="text-warning">test</h2>
+                <p class="_pfont ">What is Lorem Ipsum?
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#039;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+                <a href="/post/test-test-du-slug" class="btn btn-success p-2">Voir plus</a>
+            </div>    
+                        </div>
+    <div class="col"></div>
+</div>
+
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- Footer -->
+    <!-- =================================================================== -->
+        <footer class="page-footer font-small bg-secondary text-dark">
+
+        <div class="container text-center text-md-left">
+
+            <div class="row">
+
+                <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">
+                        Vtt en coeur de garonne
+                    </h5>
+
+                    <p>
+                        Une petite association intercommunale est née En Cœur de Garonne.
+                        <span>VTT</span>   <spant>TRAIL</spant> <span>TREK</span> EN Cœur De Garonne réunissant des sportifs
+                        passionnés en vtt, trail et randonnée.
+                    </p>
+                </div>
+
+                <hr class="clearfix w-100 d-md-none" />
+                <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Liens</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <p>
+                                <a href="#">Nocturne du Saves</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Actu">Actualités</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Trail">Trail</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Vtt">VTT</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="/category/Trek">Trek</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <hr class="clearfix w-100 d-md-none" />
+
+
+                <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Contact</h5>
+
+                    <ul class="list-unstyled">
+                        <!-- <li>
+                            <p class="my-2"> Montastruc Saves</p>
+                        </li> -->
+                        <li>
+                            <a href="/contact" class="my-2">Contact</a>
+
+                        </li>
+                        <li>
+                            <p class="my-2"> 06 51 61 58 96</p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <hr class="clearfix w-100 d-md-none" />
+
+                <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Nous suivre</h5>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/facebook.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="logo_facebook" />
+                    </a>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/se.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="logo_sport_easy" />
+                    </a>
+
+                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
+                        <img src="/images/imagesAutre/strava.png"
+                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="strava" />
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright text-center py-3">
+            © 2020 Copyright:
+            <a href="#">Riot Nicolas</a>
+        </div>
+    </footer>
+    
+
+    <!-- =================================================================== -->
+    <!-- block js -->
+    <!-- =================================================================== -->
+        
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="/build/runtime.420770e4.js"></script><script src="/build/0.dd5a5b9a.js"></script><script src="/build/app.3bf7ab74.js"></script>
+    
+
+    
+</body>
+
+</html>
+
+Time: 471 ms, Memory: 38.25 MB
+
+There was 1 failure:
+
+1) Tests\AppBundle\Controller\CurrentPageTest::testRoute with data set #1 ('/logout')
+302
+Failed asserting that the Response status code is 200.
+HTTP/1.1 302 Found
+Cache-Control: max-age=0, must-revalidate, private
+Content-Type:  text/html; charset=UTF-8
+Date:          Tue, 07 Jul 2020 18:54:03 GMT
+Expires:       Tue, 07 Jul 2020 18:54:03 GMT
+Location:      http://localhost/
+X-Robots-Tag:  noindex
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="refresh" content="0;url='http://localhost/'" />
+
+        <title>Redirecting to http://localhost/</title>
+    </head>
+    <body>
+        Redirecting to <a href="http://localhost/">http://localhost/</a>.
+    </body>
+</html>
+
+/home/nico/Bureau/testv1Coeur2Garonne/vendor/symfony/framework-bundle/Test/BrowserKitAssertionsTrait.php:36
+/home/nico/Bureau/testv1Coeur2Garonne/tests/AppBundle/Controller/CurrentPageTest.php:17
+
+[37;41mFAILURES![0m
+[37;41mTests: 9[0m[37;41m, Assertions: 9[0m[37;41m, Failures: 1[0m[37;41m.[0m

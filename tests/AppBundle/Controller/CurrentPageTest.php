@@ -15,6 +15,8 @@ class CurrentPageTest  extends WebTestCase
         $client->request('GET', $url);
 
         $this->assertResponseStatusCodeSame(200, $client->getResponse()->getStatusCode());
+
+        echo $client->getResponse()->getContent();
     }
 
 
@@ -22,6 +24,8 @@ class CurrentPageTest  extends WebTestCase
     public function urlProvider()
     {
         yield ['/'];
+        yield ['/logout'];
+
         yield ['/contact'];
         yield ['/login'];
         yield ['/register'];
@@ -30,10 +34,10 @@ class CurrentPageTest  extends WebTestCase
         yield ['/category/Trek'];
         yield ['/category/Vtt'];
 
-
-
-
     }
+
+
+
 
     
 
