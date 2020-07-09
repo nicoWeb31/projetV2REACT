@@ -101,6 +101,8 @@
             "label":"Categories :"
         })}}
 
+        {# <input type="hidden" id="recaptchaRes" name="_recaptchaRes"> #}
+
         <input type="submit" class="btn btn-success" value="envoyer">
         </div>
     </div>
@@ -108,4 +110,20 @@
 {{form_end(form)}}
 
 
-{% endblock %}
+{# {% endblock %}
+
+{% block javascripts %}
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcphK8ZAAAAAEVsbPHQ7pgjwvC7GpulZCr5UsUe"></script>
+    <script>
+      function onClick(e) {
+        e.preventDefault();
+        grecaptcha.ready(function() {
+          grecaptcha.execute('6LcphK8ZAAAAAEVsbPHQ7pgjwvC7GpulZCr5UsUe', {action: 'submit'}).then(function(token) {
+              // Add your logic to submit to your backend server here.
+            document.getElementById("recaptchaRes").value = token;
+          });
+        });
+      }
+  </script>
+
+{% endblock %} #}

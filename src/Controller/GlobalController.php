@@ -17,6 +17,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -25,6 +26,21 @@ use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
 
 class GlobalController extends AbstractController
 {
+
+
+    private $client;
+
+    public function __construct(HttpClientInterface $client)
+    {
+        $this->client = $client;
+    }
+
+
+
+
+
+
+
     /**
      * @Route("/", name="home")
      */
@@ -57,42 +73,71 @@ class GlobalController extends AbstractController
         $form->handleRequest($req);
         
         if($form->isSubmitted() && $form->isValid()){
-            $passEncode = $encode->encodePassword($user,$user->getPassword());
-            $user->setPassword($passEncode);
-
-            //on genere le token d'activation
-            $user->setActivationToken(md5(uniqid()));
 
 
-            $user->setUpdatedAt(new DateTime('now'));
-            $user->setRoles("ROLE_USER");
-            $man->persist($user);
-            $man->flush();
+            // ///recaptcha
+            // if(empty($req->get("_recaptchaRes"))){
+            //     var_dump($req->get("_recaptchaRes"));
+            //     return $this->redirectToRoute('register');
+            // }else{
+            //     $key = $req->get('_recaptchaRes');
+            //     $url = "https://www.google.com/recaptcha/api/siteverify?secret=6LcphK8ZAAAAAAXwl4uCfAQgUv0Qy3e69JoR9Mve&response={$key}";
+            //     $res = $this->client->request('GET',$url);
+            //     var_dump($res);
 
+            // };
 
-             // do anything else you need here, like send an email
-            // On crée le message
-            $message = (new \Swift_Message('Nouveau contact'))
-                // On attribue l'expéditeur
-                ->setFrom('votre@adresse.fr')
-                // On attribue le destinataire
-                ->setTo($user->getMail())
-                // On crée le texte avec la vue
-                ->setBody(
-                    $this->renderView(
-                        'global/email/emailActivation.html.twig', ['token' => $user->getActivationToken()]
-                    ),
-                    'text/html'
-                )
-            ;
-            $mailer->send($message);
+            // if(empty($res || is_null($res))){
+            //     return $this->redirectToRoute('register');
+            // }else{
+            //     $content = $res->toArray();
+            //     $data = $content["success"];
+            //     if($data){
 
+                //si recaptcha retourn true 
 
+                    $passEncode = $encode->encodePassword($user,$user->getPassword());
+                    $user->setPassword($passEncode);
+        
+                    //on genere le token d'activation
+                    $user->setActivationToken(md5(uniqid()));
+        
+        
+                    $user->setUpdatedAt(new DateTime('now'));
+                    $user->setRoles("ROLE_USER");
+                    $man->persist($user);
+                    $man->flush();
+        
+        
+                     // do anything else you need here, like send an email
+                    // On crée le message
+                    $message = (new \Swift_Message('Nouveau contact'))
+                        // On attribue l'expéditeur
+                        ->setFrom('votre@adresse.fr')
+                        // On attribue le destinataire
+                        ->setTo($user->getMail())
+                        // On crée le texte avec la vue
+                        ->setBody(
+                            $this->renderView(
+                                'global/email/emailActivation.html.twig', ['token' => $user->getActivationToken()]
+                            ),
+                            'text/html'
+                        )
+                    ;
+                    $mailer->send($message);
+        
+        
+                    $this->addFlash("success","Compte crée avec succes");
+                    return $this->redirectToRoute('login');
+                // }else{
+                //     return $this->redirectToRoute('register');
+                // }
+            //}
+        
 
-
-            $this->addFlash("success","Compte crée avec succes");
-            return $this->redirectToRoute('login');
         }
+
+
         return $this->render('global/register.html.twig',[
 
             "form"=> $form->createView()
