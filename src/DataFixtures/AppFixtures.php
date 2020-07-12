@@ -17,28 +17,22 @@ class AppFixtures extends Fixture
         $faker = Factory::create('fr_FR');
 
         $comment = new Comment();
-        $comment->setAuthor($faker->name())
-            ->setCreatedAd($faker->dateTime())
-            ->setComment($faker->text(200));
+        $comment->setCreatedAd($faker->dateTime())
+                ->setComment($faker->text(200));
 
         $manager->persist($comment);
 
         $comment1 = new Comment();
-        $comment1->setAuthor($faker->name())
-            ->setCreatedAd($faker->dateTime())
+        $comment1->setCreatedAd($faker->dateTime())
             ->setComment($faker->text(200));
 
         $manager->persist($comment1);
 
         $comment3 = new Comment();
-        $comment3->setAuthor($faker->name())
-            ->setCreatedAd($faker->dateTime())
+        $comment3->setCreatedAd($faker->dateTime())
             ->setComment($faker->text(200));
 
         $manager->persist($comment3);
-
-
-
 
         $pho = new Photo();
         $pho->setUrl($faker->imageUrl($width = 640, $height = 480));
@@ -70,8 +64,6 @@ class AppFixtures extends Fixture
         $pho6 = new Photo();
         $pho6->setUrl($faker->imageUrl($width = 640, $height = 480));
         $manager->persist($pho6);
-
-
 
         $catergory1 = new Category();
         $catergory1->setName('Trail');
@@ -113,7 +105,6 @@ class AppFixtures extends Fixture
             $manager->persist($pVtt);
         }
 
-
         $pTrek = new Post();
         $pTrek->setCategory($catergory2)
             ->setContent($faker->paragraph)
@@ -125,10 +116,8 @@ class AppFixtures extends Fixture
             ->addComment($comment)
             ->addComment($comment3)
 
-
             ->setCreatedAt($faker->dateTime());
         $manager->persist($pTrek);
-
 
         for ($i = 0; $i < 5; $i++) {
             $pActu = new Post();
@@ -140,7 +129,6 @@ class AppFixtures extends Fixture
                 ->setCreatedAt($faker->dateTime());
             $manager->persist($pActu);
         }
-
 
         $manager->flush();
     }
