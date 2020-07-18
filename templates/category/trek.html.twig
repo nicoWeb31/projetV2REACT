@@ -4,7 +4,9 @@
 {% block monTitle %}Section Trek{% endblock %}
 
 {% block body %}
-<div>
+
+
+<div class="row border-bottom border-light m-5 _sectionHautResp">
     <!-- ======================================================================= -->
     <!-- liste des entrainements -->
     <!-- ======================================================================= -->
@@ -13,14 +15,9 @@
     <!-- api meteo -->
     <div>
         <div class="border-top border-light">
-
-            {% include '/partial/section/apiMeteo.html.twig' %}
-
-        
+            {% include '/partial/section/apiMeteo.html.twig' %}        
         </div>
-    
     </div>
-
 <!-- attention div fermente du partial entrainement -->
 </div>
 

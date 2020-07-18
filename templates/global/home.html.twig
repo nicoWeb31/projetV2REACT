@@ -8,27 +8,23 @@
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v7.0"></script>
 
-
 <!-- ======================================================================= -->
 <!-- liste des entrainements -->
 <!-- ======================================================================= -->
+<div class="row border-bottom border-light m-5 _sectionHautResp">
+
 
 {{ render(path('liste-entrainement')) }}
 
-
 <!-- api meteo -->
-<div>
-    <div class="border-top border-light">
+    <div>
+        <div class="border-top border-light">
 
-        {% include '/partial/section/apiMeteo.html.twig' %}
+            {% include '/partial/section/apiMeteo.html.twig' %}
 
+        </div>
+            
     </div>
-        
-</div>
-        
-
-
-<!-- attention div fermente du partial entrainement -->
 </div>
 
 
@@ -61,7 +57,7 @@
     <div class="border-bottom border-light m-5 _HomeLastNews">
 
         <div class="jumbotron jumbotron-fluid">
-            <div class="container-fluid">
+            <div class="container">
                 {{ render(path('last-news')) }}
             </div> 
         </div>
@@ -74,19 +70,7 @@
 <!-- ======================================================================= -->
 <!-- decouvrez section + icones -->
 <!-- ======================================================================= -->
-    <div class="row border-bottom border-light m-5">
-        <div class="col ">
-            <h3 class="text-center text-white">Decouvrez nos 3 sections :</h3>
-            <div class="d-flex justify-content-center mb-5 ">
-                <a href="{{path('Vtt')}}" class="bg-light m-auto p-4 rounded-circle"><img src="{{asset('images/imagesAutre/bike.png')}}" alt="bike" class="img-fluid"></a>
-                <a href="{{path('Trail')}}" class="bg-light m-auto p-4 rounded-circle"><img src="{{asset('images/imagesAutre/run.png')}}" alt="running" class="img-fluid"></a>
-                <a href="{{path('Trek')}}" class="bg-light m-auto p-4 rounded-circle"><img src="{{asset('images/imagesAutre/hid.png')}}" alt="hid" class="img-fluid"></a>
-                
-
-            </div>
-        </div>
-        
-    </div>
+    {% include "partial/home/icone.html.twig" %}
 </div>
 
 
@@ -95,67 +79,6 @@
 <!-- ======================================================================= -->
 <!-- carousel -->
 <!-- ======================================================================= -->
-<div class="container p-5 _cardHomeRest">
-
-    <!-- ICI : les cartes -->
-    <div class="card-deck">
-
-
-        <div class="card">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-
-                </ol>
-                <div class="carousel-inner m-0 p-0">
-                    <div class="carousel-item active">
-                        <a href="#"><img class="d-block w-100" src="{{asset('images/partenaire/lePRamo.jpg')}}"
-                            alt="petit_ramoneur"></a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://www.paysages-rieumois.fr/"><img class="d-block w-100" src="{{asset('images/partenaire/chr.jpg')}}"
-                            alt="paysage_rieumois"></a>
-                    </div>
-            
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-            
-            <div class="card-body bg-white text-dark">
-                <h5 class="card-title">Nos Partenaires</h5>
-                <p>Comme nous, faites confiance à nos partenaires
-                    <ul>
-                        <li><a href="https://www.paysages-rieumois.fr/" class="text-dark">Art Et Paysages Rieumois SARL </a> 06 89 72 58 09</li>
-                        <li>Le Petit Ramoneur 05 62 62 40 87</li>
-                    </ul>
-                    
-                </p>
-
-            </div>
-        </div>
-
-        <div class="card">
-
-
-
-            <img src="{{asset('images/imagesAutre/lunette_ciel_etoiles.jpg')}}"
-                alt="tns" class="card-img-top _cardHomeTns">
-            <div class="card-body bg-white text-dark">
-                <h5 class="card-title">Tns</h5>
-                <p>A venir Trail Nocturne en Saves
-                </p>
-
-            </div>
-        </div>
-    </div>
-</div>
+    {% include "partial/home/carroussel.html.twig" %}
 
 {% endblock %}

@@ -3,22 +3,22 @@
 {% block title %}Actu | {{parent()}}{% endblock %}
 {% block monTitle %}Actualités{% endblock %}
 {% block body %}
-<div>
+
+
+
+<div class="row border-bottom border-light m-5 _sectionHautResp">
     <!-- ======================================================================= -->
     <!-- liste des entrainements -->
     <!-- ======================================================================= -->
-     {{ render(path('liste-entrainement')) }} 
-    
+    {{ render(path('liste-entrainement')) }} 
     
     <div>
         <div class="border-top border-light"> 
-            
-            
             {% include '/partial/section/apiMeteo.html.twig' %}
-        
         </div>
-    
     </div>
+        
+    
 
 <!-- attention div fermente du partial entrainement -->
 </div>

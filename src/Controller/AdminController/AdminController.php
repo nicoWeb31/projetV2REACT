@@ -99,7 +99,7 @@ class AdminController extends abstractAdminController
     }
 
 
-    
+
 
     /**
      * @Route("/post/create", name="admin.post.create")
@@ -336,7 +336,7 @@ class AdminController extends abstractAdminController
     /**
      * @Route("/lastNews", name="admin.lastNews")
      */
-    public function showAllNews(LastNewsRepository $repo, Request $req)
+    public function showAllNews(LastNewsRepository $repo)
     {
 
         $lastNews = $repo->findAll();
