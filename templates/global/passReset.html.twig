@@ -1,23 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Reset pass | {{parent()}}{% endblock %}
-{% block monTitle %}Mots de pass oublit{% endblock %}
+{% block monTitle %}Mot de passe oublié{% endblock %}
 
 {% block body %}
-<!-- ======================================================================= -->
-<!-- message flash -->
-<!-- ======================================================================= -->
-<!-- {% for mess in app.flashes('messages') %}
-    <div class="alert alert-success">
-        {{mess}}
+
+
+    <div class="container">
+
+        {{form(resetForm)}}
+
     </div>
-{% endfor %} -->
-
-
-<div class="container">
-
-    {{form(resetForm)}}
-
-</div>
 
 {% endblock %}

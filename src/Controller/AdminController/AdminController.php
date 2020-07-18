@@ -58,67 +58,48 @@ class AdminController extends abstractAdminController
     /**
      * filter by category
      * @Route("/post-trail", name="admin_post_trail")
+     * @return response
      */
-    public function showAllPostCatTrail(PostRepository $repo,PaginatorInterface $pagi, Request $req)
+    public function showAllPostCatTrail()
     {
-        $posts = $pagi->paginate(
-            $repo->findAllWhitPaginatorByCategory(1), /* query NOT result */
-            $req->query->getInt('page', 1), /*page number*/
-            5 /*limit per page*/
-        );
-        return $this->render('admin/postAdmin/showAll.html.twig',[
-            "posts"=>$posts
-        ]);
+        return $this->showAllPostByCat(2);
     }
+
 
     /**
      * filter by category
      * @Route("/post-trek", name="admin_post_trek")
+     * @return response
      */
-    public function showAllPostCatTreck(PostRepository $repo,PaginatorInterface $pagi, Request $req)
+    public function showAllPostCatTreck()
     {
-        $posts = $pagi->paginate(
-            $repo->findAllWhitPaginatorByCategory(3), /* query NOT result */
-            $req->query->getInt('page', 1), /*page number*/
-            5 /*limit per page*/
-        );
-        return $this->render('admin/postAdmin/showAll.html.twig',[
-            "posts"=>$posts
-        ]);
+        return $this->showAllPostByCat(3);
     }
 
     /**
      * filter by category
      * @Route("/post-VTT", name="admin_post_vtt")
+     * 
+     * @return response
      */
-    public function showAllPostCatVTT(PostRepository $repo,PaginatorInterface $pagi, Request $req)
+    public function showAllPostCatVTT()
     {
-        $posts = $pagi->paginate(
-            $repo->findAllWhitPaginatorByCategory(4), /* query NOT result */
-            $req->query->getInt('page', 1), /*page number*/
-            5 /*limit per page*/
-        );
-        return $this->render('admin/postAdmin/showAll.html.twig',[
-            "posts"=>$posts
-        ]);
+        return $this->showAllPostByCat(4);
     }
 
     /**
      * filter by category
      * @Route("/post-actu", name="admin_post_actu")
+     * 
+     * @return response
      */
-    public function showAllPostCatActu(PostRepository $repo,PaginatorInterface $pagi, Request $req)
+    public function showAllPostCatActu()
     {
-        $posts = $pagi->paginate(
-            $repo->findAllWhitPaginatorByCategory(5), /* query NOT result */
-            $req->query->getInt('page', 1), /*page number*/
-            5 /*limit per page*/
-        );
-        return $this->render('admin/postAdmin/showAll.html.twig',[
-            "posts"=>$posts
-        ]);
+        return $this->showAllPostByCat(5);
     }
 
+
+    
 
     /**
      * @Route("/post/create", name="admin.post.create")
@@ -273,7 +254,7 @@ class AdminController extends abstractAdminController
 
 
     /**
-      * function Abstract class
+      *function Abstract class
      * recu user by Category Trail
      * @Route("/users-trail", name="admin_users_trail")
      */
