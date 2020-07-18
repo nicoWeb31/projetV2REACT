@@ -131,9 +131,6 @@ The classes above can be combined to create more dynamic and flexible layouts. *
 
 
     }
-
-
-
     ._respoZero768 {
 
         margin: 10px auto !important;
@@ -141,10 +138,18 @@ The classes above can be combined to create more dynamic and flexible layouts. *
 
     }
 
+    ._contIcon + a {
+        max-width: 44px;
+        max-height: 44px;
+    }
+
+    ._logoVtt {
+        margin-top: 35px !important;
+    }
+
+
 
 }
-
-
 
 
 .TnsImg{
