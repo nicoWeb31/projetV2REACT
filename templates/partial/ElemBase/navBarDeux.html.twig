@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarColor02">
+        <ul class="navbar-nav d-flex justify-content-center">
+
+
+            <!-- class active sur le btn sur la route courante /  app.request.get('') -> route courante-->
+
+            <li class="nav-item">
+                <a class=" {{app.request.get('_route') == 'Vtt' ? '_btnActive nav-link h2 m-3 p-5 ' : 'nav-link h2 m-3 p-5'}}" href="{{ path('Vtt') }}">VTT</a>
+            </li>
+            <li class="nav-item">
+                <a class="{{app.request.get('_route') == 'Trail' ? '_btnActive nav-link h2 m-3 p-5 ' : 'nav-link h2 m-3 p-5'}}" href="{{ path('Trail') }}">Trail</a>
+            </li>
+            <li class="nav-item">
+                <a class="{{app.request.get('_route') == 'Trek' ? '_btnActive nav-link h2 m-3 p-5 ' : 'nav-link h2 m-3 p-5'}}" href="{{ path('Trek') }}">Trek</a>
+            </li>
+
+
+        </ul>
+    </div>
+</nav>

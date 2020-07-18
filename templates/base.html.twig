@@ -45,64 +45,7 @@
     <!-- nav bar 1 -->
     <!-- =================================================================== -->
     {% block nav1 %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top ">
-        <a class="navbar-link rounded-pill ml-5 h4 m-3 p-3" href="{{ path('home') }}">Accueil</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
-            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto ml-5">
-
-                <li class="nav-item m-3 rounded-pill">
-                    <a class="nav-link p-3 rounded-pill " href="{{ path('tns')}}">Trail Nocturne en Saves</a>
-                </li>
-                <li class="nav-item m-3 rounded-pill">
-                    <a class="nav-link p-3 rounded-pill" href="{{ path('Actu') }}">Actualités</a>
-                </li>
-
-            </ul>
-            <ul class="navbar-nav ml-auto mr-5">
-
-                {% if is_granted('ROLE_ADMIN') %}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle h5 m-2 rounded-pill p-3" href="#" id="navbarDropdownMenuLink"
-                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Administration
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ path('admin.post') }}">Post</a>
-                        <a class="dropdown-item" href="{{ path('admin.users') }}">utilisateurs</a>
-                        <a class="dropdown-item" href="{{ path('admin.photo') }}">Photos</a>
-                        <a class="dropdown-item" href="{{ path('admin.lastNews') }}">Last News</a>
-
-                    </div>
-                </li>
-                {% endif %}
-                
-                
-                {% if not app.user %}
-                <li class="nav-item rounded-pill">
-                    <a class="nav-link m-2 rounded-pill p-3" href="{{ path('register') }}">Nous rejoindre
-                    </a>
-                </li>
-                <li class="nav-item rounded-pill">
-                    <a href="{{ path('login') }}" class="nav-link m-2 rounded-pill p-3">Login</a>
-                </li>
-                {% else %}
-                <li class="nav-item rounded-pill">
-                    <a href="{{ path('user') }}" class="nav-link m-2 rounded-pill p-3">Compte</a>
-                </li>
-                <li class="nav-item rounded-pill">
-                    <a href="{{ path('logout') }}" class="nav-link m-2 rounded-pill p-3">déconnexion</a>
-                </li>
-                {% endif %}
-
-
-            </ul>
-        </div>
-    </nav>
+        {% include "partial/ElemBase/MainNav.html.twig" %}
     {% endblock %}
 
 
@@ -110,7 +53,7 @@
     <!-- baniere -->
     <!-- =================================================================== -->
     {% block baniere %}
-    <img src="{{ asset('images/imagesAutre/testBaniere.png') }}" class="w-100 img-fluid" alt="banniere-montagne" />
+    {% include "partial/ElemBase/baniere.html.twig" %}
     {% endblock %}
 
 
@@ -118,34 +61,17 @@
     <!-- narbar 2 -->
     <!-- =================================================================== -->
     {% block nav2 %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarColor02">
-            <ul class="navbar-nav d-flex justify-content-center">
-
-
-                <!-- class active sur le btn sur la route courante /  app.request.get('') -> route courante-->
-
-                <li class="nav-item">
-                    <a class=" {{app.request.get('_route') == 'Vtt' ? '_btnActive nav-link h2 m-3 p-5 ' : 'nav-link h2 m-3 p-5'}}" href="{{ path('Vtt') }}">VTT</a>
-                </li>
-                <li class="nav-item">
-                    <a class="{{app.request.get('_route') == 'Trail' ? '_btnActive nav-link h2 m-3 p-5 ' : 'nav-link h2 m-3 p-5'}}" href="{{ path('Trail') }}">Trail</a>
-                </li>
-                <li class="nav-item">
-                    <a class="{{app.request.get('_route') == 'Trek' ? '_btnActive nav-link h2 m-3 p-5 ' : 'nav-link h2 m-3 p-5'}}" href="{{ path('Trek') }}">Trek</a>
-                </li>
-
-
-            </ul>
-        </div>
-    </nav>
+        {% include "partial/ElemBase/navBarDeux.html.twig" %}
     {% endblock %}
+
+
     <!-- =================================================================== -->
     <!-- h1 -->
     <!-- =================================================================== -->
     <h1 class="border border-dark rounded text-white m-3 p-3 text-center bg-success w-90">
         {% block monTitle %}{% endblock %}
     </h1>
+
 
     <!-- =============================================================== -->
     <!-- block body -->
@@ -154,116 +80,12 @@
         {% block body %}{% endblock %}
     </div>
 
+
     <!-- =================================================================== -->
     <!-- Footer -->
     <!-- =================================================================== -->
     {% block footer %}
-    <footer class="page-footer font-small bg-secondary text-dark">
-
-        <div class="container text-center text-md-left">
-
-            <div class="row">
-
-                <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
-
-                    <h5 class="font-weight-bold text-uppercase mb-4">
-                        Vtt en coeur de garonne
-                    </h5>
-
-                    <p>
-                        Une petite association intercommunale est née En Cœur de Garonne.
-                        <span>VTT</span>   <spant>TRAIL</spant> <span>TREK</span> EN Cœur De Garonne réunissant des sportifs
-                        passionnés en vtt, trail et randonnée.
-                    </p>
-                </div>
-
-                <hr class="clearfix w-100 d-md-none" />
-                <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
-
-                    <h5 class="font-weight-bold text-uppercase mb-4">Liens</h5>
-
-                    <ul class="list-unstyled">
-                        <li>
-                            <p>
-                                <a href="#">Nocturne du Saves</a>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <a href="{{ path('Actu') }}">Actualités</a>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <a href="{{ path('Trail') }}">Trail</a>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <a href="{{ path('Vtt') }}">VTT</a>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <a href="{{ path('Trek') }}">Trek</a>
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-
-
-                <hr class="clearfix w-100 d-md-none" />
-
-
-                <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
-
-                    <h5 class="font-weight-bold text-uppercase mb-4">Contact</h5>
-
-                    <ul class="list-unstyled">
-                        <!-- <li>
-                            <p class="my-2"> Montastruc Saves</p>
-                        </li> -->
-                        <li>
-                            <a href="{{path('contact')}}" class="my-2">Contact</a>
-
-                        </li>
-                        <li>
-                            <p class="my-2"> 06 51 61 58 96</p>
-                        </li>
-                    </ul>
-                </div>
-
-
-                <hr class="clearfix w-100 d-md-none" />
-
-                <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
-
-                    <h5 class="font-weight-bold text-uppercase mb-4">Nous suivre</h5>
-
-                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
-                        <img src="{{ asset('images/imagesAutre/facebook.png') }}"
-                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="logo_facebook" />
-                    </a>
-
-                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
-                        <img src="{{ asset('images/imagesAutre/se.png') }}"
-                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="logo_sport_easy" />
-                    </a>
-
-                    <a href="https://www.facebook.com/vttencoeurdegaronne/" target="_blank">
-                        <img src="{{ asset('images/imagesAutre/strava.png') }}"
-                            class="_imgFacebook nav-link m-1 p-0 rounded-pill mx-auto" alt="strava" />
-                    </a>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-copyright text-center py-3">
-            © 2020 Copyright:
-            <a href="#">Riot Nicolas</a>
-        </div>
-    </footer>
+        {% include "partial/ElemBase/footer.html.twig" %}
     {% endblock %}
 
 

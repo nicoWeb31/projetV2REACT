@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top ">
+    <a class="navbar-link rounded-pill ml-5 h4 m-3 p-3" href="{{ path('home') }}">Accueil</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto ml-5">
+
+            <li class="nav-item m-3 rounded-pill">
+                <a class="nav-link p-3 rounded-pill " href="{{ path('tns')}}">Trail Nocturne en Saves</a>
+            </li>
+            <li class="nav-item m-3 rounded-pill">
+                <a class="nav-link p-3 rounded-pill" href="{{ path('Actu') }}">Actualités</a>
+            </li>
+
+        </ul>
+        <ul class="navbar-nav ml-auto mr-5">
+
+            {% if is_granted('ROLE_ADMIN') %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle h5 m-2 rounded-pill p-3" href="#" id="navbarDropdownMenuLink"
+                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Administration
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="{{ path('admin.post') }}">Post</a>
+                    <a class="dropdown-item" href="{{ path('admin.users') }}">utilisateurs</a>
+                    <a class="dropdown-item" href="{{ path('admin.photo') }}">Photos</a>
+                    <a class="dropdown-item" href="{{ path('admin.lastNews') }}">Last News</a>
+
+                </div>
+            </li>
+            {% endif %}
+            
+            
+            {% if not app.user %}
+            <li class="nav-item rounded-pill">
+                <a class="nav-link m-2 rounded-pill p-3" href="{{ path('register') }}">Nous rejoindre
+                </a>
+            </li>
+            <li class="nav-item rounded-pill">
+                <a href="{{ path('login') }}" class="nav-link m-2 rounded-pill p-3">Login</a>
+            </li>
+            {% else %}
+            <li class="nav-item rounded-pill">
+                <a href="{{ path('user') }}" class="nav-link m-2 rounded-pill p-3">Compte</a>
+            </li>
+            <li class="nav-item rounded-pill">
+                <a href="{{ path('logout') }}" class="nav-link m-2 rounded-pill p-3">déconnexion</a>
+            </li>
+            {% endif %}
+
+
+        </ul>
+    </div>
+</nav>
