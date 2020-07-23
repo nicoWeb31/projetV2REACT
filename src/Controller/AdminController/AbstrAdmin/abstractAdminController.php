@@ -63,7 +63,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
     {
         $req = new Request();
         $posts = $this->pagi->paginate(
-            $this->repoCat->findAllWhitPaginatorByCategory(1), /* query NOT result */
+            $this->repoPost->findAllWhitPaginatorByCategory($idCat), /* query NOT result */
             $req->query->getInt('page', 1), /*page number*/
             5 /*limit per page*/
         );
