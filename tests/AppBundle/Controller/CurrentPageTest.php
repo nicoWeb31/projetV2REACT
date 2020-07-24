@@ -6,10 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class CurrentPageTest  extends WebTestCase
 {
 
+
     /**
-     * @dataProvider urlProvider
+     * @dataProvider urlProviderPublic
      */
-    public function testRoute($url)
+    public function testRoutePublic($url)
     {
 
 
@@ -19,12 +20,16 @@ class CurrentPageTest  extends WebTestCase
 
         $this->assertResponseStatusCodeSame(200, $client->getResponse()->getStatusCode());
 
+        echo "Page Public : ";
         echo 'La page    "' . $url . '"   possede un status code "' . $client->getResponse()->getStatusCode() . '" ;';
         echo "\n\n";
     }
 
 
-    public function urlProvider()
+    /**
+     * route devant retourner un status code 200 ok 
+     */
+    public function urlProviderPublic()
     {
         //devrait passer le test
         yield ['/'];
@@ -37,10 +42,49 @@ class CurrentPageTest  extends WebTestCase
         yield ['/category/Vtt'];
         yield ['/_Fragment-last-news'];
 
-        //page admin ne devrait pas repondre un satuts 200
-        yield ['/admin/post'];
+    }
 
+
+
+    /**
+     * @dataProvider urlProviderAdmin
+     */
+    public function testRouteAdmin($url)
+    {
+
+
+        $client = static::createClient();
+
+        $client->request('GET', $url);
+
+        $this->assertResponseStatusCodeSame(302, $client->getResponse()->getStatusCode());
+
+        echo "Page Admin : ";
+        echo 'La page    "' . $url . '"   possede un status code "' . $client->getResponse()->getStatusCode() . '" ;';
+        echo "\n\n";
+    }
+
+
+
+
+    /**
+     * route devant retourner un status code 302 ok 
+     */
+    public function urlProviderAdmin()
+    {
+
+        yield ['/admin/post'];
+        yield ['/admin/post-VTT'];
+        yield ['/admin/post-actu'];
+        yield ['/admin/users'];
+        yield ['/admin/users-name'];
+        yield ['/admin/users-trail'];
+        yield ['/admin/users-vtt'];
+        yield ['/admin/users-trek'];
+        yield ['/admin/lastNews'];
 
     }
+
+
 
 }

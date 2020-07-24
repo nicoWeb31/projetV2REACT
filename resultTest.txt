@@ -1,73 +1,44 @@
 PHPUnit 7.5.20 by Sebastian Bergmann and contributors.
 
 Testing Project Test Suite
-.La page    "/"   possede un status code "200" ;
+.Page Public : La page    "/"   possede un status code "200" ;
 
-.La page    "/contact"   possede un status code "200" ;
+.Page Public : La page    "/contact"   possede un status code "200" ;
 
-.La page    "/login"   possede un status code "200" ;
+.Page Public : La page    "/login"   possede un status code "200" ;
 
-.La page    "/register"   possede un status code "200" ;
+.Page Public : La page    "/register"   possede un status code "200" ;
 
-.La page    "/tns"   possede un status code "200" ;
+.Page Public : La page    "/tns"   possede un status code "200" ;
 
-.La page    "/category/Trail"   possede un status code "200" ;
+.Page Public : La page    "/category/Trail"   possede un status code "200" ;
 
-.La page    "/category/Trek"   possede un status code "200" ;
+.Page Public : La page    "/category/Trek"   possede un status code "200" ;
 
-.La page    "/category/Vtt"   possede un status code "200" ;
+.Page Public : La page    "/category/Vtt"   possede un status code "200" ;
 
-.La page    "/_Fragment-last-news"   possede un status code "200" ;
+.Page Public : La page    "/_Fragment-last-news"   possede un status code "200" ;
 
-[41;37mF[0m[31;1mE[0m                                                       11 / 11 (100%)
+.Page Admin : La page    "/admin/post"   possede un status code "302" ;
 
-Time: 307 ms, Memory: 38.25 MB
+.Page Admin : La page    "/admin/post-VTT"   possede un status code "302" ;
 
-There was 1 error:
+.Page Admin : La page    "/admin/post-actu"   possede un status code "302" ;
 
-1) Tests\AppBundle\Controller\CurrentPageTest::testRoute with data set #10 ('/user-modifier')
-Error: Call to a member function getId() on null
+.Page Admin : La page    "/admin/users"   possede un status code "302" ;
 
-/home/nico/Bureau/testv1Coeur2Garonne/src/Controller/UserController.php:39
-/home/nico/Bureau/testv1Coeur2Garonne/vendor/symfony/http-kernel/HttpKernel.php:157
-/home/nico/Bureau/testv1Coeur2Garonne/vendor/symfony/http-kernel/HttpKernel.php:79
-/home/nico/Bureau/testv1Coeur2Garonne/vendor/symfony/http-kernel/Kernel.php:191
-/home/nico/Bureau/testv1Coeur2Garonne/vendor/symfony/http-kernel/HttpKernelBrowser.php:63
-/home/nico/Bureau/testv1Coeur2Garonne/vendor/symfony/framework-bundle/KernelBrowser.php:131
-/home/nico/Bureau/testv1Coeur2Garonne/vendor/symfony/browser-kit/AbstractBrowser.php:384
-/home/nico/Bureau/testv1Coeur2Garonne/tests/AppBundle/Controller/CurrentPageTest.php:18
+.Page Admin : La page    "/admin/users-name"   possede un status code "302" ;
 
---
+.Page Admin : La page    "/admin/users-trail"   possede un status code "302" ;
 
-There was 1 failure:
+.Page Admin : La page    "/admin/users-vtt"   possede un status code "302" ;
 
-1) Tests\AppBundle\Controller\CurrentPageTest::testRoute with data set #9 ('/admin/post')
-302
-Failed asserting that the Response status code is 200.
-HTTP/1.1 302 Found
-Cache-Control: max-age=0, must-revalidate, private
-Content-Type:  text/html; charset=UTF-8
-Date:          Wed, 08 Jul 2020 09:15:34 GMT
-Expires:       Wed, 08 Jul 2020 09:15:34 GMT
-Location:      http://localhost/login
-Set-Cookie:    MOCKSESSID=44d0d34ccf0bb191e1f053177a81a4f53623c2d93c2171c3f75f722454041efd; path=/; secure; httponly; samesite=lax
-X-Robots-Tag:  noindex
+.Page Admin : La page    "/admin/users-trek"   possede un status code "302" ;
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="refresh" content="0;url='http://localhost/login'" />
+.                                                18 / 18 (100%)Page Admin : La page    "/admin/lastNews"   possede un status code "302" ;
 
-        <title>Redirecting to http://localhost/login</title>
-    </head>
-    <body>
-        Redirecting to <a href="http://localhost/login">http://localhost/login</a>.
-    </body>
-</html>
 
-/home/nico/Bureau/testv1Coeur2Garonne/vendor/symfony/framework-bundle/Test/BrowserKitAssertionsTrait.php:36
-/home/nico/Bureau/testv1Coeur2Garonne/tests/AppBundle/Controller/CurrentPageTest.php:20
 
-[37;41mERRORS![0m
-[37;41mTests: 11[0m[37;41m, Assertions: 10[0m[37;41m, Errors: 1[0m[37;41m, Failures: 1[0m[37;41m.[0m
+Time: 542 ms, Memory: 38.25 MB
+
+[30;42mOK (18 tests, 18 assertions)[0m
