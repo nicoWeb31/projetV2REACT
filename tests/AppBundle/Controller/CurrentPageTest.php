@@ -73,14 +73,14 @@ class CurrentPageTest  extends WebTestCase
     public function urlProviderAdmin()
     {
 
-        yield ['/admin/post'];
+        yield ['/admin/post']; 
         yield ['/admin/post-VTT'];
         yield ['/admin/post-actu'];
         yield ['/admin/users'];
         yield ['/admin/users-name'];
         yield ['/admin/users-trail'];
         yield ['/admin/users-vtt'];
-        yield ['/admin/users-trek'];
+        yield ['/admin/users-trek'];    
         yield ['/admin/lastNews'];
 
     }

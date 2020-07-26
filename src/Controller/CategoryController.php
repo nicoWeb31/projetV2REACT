@@ -27,7 +27,11 @@ class CategoryController extends AbstractController
 
 
     /**
+     * 
+     * Affiche la liste des trails
+     * 
      * @Route("/category/Trail", name="Trail")
+     * @return response
      */
     public function trail(CategoryRepository $repCat, PostRepository $repPost,Request $req)
     {
@@ -50,8 +54,11 @@ class CategoryController extends AbstractController
         ]);
     }
 
+
+
     /**
      * @Route("/category/Trek", name="Trek")
+     * @return response
      */
     public function trek(CategoryRepository $repCat,PostRepository $repPost,SerializerInterface $seria, Request $req)
     {
@@ -79,6 +86,7 @@ class CategoryController extends AbstractController
 
     /**
      * @Route("/category/Vtt", name="Vtt")
+     * @return response
      */
     public function vtt(CategoryRepository $rep,PostRepository $repPost,SerializerInterface $seria, Request $req)
     {
@@ -110,6 +118,7 @@ class CategoryController extends AbstractController
     // =========================================================================
     /**
      * @Route("/category/Actu", name="Actu")
+     * @return response
      */
     public function actu(CategoryRepository $rep,PostRepository $repPost,SerializerInterface $seria, Request $req)
     {
