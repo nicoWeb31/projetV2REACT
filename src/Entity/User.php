@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 
+use App\Entity\Role;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\HttpFoundation\File\File;
@@ -124,11 +125,6 @@ class User implements UserInterface,\Serializable
     private $commentaires;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $roles;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\CatergoryUser", inversedBy="users")
      */
     private $catergoryUsers;
@@ -148,10 +144,16 @@ class User implements UserInterface,\Serializable
      */
     private $resetToken;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Role", mappedBy="users")
+     */
+    private $UserRoles;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
         $this->catergoryUsers = new ArrayCollection();
+        $this->UserRoles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -312,14 +314,13 @@ class User implements UserInterface,\Serializable
 
     public function getRoles(): ?array
     {
-        return [$this->roles];
-    }
+        
+        $roles = $this->UserRoles->map(function($role){
+            return $role->getTitle();
+        })->toArray();
 
-    public function setRoles(string $roles): self
-    {
-        $this->roles = $roles;
-
-        return $this;
+        $roles[] = 'ROLE_USER';
+        return $roles;
     }
 
     /**
@@ -465,6 +466,34 @@ class User implements UserInterface,\Serializable
             $this->photo,
             //$this->imageFile
         ) = unserialize($serialized, array('allowed_classes' => false));
+    }
+
+    /**
+     * @return Collection|Role[]
+     */
+    public function getUserRoles(): Collection
+    {
+        return $this->UserRoles;
+    }
+
+    public function addUserRole(Role $userRole): self
+    {
+        if (!$this->UserRoles->contains($userRole)) {
+            $this->UserRoles[] = $userRole;
+            $userRole->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserRole(Role $userRole): self
+    {
+        if ($this->UserRoles->contains($userRole)) {
+            $this->UserRoles->removeElement($userRole);
+            $userRole->removeUser($this);
+        }
+
+        return $this;
     }
 
 

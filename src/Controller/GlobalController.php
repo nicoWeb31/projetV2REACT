@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Role;
 use DateTime;
 use Swift_Mailer;
 use Swift_Message;
@@ -104,7 +105,6 @@ class GlobalController extends AbstractController
         
         
                     $user->setUpdatedAt(new DateTime('now'));
-                    $user->setRoles("ROLE_USER");
                     $man->persist($user);
                     $man->flush();
         
